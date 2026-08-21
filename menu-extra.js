@@ -32,5 +32,9 @@ window.MJ_EXTRA={products:{
 'Seleco No.03 Rosemary Cucumber':{facts:[['Format','Soda Syrup','النوع','Soda Syrup'],['Bottle','500 mL','العبوة','500 مل'],['Yield','Makes 15 drinks','الإنتاج','يكفي 15 مشروبًا']]},
 'Seleco No.05 Hibiscus':{facts:[['Format','Soda Syrup','النوع','Soda Syrup'],['Bottle','500 mL','العبوة','500 مل'],['Yield','Makes 15 drinks','الإنتاج','يكفي 15 مشروبًا']]},
 'Raspberry & Blackcurrant':{facts:[['Format','Seltz Drops','النوع','Seltz Drops'],['Sugar','Sugar-Free','السكر','دون سكر']]},
-'Cucumber & Mint':{facts:[['Format','Seltz Drops','النوع','Seltz Drops'],['Sugar','Sugar-Free','السكر','دون سكر']]}
+'Cucumber & Mint':{facts:[['Format','Seltz Drops','النوع','Seltz Drops'],['Sugar','Sugar-Free','السكر','دون سكر']]},
+'Fairview Estate — Premium Kenyan Arabica':{facts:[['Region','Kiambu, Central Kenya','المنطقة','كيامبو، وسط كينيا'],['Variety','Arabica SL28','السلالة','Arabica SL28'],['Process','Fully Washed','المعالجة','مغسولة بالكامل'],['Elevation','1,750 m','الارتفاع','1,750 م'],['Roast','Medium','التحميص','متوسط'],['Pack','500 g beans','العبوة','500 غ حبوب']]},
+'Fairview Estate — Kaldi City Roast':{facts:[['Region','Kiambu, Central Kenya','المنطقة','كيامبو، وسط كينيا'],['Variety','Arabica SL28','السلالة','Arabica SL28'],['Process','Semi-Washed','المعالجة','نصف مغسولة'],['Elevation','1,750 m','الارتفاع','1,750 م'],['Pack','500 g beans','العبوة','500 غ حبوب']]},
+'Java House — Kenya AA':{facts:[['Origin','Kenya','المنشأ','كينيا'],['Grade','Kenya AA','التصنيف','Kenya AA'],['Roast','Medium','التحميص','متوسط'],['Method','Hand roasted','الطريقة','محمصة يدويًا'],['Pack','375 g whole beans','العبوة','375 غ حبوب كاملة']]},
+'Barista & Co. — Gourmet':{facts:[['Origin','Nyeri / Kiambu, Kenya','المنشأ','نييري / كيامبو، كينيا'],['Blend','SL28 / SL34','المزيج','SL28 / SL34'],['Process','Washed','المعالجة','مغسولة'],['Elevation','1,500–2,500 m','الارتفاع','1,500–2,500 م'],['Pack','500 g','العبوة','500 غ']]}
 }};
