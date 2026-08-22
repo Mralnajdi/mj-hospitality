@@ -1,10 +1,10 @@
 (() => {
   const HERO = {
-    home: "assets/4k-v2/hero-mj-signature.jpg",
+    home: "assets/heroes-v4/home-natural-qahwa.webp",
     arabic: "assets/heroes-v4/arabic-natural-qahwa.webp",
-    specialty: "assets/4k-v2/hero-mj-signature.jpg",
-    tea: "assets/4k-v2/hero-mj-signature.jpg",
-    sparkling: "assets/home-v2/sparkling-mj-v2.webp"
+    specialty: "assets/heroes-v2/specialty.webp",
+    tea: "assets/heroes-v2/tea.webp",
+    sparkling: "assets/heroes-v5/sparkling-grounded-carafe.webp"
   };
 
   function routeKey(){
@@ -20,7 +20,6 @@
     const key=routeKey();
     const src=HERO[key]||HERO.home;
     hero.dataset.v2Hero=key;
-    hero.style.setProperty("--hero-bg",`url("${src}")`);
     if(img.getAttribute("src")!==src) img.setAttribute("src",src);
     img.removeAttribute("srcset");
     img.setAttribute("sizes","100vw");
@@ -28,9 +27,7 @@
     img.setAttribute("fetchpriority","high");
     img.setAttribute("decoding","async");
     img.setAttribute("draggable","false");
-    img.style.transform="none";
-    img.style.filter="none";
-    hero.querySelectorAll(".heroExplore,.heroCta,.exploreBtn").forEach(el=>el.remove());
+    img.style.imageRendering="auto";
   }
 
   const obs=new MutationObserver(()=>requestAnimationFrame(apply));
