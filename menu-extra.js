@@ -1,40 +1,459 @@
-window.MJ_EXTRA={products:{
-'Zill Shagra':{facts:[['Roast','Light','التحميص','فاتح'],['Ingredients','Coffee · cardamom · saffron · Zill proprietary blend','المكونات','قهوة · هيل · زعفران · خلطة زِل الخاصة'],['Yield','10–12 finjans per capsule','الإنتاج','10–12 فنجالًا لكل كبسولة'],['Caffeine','Present — exact amount not published','الكافيين','موجود — الكمية الدقيقة غير منشورة'],['Allergen','Contains milk derivatives','الحساسية','تحتوي على مشتقات الحليب']]},
-'Zill Original':{facts:[['Roast','Medium','التحميص','متوسط'],['Ingredients','Coffee · cardamom · saffron · clove · Zill proprietary blend','المكونات','قهوة · هيل · زعفران · قرنفل · خلطة زِل الخاصة'],['Yield','10–12 finjans per capsule','الإنتاج','10–12 فنجالًا لكل كبسولة'],['Caffeine','Present — exact amount not published','الكافيين','موجود — الكمية الدقيقة غير منشورة'],['Allergen','Contains milk derivatives','الحساسية','تحتوي على مشتقات الحليب']]},
-'Zill Ghamjah':{facts:[['Roast','Dark','التحميص','داكن'],['Ingredients','Coffee · cardamom · Zill proprietary blend','المكونات','قهوة · هيل · خلطة زِل الخاصة'],['Yield','10–12 finjans per capsule','الإنتاج','10–12 فنجالًا لكل كبسولة'],['Caffeine','Present — exact amount not published','الكافيين','موجود — الكمية الدقيقة غير منشورة'],['Allergen','Contains milk derivatives','الحساسية','تحتوي على مشتقات الحليب']]},
-'Air Roastery – Ricardo':{facts:[['Origin','Brazil','المنشأ','البرازيل'],['Type','Single Origin','النوع','Single Origin'],['Process','Natural','المعالجة','Natural'],['Roast','Medium','التحميص','متوسط'],['Notes','Chocolate','النوتات','شوكولاتة'],['Caffeine','Present — exact amount not published','الكافيين','موجود — الكمية الدقيقة غير منشورة']]},
-'CGLE Tres Dragones':{facts:[['Origin','Colombia','المنشأ','كولومبيا'],['Varietal','Tres Dragones','السلالة','Tres Dragones'],['Process','Natural','المعالجة','Natural'],['Roast','Medium','التحميص','متوسط'],['Elevation','1,400–1,860 m','الارتفاع','1,400–1,860 م'],['Notes','Plum · cocoa · malic/citric acidity · blueberry finish','النوتات','برقوق · كاكاو · حموضة مالك/سيتريك · نهاية توت أزرق']]},
-'Pink Bourbon Punch':{facts:[['Origin','Colombia','المنشأ','كولومبيا'],['Varietal','Pink Bourbon','السلالة','Pink Bourbon'],['Process','Anaerobic Natural','المعالجة','Anaerobic Natural'],['Roast','Medium','التحميص','متوسط'],['Elevation','1,500 m','الارتفاع','1,500 م'],['Notes','Apple · blackberry · blueberry · plum · malic acidity','النوتات','تفاح · بلاك بيري · توت أزرق · برقوق · حموضة مالك']]},
-'Bourbon Sidra Sakura':{facts:[['Origin','Colombia','المنشأ','كولومبيا'],['Region','Risaralda','المنطقة','Risaralda'],['Farm / Producer','Finca La Rivera · Julio Madrid','المزرعة / المنتج','Finca La Rivera · Julio Madrid'],['Varietal','Bourbon Sidra','السلالة','Bourbon Sidra'],['Process','Anaerobic Washed','المعالجة','Anaerobic Washed'],['Elevation','1,800 masl','الارتفاع','1,800 م'],['Notes','Tropical fruits · red grapes · creamy · vanilla finish','النوتات','فاكهة استوائية · عنب أحمر · كريمي · نهاية فانيليا']]},
-'EA Decaf De Cana':{facts:[['Origin','Colombia','المنشأ','كولومبيا'],['Varietals','Caturra · Castillo','السلالات','Caturra · Castillo'],['Process','Washed','المعالجة','Washed'],['Roast','Medium','التحميص','متوسط'],['Elevation','1,200–2,100 m','الارتفاع','1,200–2,100 م'],['Notes','Sweet · clean · delicate · lemon · tea-like','النوتات','حلو · نظيف · رقيق · ليمون · شبيه بالشاي'],['Caffeine','Decaf — not caffeine-free','الكافيين','ديكاف — ليس خاليًا تمامًا من الكافيين']]},
-'Entire Goods – Ethiopia Finara':{facts:[['Origin','Ethiopia','المنشأ','إثيوبيا'],['Varietal','Sel Heirloom','السلالة','Sel Heirloom'],['Process','Natural Grade 1','المعالجة','Natural Grade 1'],['Elevation','2,021 masl','الارتفاع','2,021 م'],['Notes','Cherry · blackcurrant · pleasant acidity · sweet long finish','النوتات','كرز · كشمش أسود · حموضة لطيفة · نهاية طويلة وحلوة']]},
-'Sencha Sleepless Organic':{facts:[['Product No.','No.1596','رقم المنتج','No.1596'],['Caffeine','Present — exact amount not published','الكافيين','موجود — الكمية الدقيقة غير معلنة']]},
-'Moroccan Mint Organic':{facts:[['Product No.','No.949','رقم المنتج','No.949'],['Style','Gunpowder green tea + mint','الطابع','شاي أخضر غانباودر + نعناع'],['Caffeine','Present — exact amount not published','الكافيين','موجود — الكمية الدقيقة غير معلنة']]},
-'Japanese Cherry':{facts:[['Product No.','No.941','رقم المنتج','No.941'],['Caffeine','Present — exact amount not published','الكافيين','موجود — الكمية الدقيقة غير معلنة']]},
-'Le Touareg Organic':{facts:[['Product No.','No.915','رقم المنتج','No.915'],['Style','Gunpowder green tea + mint','الطابع','شاي أخضر غانباودر + نعناع'],['Caffeine','Present — exact amount not published','الكافيين','موجود — الكمية الدقيقة غير معلنة']]},
-'Marani':{facts:[['Product No.','No.953','رقم المنتج','No.953'],['Caffeine','Present — exact amount not published','الكافيين','موجود — الكمية الدقيقة غير معلنة']]},
-'Chinese Royal Jasmine Rolls':{facts:[['Product No.','No.934','رقم المنتج','No.934'],['Caffeine','Present — exact amount not published','الكافيين','موجود — الكمية الدقيقة غير معلنة']]},
-'White Tea Lemon & Vanilla':{facts:[['Product No.','No.1041','رقم المنتج','No.1041'],['Caffeine','Present — exact amount not published','الكافيين','موجود — الكمية الدقيقة غير معلنة']]},
-'White Tea Jasmine Blossoms':{facts:[['Product No.','No.1038','رقم المنتج','No.1038'],['Caffeine','Present — exact amount not published','الكافيين','موجود — الكمية الدقيقة غير معلنة']]},
-'Gourmet Herbal Tea':{facts:[['Product No.','No.1235','رقم المنتج','No.1235'],['Profile','Lemongrass · verbena · elderflower · vanilla','الطابع','ليمون عشبي · لويزة · زهر البيلسان · فانيليا'],['Caffeine','0 mg','الكافيين','0 mg']]},
-'Mate Green Organic':{facts:[['Product No.','No.1195','رقم المنتج','No.1195'],['Caffeine','Present — exact amount not published','الكافيين','موجود — الكمية الدقيقة غير معلنة']]},
-'Ginger–Turmeric':{facts:[['Product No.','No.1244','رقم المنتج','No.1244'],['Profile','Ginger · turmeric · cinnamon · cardamom · clove · black pepper','الطابع','زنجبيل · كركم · قرفة · هيل · قرنفل · فلفل أسود'],['Caffeine','0 mg','الكافيين','0 mg']]},
-'One for All':{facts:[['Product No.','No.1111','رقم المنتج','No.1111'],['Profile','Peppermint · fennel · lemon balm · chamomile','الطابع','نعناع · شمر · مليسة · بابونج'],['Caffeine','0 mg','الكافيين','0 mg']]},
-'Chamomile':{facts:[['Brand','International Mill','العلامة','International Mill'],['Pack size','50 g','الوزن','50 g'],['Caffeine','0 mg','الكافيين','0 mg']]},
-'Peach Melba':{facts:[['Product No.','No.1479','رقم المنتج','No.1479'],['Caffeine','0 mg','الكافيين','0 mg']]},
-'Cherry Banana Flip':{facts:[['Product No.','No.1446','رقم المنتج','No.1446'],['Caffeine','0 mg','الكافيين','0 mg']]},
-'Berry Heaven':{facts:[['Product No.','No.1659','رقم المنتج','No.1659'],['Caffeine','0 mg','الكافيين','0 mg']]},
-'Strawberry–Moringa':{facts:[['Product No.','No.1453','رقم المنتج','No.1453'],['Caffeine','0 mg','الكافيين','0 mg']]},
-'Passion Fruit':{facts:[['Product No.','No.1637','رقم المنتج','No.1637'],['Caffeine','0 mg','الكافيين','0 mg']]},
-'Woodland Berries':{facts:[['Product No.','No.1493','رقم المنتج','No.1493'],['Caffeine','0 mg','الكافيين','0 mg']]},
-'Seleco No.01 Cola':{facts:[['Format','Soda Syrup','النوع','Soda Syrup'],['Bottle','500 mL','العبوة','500 مل'],['Yield','Makes 15 drinks','الإنتاج','يكفي 15 مشروبًا']]},
-'Seleco No.02 Raspberry Lemon':{facts:[['Format','Soda Syrup','النوع','Soda Syrup'],['Bottle','500 mL','العبوة','500 مل'],['Yield','Makes 15 drinks','الإنتاج','يكفي 15 مشروبًا']]},
-'Seleco No.03 Rosemary Cucumber':{facts:[['Format','Soda Syrup','النوع','Soda Syrup'],['Bottle','500 mL','العبوة','500 مل'],['Yield','Makes 15 drinks','الإنتاج','يكفي 15 مشروبًا']]},
-'Seleco No.05 Hibiscus':{facts:[['Format','Soda Syrup','النوع','Soda Syrup'],['Bottle','500 mL','العبوة','500 مل'],['Yield','Makes 15 drinks','الإنتاج','يكفي 15 مشروبًا']]},
-'Raspberry & Blackcurrant':{facts:[['Format','Seltz Drops','النوع','Seltz Drops'],['Sugar','Sugar-Free','السكر','دون سكر']]},
-'Cucumber & Mint':{facts:[['Format','Seltz Drops','النوع','Seltz Drops'],['Sugar','Sugar-Free','السكر','دون سكر']]},
-'Fairview Estate — Premium Kenyan Arabica':{facts:[['Region','Kiambu, Central Kenya','المنطقة','كيامبو، وسط كينيا'],['Variety','Arabica SL28','السلالة','Arabica SL28'],['Process','Fully Washed','المعالجة','مغسولة بالكامل'],['Elevation','1,750 m','الارتفاع','1,750 م'],['Roast','Medium','التحميص','متوسط'],['Pack','500 g beans','العبوة','500 غ حبوب']]},
-'Fairview Estate — Kaldi City Roast':{facts:[['Region','Kiambu, Central Kenya','المنطقة','كيامبو، وسط كينيا'],['Variety','Arabica SL28','السلالة','Arabica SL28'],['Process','Semi-Washed','المعالجة','نصف مغسولة'],['Elevation','1,750 m','الارتفاع','1,750 م'],['Pack','500 g beans','العبوة','500 غ حبوب']]},
-'Java House — Kenya AA':{facts:[['Origin','Kenya','المنشأ','كينيا'],['Grade','Kenya AA','التصنيف','Kenya AA'],['Roast','Medium','التحميص','متوسط'],['Method','Hand roasted','الطريقة','محمصة يدويًا'],['Pack','375 g whole beans','العبوة','375 غ حبوب كاملة']]},
-'Barista & Co. — Gourmet':{facts:[['Origin','Nyeri / Kiambu, Kenya','المنشأ','نييري / كيامبو، كينيا'],['Blend','SL28 / SL34','المزيج','SL28 / SL34'],['Process','Washed','المعالجة','مغسولة'],['Elevation','1,500–2,500 m','الارتفاع','1,500–2,500 م'],['Pack','500 g','العبوة','500 غ']]}
-}};
+window.MJ_EXTRA = {
+  products: {
+    "Zill Shagra": {
+      facts: [
+        ["Roast", "Light", "التحميص", "فاتح"],
+        [
+          "Ingredients",
+          "Coffee · cardamom · saffron · Zill proprietary blend",
+          "المكونات",
+          "قهوة · هيل · زعفران · خلطة زِل الخاصة",
+        ],
+        [
+          "Yield",
+          "10–12 finjans per capsule",
+          "الإنتاج",
+          "10–12 فنجالًا لكل كبسولة",
+        ],
+        [
+          "Caffeine",
+          "Present — exact amount not published",
+          "الكافيين",
+          "موجود — الكمية الدقيقة غير منشورة",
+        ],
+        [
+          "Allergen",
+          "Contains milk derivatives",
+          "الحساسية",
+          "تحتوي على مشتقات الحليب",
+        ],
+      ],
+    },
+    "Zill Original": {
+      facts: [
+        ["Roast", "Medium", "التحميص", "متوسط"],
+        [
+          "Ingredients",
+          "Coffee · cardamom · saffron · clove · Zill proprietary blend",
+          "المكونات",
+          "قهوة · هيل · زعفران · قرنفل · خلطة زِل الخاصة",
+        ],
+        [
+          "Yield",
+          "10–12 finjans per capsule",
+          "الإنتاج",
+          "10–12 فنجالًا لكل كبسولة",
+        ],
+        [
+          "Caffeine",
+          "Present — exact amount not published",
+          "الكافيين",
+          "موجود — الكمية الدقيقة غير منشورة",
+        ],
+        [
+          "Allergen",
+          "Contains milk derivatives",
+          "الحساسية",
+          "تحتوي على مشتقات الحليب",
+        ],
+      ],
+    },
+    "Zill Ghamjah": {
+      facts: [
+        ["Roast", "Dark", "التحميص", "داكن"],
+        [
+          "Ingredients",
+          "Coffee · cardamom · Zill proprietary blend",
+          "المكونات",
+          "قهوة · هيل · خلطة زِل الخاصة",
+        ],
+        [
+          "Yield",
+          "10–12 finjans per capsule",
+          "الإنتاج",
+          "10–12 فنجالًا لكل كبسولة",
+        ],
+        [
+          "Caffeine",
+          "Present — exact amount not published",
+          "الكافيين",
+          "موجود — الكمية الدقيقة غير منشورة",
+        ],
+        [
+          "Allergen",
+          "Contains milk derivatives",
+          "الحساسية",
+          "تحتوي على مشتقات الحليب",
+        ],
+      ],
+    },
+    "Air Roastery – Ricardo": {
+      facts: [
+        ["Origin", "Brazil", "المنشأ", "البرازيل"],
+        ["Type", "Single Origin", "النوع", "Single Origin"],
+        ["Process", "Natural", "المعالجة", "Natural"],
+        ["Roast", "Medium", "التحميص", "متوسط"],
+        ["Notes", "Chocolate", "النوتات", "شوكولاتة"],
+        [
+          "Caffeine",
+          "Present — exact amount not published",
+          "الكافيين",
+          "موجود — الكمية الدقيقة غير منشورة",
+        ],
+      ],
+    },
+    "CGLE Tres Dragones": {
+      facts: [
+        ["Origin", "Colombia", "المنشأ", "كولومبيا"],
+        ["Varietal", "Tres Dragones", "السلالة", "Tres Dragones"],
+        ["Process", "Natural", "المعالجة", "Natural"],
+        ["Roast", "Medium", "التحميص", "متوسط"],
+        ["Elevation", "1,400–1,860 m", "الارتفاع", "1,400–1,860 م"],
+        [
+          "Notes",
+          "Plum · cocoa · malic/citric acidity · blueberry finish",
+          "النوتات",
+          "برقوق · كاكاو · حموضة مالك/سيتريك · نهاية توت أزرق",
+        ],
+      ],
+    },
+    "Pink Bourbon Punch": {
+      facts: [
+        ["Origin", "Colombia", "المنشأ", "كولومبيا"],
+        ["Varietal", "Pink Bourbon", "السلالة", "Pink Bourbon"],
+        ["Process", "Anaerobic Natural", "المعالجة", "Anaerobic Natural"],
+        ["Roast", "Medium", "التحميص", "متوسط"],
+        ["Elevation", "1,500 m", "الارتفاع", "1,500 م"],
+        [
+          "Notes",
+          "Apple · blackberry · blueberry · plum · malic acidity",
+          "النوتات",
+          "تفاح · بلاك بيري · توت أزرق · برقوق · حموضة مالك",
+        ],
+      ],
+    },
+    "Bourbon Sidra Sakura": {
+      facts: [
+        ["Origin", "Colombia", "المنشأ", "كولومبيا"],
+        ["Region", "Risaralda", "المنطقة", "Risaralda"],
+        [
+          "Farm / Producer",
+          "Finca La Rivera · Julio Madrid",
+          "المزرعة / المنتج",
+          "Finca La Rivera · Julio Madrid",
+        ],
+        ["Varietal", "Bourbon Sidra", "السلالة", "Bourbon Sidra"],
+        ["Process", "Anaerobic Washed", "المعالجة", "Anaerobic Washed"],
+        ["Elevation", "1,800 masl", "الارتفاع", "1,800 م"],
+        [
+          "Notes",
+          "Tropical fruits · red grapes · creamy · vanilla finish",
+          "النوتات",
+          "فاكهة استوائية · عنب أحمر · كريمي · نهاية فانيليا",
+        ],
+      ],
+    },
+    "EA Decaf De Cana": {
+      facts: [
+        ["Origin", "Colombia", "المنشأ", "كولومبيا"],
+        ["Varietals", "Caturra · Castillo", "السلالات", "Caturra · Castillo"],
+        ["Process", "Washed", "المعالجة", "Washed"],
+        ["Roast", "Medium", "التحميص", "متوسط"],
+        ["Elevation", "1,200–2,100 m", "الارتفاع", "1,200–2,100 م"],
+        [
+          "Notes",
+          "Sweet · clean · delicate · lemon · tea-like",
+          "النوتات",
+          "حلو · نظيف · رقيق · ليمون · شبيه بالشاي",
+        ],
+        [
+          "Caffeine",
+          "Decaf — not caffeine-free",
+          "الكافيين",
+          "ديكاف — ليس خاليًا تمامًا من الكافيين",
+        ],
+      ],
+    },
+    "Entire Goods – Ethiopia Finara": {
+      facts: [
+        ["Origin", "Ethiopia", "المنشأ", "إثيوبيا"],
+        ["Varietal", "Sel Heirloom", "السلالة", "Sel Heirloom"],
+        ["Process", "Natural Grade 1", "المعالجة", "Natural Grade 1"],
+        ["Elevation", "2,021 masl", "الارتفاع", "2,021 م"],
+        [
+          "Notes",
+          "Cherry · blackcurrant · pleasant acidity · sweet long finish",
+          "النوتات",
+          "كرز · كشمش أسود · حموضة لطيفة · نهاية طويلة وحلوة",
+        ],
+      ],
+    },
+    "Sencha Sleepless Organic": {
+      facts: [
+        ["Product No.", "No.1596", "رقم المنتج", "No.1596"],
+        [
+          "Caffeine",
+          "Present — exact amount not published",
+          "الكافيين",
+          "موجود — الكمية الدقيقة غير معلنة",
+        ],
+      ],
+    },
+    "Moroccan Mint Organic": {
+      facts: [
+        ["Product No.", "No.949", "رقم المنتج", "No.949"],
+        [
+          "Style",
+          "Gunpowder green tea + mint",
+          "الطابع",
+          "شاي أخضر غانباودر + نعناع",
+        ],
+        [
+          "Caffeine",
+          "Present — exact amount not published",
+          "الكافيين",
+          "موجود — الكمية الدقيقة غير معلنة",
+        ],
+      ],
+    },
+    "Japanese Cherry": {
+      facts: [
+        ["Product No.", "No.941", "رقم المنتج", "No.941"],
+        [
+          "Caffeine",
+          "Present — exact amount not published",
+          "الكافيين",
+          "موجود — الكمية الدقيقة غير معلنة",
+        ],
+      ],
+    },
+    "Le Touareg Organic": {
+      facts: [
+        ["Product No.", "No.915", "رقم المنتج", "No.915"],
+        [
+          "Style",
+          "Gunpowder green tea + mint",
+          "الطابع",
+          "شاي أخضر غانباودر + نعناع",
+        ],
+        [
+          "Caffeine",
+          "Present — exact amount not published",
+          "الكافيين",
+          "موجود — الكمية الدقيقة غير معلنة",
+        ],
+      ],
+    },
+    Marani: {
+      facts: [
+        ["Product No.", "No.953", "رقم المنتج", "No.953"],
+        [
+          "Caffeine",
+          "Present — exact amount not published",
+          "الكافيين",
+          "موجود — الكمية الدقيقة غير معلنة",
+        ],
+      ],
+    },
+    "Chinese Royal Jasmine Rolls": {
+      facts: [
+        ["Product No.", "No.934", "رقم المنتج", "No.934"],
+        [
+          "Caffeine",
+          "Present — exact amount not published",
+          "الكافيين",
+          "موجود — الكمية الدقيقة غير معلنة",
+        ],
+      ],
+    },
+    "White Tea Lemon & Vanilla": {
+      facts: [
+        ["Product No.", "No.1041", "رقم المنتج", "No.1041"],
+        [
+          "Caffeine",
+          "Present — exact amount not published",
+          "الكافيين",
+          "موجود — الكمية الدقيقة غير معلنة",
+        ],
+      ],
+    },
+    "White Tea Jasmine Blossoms": {
+      facts: [
+        ["Product No.", "No.1038", "رقم المنتج", "No.1038"],
+        [
+          "Caffeine",
+          "Present — exact amount not published",
+          "الكافيين",
+          "موجود — الكمية الدقيقة غير معلنة",
+        ],
+      ],
+    },
+    "Gourmet Herbal Tea": {
+      facts: [
+        ["Product No.", "No.1235", "رقم المنتج", "No.1235"],
+        [
+          "Profile",
+          "Lemongrass · verbena · elderflower · vanilla",
+          "الطابع",
+          "ليمون عشبي · لويزة · زهر البيلسان · فانيليا",
+        ],
+        ["Caffeine", "0 mg", "الكافيين", "0 mg"],
+      ],
+    },
+    "Mate Green Organic": {
+      facts: [
+        ["Product No.", "No.1195", "رقم المنتج", "No.1195"],
+        [
+          "Caffeine",
+          "Present — exact amount not published",
+          "الكافيين",
+          "موجود — الكمية الدقيقة غير معلنة",
+        ],
+      ],
+    },
+    "Ginger–Turmeric": {
+      facts: [
+        ["Product No.", "No.1244", "رقم المنتج", "No.1244"],
+        [
+          "Profile",
+          "Ginger · turmeric · cinnamon · cardamom · clove · black pepper",
+          "الطابع",
+          "زنجبيل · كركم · قرفة · هيل · قرنفل · فلفل أسود",
+        ],
+        ["Caffeine", "0 mg", "الكافيين", "0 mg"],
+      ],
+    },
+    "One for All": {
+      facts: [
+        ["Product No.", "No.1111", "رقم المنتج", "No.1111"],
+        [
+          "Profile",
+          "Peppermint · fennel · lemon balm · chamomile",
+          "الطابع",
+          "نعناع · شمر · مليسة · بابونج",
+        ],
+        ["Caffeine", "0 mg", "الكافيين", "0 mg"],
+      ],
+    },
+    Chamomile: {
+      facts: [
+        ["Brand", "International Mill", "العلامة", "International Mill"],
+        ["Pack size", "50 g", "الوزن", "50 g"],
+        ["Caffeine", "0 mg", "الكافيين", "0 mg"],
+      ],
+    },
+    "Peach Melba": {
+      facts: [
+        ["Product No.", "No.1479", "رقم المنتج", "No.1479"],
+        ["Caffeine", "0 mg", "الكافيين", "0 mg"],
+      ],
+    },
+    "Cherry Banana Flip": {
+      facts: [
+        ["Product No.", "No.1446", "رقم المنتج", "No.1446"],
+        ["Caffeine", "0 mg", "الكافيين", "0 mg"],
+      ],
+    },
+    "Berry Heaven": {
+      facts: [
+        ["Product No.", "No.1659", "رقم المنتج", "No.1659"],
+        ["Caffeine", "0 mg", "الكافيين", "0 mg"],
+      ],
+    },
+    "Strawberry–Moringa": {
+      facts: [
+        ["Product No.", "No.1453", "رقم المنتج", "No.1453"],
+        ["Caffeine", "0 mg", "الكافيين", "0 mg"],
+      ],
+    },
+    "Passion Fruit": {
+      facts: [
+        ["Product No.", "No.1637", "رقم المنتج", "No.1637"],
+        ["Caffeine", "0 mg", "الكافيين", "0 mg"],
+      ],
+    },
+    "Woodland Berries": {
+      facts: [
+        ["Product No.", "No.1493", "رقم المنتج", "No.1493"],
+        ["Caffeine", "0 mg", "الكافيين", "0 mg"],
+      ],
+    },
+    Cola: {
+      facts: [
+        ["Format", "Sparkling flavour", "النوع", "نكهة غازية"],
+        ["Bottle", "500 mL", "العبوة", "500 مل"],
+        ["Yield", "Makes 15 drinks", "الإنتاج", "يكفي 15 مشروبًا"],
+      ],
+    },
+    "Raspberry Lemon": {
+      facts: [
+        ["Format", "Sparkling flavour", "النوع", "نكهة غازية"],
+        ["Bottle", "500 mL", "العبوة", "500 مل"],
+        ["Yield", "Makes 15 drinks", "الإنتاج", "يكفي 15 مشروبًا"],
+      ],
+    },
+    "Rosemary Cucumber": {
+      facts: [
+        ["Format", "Sparkling flavour", "النوع", "نكهة غازية"],
+        ["Bottle", "500 mL", "العبوة", "500 مل"],
+        ["Yield", "Makes 15 drinks", "الإنتاج", "يكفي 15 مشروبًا"],
+      ],
+    },
+    Hibiscus: {
+      facts: [
+        ["Format", "Sparkling flavour", "النوع", "نكهة غازية"],
+        ["Bottle", "500 mL", "العبوة", "500 مل"],
+        ["Yield", "Makes 15 drinks", "الإنتاج", "يكفي 15 مشروبًا"],
+      ],
+    },
+    "Raspberry & Blackcurrant": {
+      facts: [
+        ["Format", "Seltz Drops", "النوع", "Seltz Drops"],
+        ["Sugar", "Sugar-Free", "السكر", "دون سكر"],
+      ],
+    },
+    "Cucumber & Mint": {
+      facts: [
+        ["Format", "Seltz Drops", "النوع", "Seltz Drops"],
+        ["Sugar", "Sugar-Free", "السكر", "دون سكر"],
+      ],
+    },
+    "Fairview Estate — Premium Kenyan Arabica": {
+      facts: [
+        ["Region", "Kiambu, Central Kenya", "المنطقة", "كيامبو، وسط كينيا"],
+        ["Variety", "Arabica SL28", "السلالة", "Arabica SL28"],
+        ["Process", "Fully Washed", "المعالجة", "مغسولة بالكامل"],
+        ["Elevation", "1,750 m", "الارتفاع", "1,750 م"],
+        ["Roast", "Medium", "التحميص", "متوسط"],
+        ["Pack", "500 g beans", "العبوة", "500 غ حبوب"],
+      ],
+    },
+    "Fairview Estate — Kaldi City Roast": {
+      facts: [
+        ["Region", "Kiambu, Central Kenya", "المنطقة", "كيامبو، وسط كينيا"],
+        ["Variety", "Arabica SL28", "السلالة", "Arabica SL28"],
+        ["Process", "Semi-Washed", "المعالجة", "نصف مغسولة"],
+        ["Elevation", "1,750 m", "الارتفاع", "1,750 م"],
+        ["Pack", "500 g beans", "العبوة", "500 غ حبوب"],
+      ],
+    },
+    "Java House — Kenya AA": {
+      facts: [
+        ["Origin", "Kenya", "المنشأ", "كينيا"],
+        ["Grade", "Kenya AA", "التصنيف", "Kenya AA"],
+        ["Roast", "Medium", "التحميص", "متوسط"],
+        ["Method", "Hand roasted", "الطريقة", "محمصة يدويًا"],
+        ["Pack", "375 g whole beans", "العبوة", "375 غ حبوب كاملة"],
+      ],
+    },
+    "Barista & Co. — Gourmet": {
+      facts: [
+        ["Origin", "Nyeri / Kiambu, Kenya", "المنشأ", "نييري / كيامبو، كينيا"],
+        ["Blend", "SL28 / SL34", "المزيج", "SL28 / SL34"],
+        ["Process", "Washed", "المعالجة", "مغسولة"],
+        ["Elevation", "1,500–2,500 m", "الارتفاع", "1,500–2,500 م"],
+        ["Pack", "500 g", "العبوة", "500 غ"],
+      ],
+    },
+  },
+};
