@@ -27,7 +27,7 @@
     "Zill Original": ["Zill Coffee", "زِل", "Original", "الأصلية"],
     "Zill Ghamjah": ["Zill Coffee", "زِل", "Ghamjah", "الغامجة"],
 
-    "Air Roastery – Ricardo": ["Air Roastery", "إير", "Ricardo", "ريكاردو"],
+    "Air Roastery – Ricardo": ["Air Roastery", "إير روستاري", "Ricardo", "ريكاردو"],
     "CGLE Tres Dragones": ["Methods Roastery", "ميثودز", "Tres Dragones", "تريس دراغونز"],
     "Pink Bourbon Punch": ["Methods Roastery", "ميثودز", "Pink Bourbon Punch", "بينك بوربون بانش"],
     "Bourbon Sidra Sakura": ["Methods Roastery", "ميثودز", "Bourbon Sidra Sakura", "بوربون سيدرا ساكورا"],
@@ -58,12 +58,12 @@
     "Passion Fruit": ["TeaGschwendner", "تي غشفيندنر", "Passion Fruit", "باشن فروت"],
     "Woodland Berries": ["TeaGschwendner", "تي غشفيندنر", "Woodland Berries", "توت الغابة"],
 
-    "Cola": ["Seleco", "سيليكو", "Cola", "كولا"],
-    "Raspberry Lemon": ["Seleco", "سيليكو", "Raspberry Lemon", "توت العليق والليمون"],
-    "Rosemary Cucumber": ["Seleco", "سيليكو", "Rosemary Cucumber", "إكليل الجبل والخيار"],
-    "Hibiscus": ["Seleco", "سيليكو", "Hibiscus", "كركديه"],
-    "Raspberry & Blackcurrant": ["Seleco", "سيليكو", "Raspberry & Blackcurrant", "توت العليق والكشمش الأسود"],
-    "Cucumber & Mint": ["Seleco", "سيليكو", "Cucumber & Mint", "الخيار والنعناع"]
+    "Cola": ["Seleco", "سيليو", "Cola", "كولا"],
+    "Raspberry Lemon": ["Seleco", "سيليو", "Raspberry Lemon", "توت العليق والليمون"],
+    "Rosemary Cucumber": ["Seleco", "سيليو", "Rosemary Cucumber", "إكليل الجبل والخيار"],
+    "Hibiscus": ["Seleco", "سيليو", "Hibiscus", "كركديه"],
+    "Raspberry & Blackcurrant": ["Seleco", "سيليو", "Raspberry & Blackcurrant", "توت العليق والكشمش الأسود"],
+    "Cucumber & Mint": ["Seleco", "سيليو", "Cucumber & Mint", "الخيار والنعناع"]
   };
 
   M.products.forEach(item => {
