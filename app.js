@@ -6,20 +6,23 @@
   const C=M.cats,P=M.products,order=['arabic','specialty','tea','sparkling'];
   const A={
     home:'assets/4k-v2/hero-mj-signature.jpg',
-    categories:{arabic:'assets/4k/arabic.jpg',specialty:'assets/4k/specialty.jpg',tea:'assets/4k/tea.jpg',sparkling:'assets/4k/sparkling.jpg'}
+    categories:{arabic:'assets/heroes-v2/arabic.webp',specialty:'assets/heroes-v2/specialty.webp',tea:'assets/heroes-v2/tea.webp',sparkling:'assets/heroes-v2/sparkling.webp'}
   };
   let lang=localStorage.getItem('mj_lang')||'en',modalProduct=null,modalFromHistory=false,lastFocus=null,lockedScroll=0;
   const ar=()=>lang==='ar',t=(en,a)=>ar()?a:en;
   const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
   const slug=s=>s.toLowerCase().normalize('NFKD').replace(/[–—&]/g,'-').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-  P.forEach((p,i)=>{p._id=slug(p.nameEn);p._index=i;p._sprite=[i%6,Math.floor(i/6)]});
+  const productAssets=[
+    '01-zill-shagra','02-zill-original','03-zill-ghamjah','04-air-ricardo','05-tres-dragones','06-pink-bourbon-punch','07-bourbon-sidra-sakura','08-ea-decaf','09-ethiopia-finara','10-sencha-sleepless','11-moroccan-mint','12-japanese-cherry','13-le-touareg','14-marani','15-jasmine-rolls','16-white-lemon-vanilla','17-white-jasmine','18-gourmet-herbal','19-mate-green','20-ginger-turmeric','21-one-for-all','22-chamomile','23-peach-melba','24-cherry-banana','25-berry-heaven','26-strawberry-moringa','27-passion-fruit','28-woodland-berries','29-seleco-cola','30-seleco-raspberry-lemon','31-rosemary-cucumber','32-hibiscus','33-raspberry-blackcurrant','34-cucumber-mint','35-fairview-premium','36-fairview-kaldi','37-java-house-kenya-aa','38-barista-gourmet'
+  ];
+  P.forEach((p,i)=>{p._id=slug(p.nameEn);p._index=i;p._sprite=[i%6,Math.floor(i/6)];p._visual=`assets/products-v2/${productAssets[i]}.webp`});
   const aliases={'CGLE Tres Dragones':'Methods – CGLE Tres Dragones','Pink Bourbon Punch':'Methods – Pink Bourbon Punch','Bourbon Sidra Sakura':'Methods – Bourbon Sidra Sakura','EA Decaf De Cana':'Methods – EA Decaf De Cana'};
   const extra=p=>E.products?.[p.nameEn]||E.products?.[aliases[p.nameEn]]||{facts:[]};
   const facts=p=>extra(p).facts||[];
   const route=()=>{let h=location.hash.slice(1)||'/';return h.startsWith('/')?h:'/'+h};
   const go=path=>{closeModal(false);route()===path?render():location.hash=path};
-  const imageFor=p=>p.image||A.categories[p.cat]||A.home;
-  const visualFor=(p,modal=false)=>p.image?`<img src="${p.image}" alt="${esc(t(p.nameEn,p.nameAr))}" loading="${modal?'eager':'lazy'}">`:`<div class="spriteVisual" role="img" aria-label="${esc(t(p.nameEn,p.nameAr))}" style="--sx:${p._sprite[0]};--sy:${p._sprite[1]}"></div>`;
+  const imageFor=p=>p._visual||p.image||A.categories[p.cat]||A.home;
+  const visualFor=(p,modal=false)=>`<img src="${imageFor(p)}" alt="${esc(t(p.nameEn,p.nameAr))}" loading="${modal?'eager':'lazy'}" decoding="async">`;
   const tagMeta={
     morning:{icon:'sun',en:'Morning',ar:'الصباح'},evening:{icon:'moon',en:'Evening',ar:'المساء'},
     caffeine:{icon:'bean',en:'Caffeine',ar:'كافيين'},decaf:{icon:'decaf',en:'Decaf',ar:'ديكاف'},
@@ -50,7 +53,8 @@
   }
   function home(){
     const cards=order.map((k,i)=>{const c=C[k],image=A.categories[k];return `<article class="categoryCard tiltCard" tabindex="0" role="button" data-go="/collection/${k}"><img src="${image}" alt="${esc(t(c.en,c.ar))}" loading="lazy"><div class="cardCopy"><div class="eyebrow">0${i+1}</div><h3>${esc(t(c.en,c.ar))}</h3><p>${esc(t(c.subEn,c.subAr))}</p><span class="enterArrow">↗</span></div></article>`}).join('');
-    main.innerHTML=hero('arabic',t('The art of hosting.','فن الضيافة.'),t('A private beverage collection shaped around mood, ritual and detail.','مجموعة مشروبات خاصة صُممت حول المزاج والطقس والتفاصيل.'),true)+`<section class="section" id="catalog"><div class="sectionHead"><div><div class="eyebrow">${esc(t('The collection','المجموعة'))}</div><h2 class="title">${esc(t('Choose your experience','اختر تجربتك'))}</h2></div></div><p class="desc">${esc(t('Enter one collection and discover every product without unnecessary steps.','ادخل المجموعة واكتشف جميع منتجاتها من دون خطوات زائدة.'))}</p><div class="categoryGrid">${cards}</div></section>`;
+    const moods=['morning','evening','caffeine','caffeinefree','iced'].map(k=>{const m=tagMeta[k];return `<button class="moodTag homeMoodChoice" type="button" data-go="/discover/${k}"><span aria-hidden="true">${icon(m.icon)}</span><b>${esc(t(m.en,m.ar))}</b></button>`}).join('');
+    main.innerHTML=hero('arabic',t('The art of hosting.','فن الضيافة.'),t('A private beverage collection shaped around mood, ritual and detail.','مجموعة مشروبات خاصة صُممت حول المزاج والطقس والتفاصيل.'),true)+`<section class="homeMoodBar" aria-label="${esc(t('Discover by mood','اكتشف حسب المزاج'))}"><div class="eyebrow">${esc(t('Discover by mood','اكتشف حسب المزاج'))}</div><div class="homeMoodChoices">${moods}</div></section><section class="section" id="catalog"><div class="sectionHead"><div><div class="eyebrow">${esc(t('The collection','المجموعة'))}</div><h2 class="title">${esc(t('Choose your experience','اختر تجربتك'))}</h2></div></div><p class="desc">${esc(t('Enter one collection and discover every product without unnecessary steps.','ادخل المجموعة واكتشف جميع منتجاتها من دون خطوات زائدة.'))}</p><div class="categoryGrid">${cards}</div></section>`;
     bindCommon();
   }
   function groupProducts(items){const groups=[];for(const p of items){let g=groups.find(x=>x.en===p.subEn);if(!g){g={en:p.subEn,ar:p.subAr,items:[]};groups.push(g)}g.items.push(p)}return groups}
