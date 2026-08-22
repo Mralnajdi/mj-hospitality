@@ -23,59 +23,60 @@
   });
 
   const makers = {
-    "Zill Shagra": ["Zill Coffee", "زِل"],
-    "Zill Original": ["Zill Coffee", "زِل"],
-    "Zill Ghamjah": ["Zill Coffee", "زِل"],
+    "Zill Shagra": ["Zill Coffee", "زِل", "Shagra", "الشقرا"],
+    "Zill Original": ["Zill Coffee", "زِل", "Original", "الأصلية"],
+    "Zill Ghamjah": ["Zill Coffee", "زِل", "Ghamjah", "الغامجة"],
 
-    "Air Roastery – Ricardo": ["Air Roastery", "محمصة إير"],
-    "CGLE Tres Dragones": ["Methods Roastery", "محمصة Methods"],
-    "Pink Bourbon Punch": ["Methods Roastery", "محمصة Methods"],
-    "Bourbon Sidra Sakura": ["Methods Roastery", "محمصة Methods"],
-    "EA Decaf De Cana": ["Methods Roastery", "محمصة Methods"],
-    "Entire Goods – Ethiopia Finara": ["Entire Goods", "Entire Goods"],
-    "Fairview Estate — Premium Kenyan Arabica": ["Fairview Estate", "Fairview Estate"],
-    "Fairview Estate — Kaldi City Roast": ["Fairview Estate", "Fairview Estate"],
-    "Java House — Kenya AA": ["Java House", "Java House"],
-    "Barista & Co. — Gourmet": ["Barista & Co.", "Barista & Co."],
+    "Air Roastery – Ricardo": ["Air Roastery", "إير", "Ricardo", "ريكاردو"],
+    "CGLE Tres Dragones": ["Methods Roastery", "ميثودز", "Tres Dragones", "تريس دراغونز"],
+    "Pink Bourbon Punch": ["Methods Roastery", "ميثودز", "Pink Bourbon Punch", "بينك بوربون بانش"],
+    "Bourbon Sidra Sakura": ["Methods Roastery", "ميثودز", "Bourbon Sidra Sakura", "بوربون سيدرا ساكورا"],
+    "EA Decaf De Cana": ["Methods Roastery", "ميثودز", "EA Decaf De Cana", "ديكاف دي كانا"],
+    "Entire Goods – Ethiopia Finara": ["Entire Goods", "إنتاير غودز", "Ethiopia Finara", "إثيوبيا فينارا"],
+    "Fairview Estate — Premium Kenyan Arabica": ["Fairview Estate", "فيرفيو إستيت", "Premium Kenyan Arabica", "أرابيكا كينية فاخرة"],
+    "Fairview Estate — Kaldi City Roast": ["Fairview Estate", "فيرفيو إستيت", "Kaldi City Roast", "كالدي سيتي روست"],
+    "Java House — Kenya AA": ["Java House", "جافا هاوس", "Kenya AA", "كينيا إيه إيه"],
+    "Barista & Co. — Gourmet": ["Barista & Co.", "باريستا آند كو", "Gourmet", "غورميه"],
 
-    "Sencha Sleepless Organic": ["TeaGschwendner", "TeaGschwendner"],
-    "Moroccan Mint Organic": ["TeaGschwendner", "TeaGschwendner"],
-    "Japanese Cherry": ["TeaGschwendner", "TeaGschwendner"],
-    "Le Touareg Organic": ["TeaGschwendner", "TeaGschwendner"],
-    "Marani": ["TeaGschwendner", "TeaGschwendner"],
-    "Chinese Royal Jasmine Rolls": ["TeaGschwendner", "TeaGschwendner"],
-    "White Tea Lemon & Vanilla": ["TeaGschwendner", "TeaGschwendner"],
-    "White Tea Jasmine Blossoms": ["TeaGschwendner", "TeaGschwendner"],
-    "Gourmet Herbal Tea": ["TeaGschwendner", "TeaGschwendner"],
-    "Mate Green Organic": ["TeaGschwendner", "TeaGschwendner"],
-    "Ginger–Turmeric": ["TeaGschwendner", "TeaGschwendner"],
-    "One for All": ["TeaGschwendner", "TeaGschwendner"],
-    "Chamomile": ["International Mill", "International Mill"],
-    "Peach Melba": ["TeaGschwendner", "TeaGschwendner"],
-    "Cherry Banana Flip": ["TeaGschwendner", "TeaGschwendner"],
-    "Berry Heaven": ["TeaGschwendner", "TeaGschwendner"],
-    "Strawberry–Moringa": ["TeaGschwendner", "TeaGschwendner"],
-    "Passion Fruit": ["TeaGschwendner", "TeaGschwendner"],
-    "Woodland Berries": ["TeaGschwendner", "TeaGschwendner"],
+    "Sencha Sleepless Organic": ["TeaGschwendner", "تي غشفيندنر", "Sencha Sleepless Organic", "سينشا الصحوة العضوي"],
+    "Moroccan Mint Organic": ["TeaGschwendner", "تي غشفيندنر", "Moroccan Mint Organic", "النعناع المغربي العضوي"],
+    "Japanese Cherry": ["TeaGschwendner", "تي غشفيندنر", "Japanese Cherry", "الكرز الياباني"],
+    "Le Touareg Organic": ["TeaGschwendner", "تي غشفيندنر", "Le Touareg Organic", "لو تواريغ العضوي"],
+    "Marani": ["TeaGschwendner", "تي غشفيندنر", "Marani", "ماراني"],
+    "Chinese Royal Jasmine Rolls": ["TeaGschwendner", "تي غشفيندنر", "Chinese Royal Jasmine Rolls", "لفائف الياسمين الملكي الصيني"],
+    "White Tea Lemon & Vanilla": ["TeaGschwendner", "تي غشفيندنر", "White Tea Lemon & Vanilla", "الشاي الأبيض بالليمون والفانيليا"],
+    "White Tea Jasmine Blossoms": ["TeaGschwendner", "تي غشفيندنر", "White Tea Jasmine Blossoms", "الشاي الأبيض بزهور الياسمين"],
+    "Gourmet Herbal Tea": ["TeaGschwendner", "تي غشفيندنر", "Gourmet Herbal Tea", "شاي الأعشاب الفاخر"],
+    "Mate Green Organic": ["TeaGschwendner", "تي غشفيندنر", "Mate Green Organic", "الماته الأخضر العضوي"],
+    "Ginger–Turmeric": ["TeaGschwendner", "تي غشفيندنر", "Ginger–Turmeric", "الزنجبيل والكركم"],
+    "One for All": ["TeaGschwendner", "تي غشفيندنر", "One for All", "وان فور أول"],
+    "Chamomile": ["International Mill", "إنترناشونال ميل", "Chamomile", "البابونج"],
+    "Peach Melba": ["TeaGschwendner", "تي غشفيندنر", "Peach Melba", "خوخ ميلبا"],
+    "Cherry Banana Flip": ["TeaGschwendner", "تي غشفيندنر", "Cherry Banana Flip", "تشيري بنانا فليب"],
+    "Berry Heaven": ["TeaGschwendner", "تي غشفيندنر", "Berry Heaven", "جنة التوت"],
+    "Strawberry–Moringa": ["TeaGschwendner", "تي غشفيندنر", "Strawberry–Moringa", "الفراولة والمورينغا"],
+    "Passion Fruit": ["TeaGschwendner", "تي غشفيندنر", "Passion Fruit", "باشن فروت"],
+    "Woodland Berries": ["TeaGschwendner", "تي غشفيندنر", "Woodland Berries", "توت الغابة"],
 
-    "Cola": ["Seleco", "Seleco"],
-    "Raspberry Lemon": ["Seleco", "Seleco"],
-    "Rosemary Cucumber": ["Seleco", "Seleco"],
-    "Hibiscus": ["Seleco", "Seleco"],
-    "Raspberry & Blackcurrant": ["Seleco", "Seleco"],
-    "Cucumber & Mint": ["Seleco", "Seleco"]
+    "Cola": ["Seleco", "سيليكو", "Cola", "كولا"],
+    "Raspberry Lemon": ["Seleco", "سيليكو", "Raspberry Lemon", "توت العليق والليمون"],
+    "Rosemary Cucumber": ["Seleco", "سيليكو", "Rosemary Cucumber", "إكليل الجبل والخيار"],
+    "Hibiscus": ["Seleco", "سيليكو", "Hibiscus", "كركديه"],
+    "Raspberry & Blackcurrant": ["Seleco", "سيليكو", "Raspberry & Blackcurrant", "توت العليق والكشمش الأسود"],
+    "Cucumber & Mint": ["Seleco", "سيليكو", "Cucumber & Mint", "الخيار والنعناع"]
   };
 
   M.products.forEach(item => {
     const maker = makers[item.nameEn];
     if (!maker) return;
     item._maker = {en: maker[0], ar: maker[1]};
+    item._displayBase = {en: maker[2], ar: maker[3]};
+
     const ex = E.products[item.nameEn] || (E.products[item.nameEn] = {facts:[]});
     ex.facts ||= [];
-    ex.facts = ex.facts.filter(f => !/^(Roaster|Company|Brand|Roaster \/ Company)$/i.test(String(f?.[0] || "")) && !/^(المحمصة|الشركة|العلامة|المحمصة \/ الشركة)$/.test(String(f?.[2] || "")));
-    let labelEn = "Company / Brand", labelAr = "الشركة / العلامة";
-    if (item.cat === "specialty") { labelEn = "Roaster / Company"; labelAr = "المحمصة / الشركة"; }
-    if (item.cat === "sparkling") { labelEn = "Company"; labelAr = "الشركة"; }
-    ex.facts.unshift([labelEn, maker[0], labelAr, maker[1]]);
+    ex.facts = ex.facts.filter(f =>
+      !/^(Roaster|Company|Brand|Roaster \/ Company|Company \/ Brand)$/i.test(String(f?.[0] || "")) &&
+      !/^(المحمصة|الشركة|العلامة|المحمصة \/ الشركة|الشركة \/ العلامة)$/.test(String(f?.[2] || ""))
+    );
   });
 })();
