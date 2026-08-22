@@ -12,42 +12,39 @@
     .replace(/(?:زِل|زل|سيليكو)/g,"")
     .replace(/\s+/g," ").trim();
 
-  const displayName = (p, l) => clean(l === "ar" ? p.nameAr : p.nameEn);
+  const baseName = (p,l) => p?._displayBase?.[l] || clean(l === "ar" ? p?.nameAr : p?.nameEn);
+  const makerName = (p,l) => p?._maker?.[l] || "";
+  const formattedName = (p,l) => {
+    const base = baseName(p,l);
+    const maker = makerName(p,l);
+    return maker ? `${base} - ${maker}` : base;
+  };
+
   const findProductFromModal = (modal) => {
-    const title = clean(modal.querySelector("h2")?.textContent || "");
+    const title = String(modal.querySelector("h2")?.textContent || "").trim();
     if (!title) return null;
-    const l = lang();
     return M.products.find((p) =>
-      displayName(p,l) === title ||
-      displayName(p,"en") === title ||
-      displayName(p,"ar") === title
+      title === formattedName(p,"en") ||
+      title === formattedName(p,"ar") ||
+      title === baseName(p,"en") ||
+      title === baseName(p,"ar") ||
+      title === clean(p.nameEn) ||
+      title === clean(p.nameAr)
     ) || null;
   };
 
-  const makerMarkup = (p) => {
-    if (!p?._maker) return "";
+  function applySimpleTitles(root=document) {
+    root.querySelectorAll(".v2MakerLine").forEach(el => el.remove());
     const l = lang();
-    const label = p.cat === "specialty"
-      ? (l === "ar" ? "المحمصة" : "Roaster")
-      : (l === "ar" ? "الشركة" : "Company");
-    const maker = l === "ar" ? p._maker.ar : p._maker.en;
-    return `<div class="v2MakerLine"><span>${esc(label)}</span><b>${esc(maker)}</b></div>`;
-  };
-
-  function applyMakerLabels(root=document) {
     root.querySelectorAll(".productTile[data-product]").forEach((tile) => {
-      if (tile.querySelector(".v2MakerLine")) return;
       const p = M.products.find(x => x._id === tile.dataset.product);
-      if (!p?._maker) return;
-      const anchor = tile.querySelector(".productTitleRow");
-      anchor?.insertAdjacentHTML("afterend", makerMarkup(p));
+      const h = tile.querySelector(".productTitleRow h3");
+      if (p && h) h.textContent = formattedName(p,l);
     });
     root.querySelectorAll(".productModal").forEach((modal) => {
-      if (modal.querySelector(".modalContent > .v2MakerLine")) return;
       const p = findProductFromModal(modal);
-      if (!p?._maker) return;
-      const anchor = modal.querySelector(".modalTitleRow");
-      anchor?.insertAdjacentHTML("afterend", makerMarkup(p));
+      const h = modal.querySelector(".modalTitleRow h2");
+      if (p && h) h.textContent = formattedName(p,l);
     });
   }
 
@@ -77,9 +74,9 @@
     ).join("");
     const kindLabel = {
       zill: l==="ar" ? "نظام زِل الرسمي" : "Official Zill system",
-      coffee: l==="ar" ? "MJ · xBloom House Profile" : "MJ · xBloom House Profile",
-      tea: l==="ar" ? "xBloom Omni" : "xBloom Omni",
-      sparkling: l==="ar" ? "Sparkling Bar" : "Sparkling Bar",
+      coffee: "MJ · xBloom House Profile",
+      tea: "xBloom Omni",
+      sparkling: "Sparkling Bar",
     }[r.kind] || "MJ";
     const deviceSource = r.kind === "coffee"
       ? `<a class="v2SourceLink secondary" href="https://xbloom.com/pages/xbloom-studio" target="_blank" rel="noopener">${l==="ar" ? "مرجع جهاز xBloom ↗" : "xBloom device reference ↗"}</a>`
@@ -110,6 +107,8 @@
     modal.querySelectorAll(".fact,.detailItem,.specItem").forEach((node) => {
       const t = node.textContent || "";
       if (/Product\s*No\.|رقم\s*المنتج/i.test(t)) node.remove();
+      if (/^(Roaster|Company|Brand|Roaster \/ Company|Company \/ Brand)/i.test(t.trim())) node.remove();
+      if (/^(المحمصة|الشركة|العلامة|المحمصة \/ الشركة|الشركة \/ العلامة)/.test(t.trim())) node.remove();
     });
   }
 
@@ -156,8 +155,9 @@
   }
 
   function applyAll() {
-    applyMakerLabels(document);
     document.querySelectorAll(".productModal").forEach(applyRecipe);
+    applySimpleTitles(document);
+    document.querySelectorAll(".productModal").forEach(removeProductNumbers);
     enforceImageRules(document);
     removeForbiddenCopy(document);
   }
