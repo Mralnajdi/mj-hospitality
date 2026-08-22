@@ -1,4 +1,5 @@
 /* V2 final candidate — additive only. V1 remains untouched on branch v1. */
+.pendingRecipe{display:none!important}
 .v2RecipeCard{
   margin:26px 0 6px;
   padding:22px;
