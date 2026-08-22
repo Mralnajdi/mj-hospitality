@@ -1,8 +1,10 @@
 /* V2 final candidate — additive only. V1 remains untouched on branch v1. */
 .pendingRecipe{display:none!important}
-/* Keep every page banner fully filled — no letterbox/empty strip below the image. */
-.hero{overflow:hidden!important}
-.hero>img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center center!important;display:block!important;background:transparent!important}
+/* Hero fix: preserve the full image at its natural aspect ratio — no zoom, no crop, no empty strip. */
+.hero{position:relative!important;overflow:hidden!important;min-height:0!important;height:auto}
+.hero>img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center top!important;display:block!important;background:#050504!important;transform:none!important}
+.hero:hover>img{transform:none!important}
+.heroCopy{min-height:0!important;height:100%!important}
 .v2MakerLine{display:flex;align-items:center;gap:8px;margin:8px 0 2px;color:#dbc08a;font-size:11px;line-height:1.35}
 .v2MakerLine span{color:#8f8679;font-size:9px;letter-spacing:.08em;text-transform:uppercase}
 .v2MakerLine b{font-weight:650;color:#e5c887}
