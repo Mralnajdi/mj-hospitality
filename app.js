@@ -6,7 +6,7 @@
   const C=M.cats,P=M.products,order=['arabic','specialty','tea','sparkling'];
   const A={
     home:'assets/heroes-v4/home-natural-qahwa.webp',
-    categories:{arabic:'assets/heroes-v4/arabic-natural-qahwa.webp',specialty:'assets/heroes-v2/specialty.webp',tea:'assets/heroes-v2/tea.webp',sparkling:'assets/heroes-v2/sparkling.webp'}
+    categories:{arabic:'assets/heroes-v4/arabic-natural-qahwa.webp',specialty:'assets/heroes-v2/specialty.webp',tea:'assets/heroes-v2/tea.webp',sparkling:'assets/heroes-v5/sparkling-grounded-carafe.webp'}
   };
   let lang=localStorage.getItem('mj_lang')||'en',modalProduct=null,modalFromHistory=false,lastFocus=null,lockedScroll=0;
   const clean=s=>String(s??'').replace(/\b(?:Zill|Seleco)\b/gi,'').replace(/(?:زِل|زل|سيليكو|سيليو)/g,'').replace(/\s{2,}/g,' ').trim();
@@ -14,7 +14,7 @@
   const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
   const slug=s=>s.toLowerCase().normalize('NFKD').replace(/[–—&]/g,'-').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
   const productAssets=[
-    '01-zill-shagra','02-zill-original','03-zill-ghamjah','04-air-ricardo','05-tres-dragones','06-pink-bourbon-punch','07-bourbon-sidra-sakura','08-ea-decaf-v2','09-ethiopia-finara','10-sencha-sleepless','11-moroccan-mint','12-japanese-cherry-v2','13-le-touareg','14-marani','15-jasmine-rolls','16-white-lemon-vanilla','17-white-jasmine','18-gourmet-herbal','19-mate-green','20-ginger-turmeric','21-one-for-all','22-chamomile','23-peach-melba-v2','24-cherry-banana-v2','25-berry-heaven-v2','26-strawberry-moringa-v2','27-passion-fruit-v2','28-woodland-berries-v2','29-seleco-cola','30-seleco-raspberry-lemon','31-rosemary-cucumber','32-hibiscus','33-raspberry-blackcurrant','34-cucumber-mint','35-fairview-premium','36-fairview-kaldi','37-java-house-kenya-aa','38-barista-gourmet'
+    '01-zill-shagra','02-zill-original','03-zill-ghamjah','04-air-ricardo','05-tres-dragones','06-pink-bourbon-punch','07-bourbon-sidra-sakura','08-ea-decaf-v2','09-ethiopia-finara','10-sencha-sleepless','11-moroccan-mint','12-japanese-cherry-v2','13-le-touareg','14-marani','15-jasmine-rolls','16-white-lemon-vanilla','17-white-jasmine','18-gourmet-herbal','19-mate-green','20-ginger-turmeric','21-one-for-all','22-chamomile','23-peach-melba-v2','24-cherry-banana-v2','25-berry-heaven-v2','26-strawberry-moringa-v2','27-passion-fruit-v2','28-woodland-berries-v2','29-seleco-cola','30-seleco-raspberry-lemon-v2','31-rosemary-cucumber','32-hibiscus-v2','33-raspberry-blackcurrant-v2','34-cucumber-mint-v2','35-fairview-premium','36-fairview-kaldi','37-java-house-kenya-aa','38-barista-gourmet'
   ];
   const arabicProductAssets=['assets/products-v3/arabic-shagra-mj.webp','assets/products-v4/arabic-original-natural.webp','assets/products-v3/arabic-ghamjah-mj.webp'];
   P.forEach((p,i)=>{p._id=slug(p.nameEn);p._index=i;p._sprite=[i%6,Math.floor(i/6)];p._visual=arabicProductAssets[i]||`assets/products-v2/${productAssets[i]}.webp`});
