@@ -48,28 +48,30 @@
     });
   }
 
-  const HERO_4K = {
-    home: "assets/4k/hero-main.jpg",
-    arabic: "assets/4k/arabic.jpg",
-    specialty: "assets/4k/specialty.jpg",
-    tea: "assets/4k/tea.jpg",
-    sparkling: "assets/4k/sparkling.jpg",
+  const HERO_SIGNATURE = {
+    home: "assets/heroes-v4/home-natural-qahwa.webp",
+    arabic: "assets/heroes-v4/arabic-natural-qahwa.webp",
+    specialty: "assets/home-v2/specialty-mj.webp",
+    tea: "assets/home-v2/tea-mj.webp",
+    sparkling: "assets/heroes-v5/sparkling-grounded-carafe.webp",
   };
 
-  function upgradeHeroTo4K(root=document) {
-    const img = root.querySelector(".hero > img");
-    if (!img) return;
+  function restoreSignatureHero(root=document) {
+    const hero = root.querySelector(".hero");
+    const img = hero?.querySelector(":scope > img");
+    if (!hero || !img) return;
     const route = (location.hash.slice(1) || "/").replace(/^([^/])/, "/$1");
     let key = "home";
     const m = route.match(/^\/collection\/(arabic|specialty|tea|sparkling)/);
     if (m) key = m[1];
-    const target = HERO_4K[key];
-    if (!target) return;
-    if (img.getAttribute("src") !== target) img.setAttribute("src", target);
+    const target = HERO_SIGNATURE[key];
+    hero.dataset.v2Hero = key;
+    if (target && img.getAttribute("src") !== target) img.setAttribute("src", target);
     img.removeAttribute("srcset");
     img.setAttribute("decoding", "async");
     img.setAttribute("fetchpriority", "high");
     img.style.imageRendering = "auto";
+    img.style.transform = "none";
   }
 
   const sourceLink = (source, l) => {
@@ -183,7 +185,7 @@
     applySimpleTitles(document);
     document.querySelectorAll(".productModal").forEach(removeProductNumbers);
     enforceImageRules(document);
-    upgradeHeroTo4K(document);
+    restoreSignatureHero(document);
     removeForbiddenCopy(document);
   }
 
