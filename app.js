@@ -9,7 +9,8 @@
     categories:{arabic:'assets/heroes-v2/arabic.webp',specialty:'assets/heroes-v2/specialty.webp',tea:'assets/heroes-v2/tea.webp',sparkling:'assets/heroes-v2/sparkling.webp'}
   };
   let lang=localStorage.getItem('mj_lang')||'en',modalProduct=null,modalFromHistory=false,lastFocus=null,lockedScroll=0;
-  const ar=()=>lang==='ar',t=(en,a)=>ar()?a:en;
+  const clean=s=>String(s??'').replace(/\b(?:Zill|Seleco)\b/gi,'').replace(/(?:زِل|زل|سيليكو|سيليو)/g,'').replace(/\s{2,}/g,' ').trim();
+  const ar=()=>lang==='ar',t=(en,a)=>clean(ar()?a:en);
   const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
   const slug=s=>s.toLowerCase().normalize('NFKD').replace(/[–—&]/g,'-').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
   const productAssets=[
@@ -52,7 +53,8 @@
     return `<section class="hero interactiveHero" data-depth><img src="${img}" alt="${esc(title)}"><div class="shade"></div><div class="heroCopy"><div class="eyebrow">MJ · ${esc(t('Private Hospitality','الضيافة الخاصة'))}</div><h1>${esc(title)}</h1><p class="lead">${esc(desc)}</p></div><button class="heroExplore" type="button" data-scroll-catalog>${esc(t('Explore the collection','استكشف المجموعة'))}<span>↓</span></button></section>`;
   }
   function home(){
-    const cards=order.map((k,i)=>{const c=C[k],image=A.categories[k];return `<article class="categoryCard tiltCard" tabindex="0" role="button" data-go="/collection/${k}"><img src="${image}" alt="${esc(t(c.en,c.ar))}" loading="lazy"><div class="cardCopy"><div class="eyebrow">0${i+1}</div><h3>${esc(t(c.en,c.ar))}</h3><p>${esc(t(c.subEn,c.subAr))}</p><span class="enterArrow">↗</span></div></article>`}).join('');
+    const homeCategoryImages={arabic:P[1]._visual,specialty:P[5]._visual,tea:P[11]._visual,sparkling:P[31]._visual};
+    const cards=order.map((k,i)=>{const c=C[k],image=homeCategoryImages[k];return `<article class="categoryCard tiltCard" tabindex="0" role="button" data-go="/collection/${k}"><img src="${image}" alt="${esc(t(c.en,c.ar))}" loading="lazy"><div class="cardCopy"><div class="eyebrow">0${i+1}</div><h3>${esc(t(c.en,c.ar))}</h3><p>${esc(t(c.subEn,c.subAr))}</p><span class="enterArrow">↗</span></div></article>`}).join('');
     const moods=['morning','evening','caffeine','caffeinefree','iced'].map(k=>{const m=tagMeta[k];return `<button class="moodTag homeMoodChoice" type="button" data-go="/discover/${k}"><span aria-hidden="true">${icon(m.icon)}</span><b>${esc(t(m.en,m.ar))}</b></button>`}).join('');
     main.innerHTML=hero('arabic',t('The art of hosting.','فن الضيافة.'),t('A private beverage collection shaped around mood, ritual and detail.','مجموعة مشروبات خاصة صُممت حول المزاج والطقس والتفاصيل.'),true)+`<section class="homeMoodBar" aria-label="${esc(t('Discover by mood','اكتشف حسب المزاج'))}"><div class="eyebrow">${esc(t('Discover by mood','اكتشف حسب المزاج'))}</div><div class="homeMoodChoices">${moods}</div></section><section class="section" id="catalog"><div class="sectionHead"><div><div class="eyebrow">${esc(t('The collection','المجموعة'))}</div><h2 class="title">${esc(t('Choose your experience','اختر تجربتك'))}</h2></div></div><p class="desc">${esc(t('Enter one collection and discover every product without unnecessary steps.','ادخل المجموعة واكتشف جميع منتجاتها من دون خطوات زائدة.'))}</p><div class="categoryGrid">${cards}</div></section>`;
     bindCommon();
