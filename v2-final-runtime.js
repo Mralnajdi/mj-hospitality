@@ -24,6 +24,33 @@
     ) || null;
   };
 
+  const makerMarkup = (p) => {
+    if (!p?._maker) return "";
+    const l = lang();
+    const label = p.cat === "specialty"
+      ? (l === "ar" ? "المحمصة" : "Roaster")
+      : (l === "ar" ? "الشركة" : "Company");
+    const maker = l === "ar" ? p._maker.ar : p._maker.en;
+    return `<div class="v2MakerLine"><span>${esc(label)}</span><b>${esc(maker)}</b></div>`;
+  };
+
+  function applyMakerLabels(root=document) {
+    root.querySelectorAll(".productTile[data-product]").forEach((tile) => {
+      if (tile.querySelector(".v2MakerLine")) return;
+      const p = M.products.find(x => x._id === tile.dataset.product);
+      if (!p?._maker) return;
+      const anchor = tile.querySelector(".productTitleRow");
+      anchor?.insertAdjacentHTML("afterend", makerMarkup(p));
+    });
+    root.querySelectorAll(".productModal").forEach((modal) => {
+      if (modal.querySelector(".modalContent > .v2MakerLine")) return;
+      const p = findProductFromModal(modal);
+      if (!p?._maker) return;
+      const anchor = modal.querySelector(".modalTitleRow");
+      anchor?.insertAdjacentHTML("afterend", makerMarkup(p));
+    });
+  }
+
   const sourceLink = (source, l) => {
     if (!/^https?:\/\//i.test(source || "")) {
       return `<span class="v2SourceTag">${l==="ar" ? "موثّق من العبوة" : "Package verified"}</span>`;
@@ -129,6 +156,7 @@
   }
 
   function applyAll() {
+    applyMakerLabels(document);
     document.querySelectorAll(".productModal").forEach(applyRecipe);
     enforceImageRules(document);
     removeForbiddenCopy(document);
