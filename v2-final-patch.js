@@ -56,7 +56,14 @@
     "Berry Heaven": ["TeaGschwendner", "TeaGschwendner"],
     "Strawberry–Moringa": ["TeaGschwendner", "TeaGschwendner"],
     "Passion Fruit": ["TeaGschwendner", "TeaGschwendner"],
-    "Woodland Berries": ["TeaGschwendner", "TeaGschwendner"]
+    "Woodland Berries": ["TeaGschwendner", "TeaGschwendner"],
+
+    "Cola": ["Seleco", "Seleco"],
+    "Raspberry Lemon": ["Seleco", "Seleco"],
+    "Rosemary Cucumber": ["Seleco", "Seleco"],
+    "Hibiscus": ["Seleco", "Seleco"],
+    "Raspberry & Blackcurrant": ["Seleco", "Seleco"],
+    "Cucumber & Mint": ["Seleco", "Seleco"]
   };
 
   M.products.forEach(item => {
@@ -66,8 +73,9 @@
     const ex = E.products[item.nameEn] || (E.products[item.nameEn] = {facts:[]});
     ex.facts ||= [];
     ex.facts = ex.facts.filter(f => !/^(Roaster|Company|Brand|Roaster \/ Company)$/i.test(String(f?.[0] || "")) && !/^(المحمصة|الشركة|العلامة|المحمصة \/ الشركة)$/.test(String(f?.[2] || "")));
-    const labelEn = item.cat === "specialty" ? "Roaster / Company" : "Company / Brand";
-    const labelAr = item.cat === "specialty" ? "المحمصة / الشركة" : "الشركة / العلامة";
+    let labelEn = "Company / Brand", labelAr = "الشركة / العلامة";
+    if (item.cat === "specialty") { labelEn = "Roaster / Company"; labelAr = "المحمصة / الشركة"; }
+    if (item.cat === "sparkling") { labelEn = "Company"; labelAr = "الشركة"; }
     ex.facts.unshift([labelEn, maker[0], labelAr, maker[1]]);
   });
 })();
