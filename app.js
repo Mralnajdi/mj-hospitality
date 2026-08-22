@@ -5,8 +5,8 @@
   const back=document.getElementById('backBtn'),langBtn=document.getElementById('langBtn'),searchBtn=document.getElementById('searchBtn');
   const C=M.cats,P=M.products,order=['arabic','specialty','tea','sparkling'];
   const A={
-    home:'assets/4k-v2/hero-mj-signature.jpg',
-    categories:{arabic:'assets/heroes-v2/arabic.webp',specialty:'assets/heroes-v2/specialty.webp',tea:'assets/heroes-v2/tea.webp',sparkling:'assets/heroes-v2/sparkling.webp'}
+    home:'assets/heroes-v3/home-mj-finjan.webp',
+    categories:{arabic:'assets/heroes-v3/arabic-mj-finjan.webp',specialty:'assets/heroes-v2/specialty.webp',tea:'assets/heroes-v2/tea.webp',sparkling:'assets/heroes-v2/sparkling.webp'}
   };
   let lang=localStorage.getItem('mj_lang')||'en',modalProduct=null,modalFromHistory=false,lastFocus=null,lockedScroll=0;
   const clean=s=>String(s??'').replace(/\b(?:Zill|Seleco)\b/gi,'').replace(/(?:زِل|زل|سيليكو|سيليو)/g,'').replace(/\s{2,}/g,' ').trim();
