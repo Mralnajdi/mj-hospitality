@@ -8,23 +8,24 @@
     home:'assets/4k-v2/hero-mj-signature.jpg',
     categories:{arabic:'assets/4k/arabic.jpg',specialty:'assets/4k/specialty.jpg',tea:'assets/4k/tea.jpg',sparkling:'assets/4k/sparkling.jpg'}
   };
-  let lang=localStorage.getItem('mj_lang')||'en',modalProduct=null,modalFromHistory=false,lastFocus=null;
+  let lang=localStorage.getItem('mj_lang')||'en',modalProduct=null,modalFromHistory=false,lastFocus=null,lockedScroll=0;
   const ar=()=>lang==='ar',t=(en,a)=>ar()?a:en;
   const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
   const slug=s=>s.toLowerCase().normalize('NFKD').replace(/[–—&]/g,'-').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-  P.forEach((p,i)=>{p._id=slug(p.nameEn);p._index=i});
+  P.forEach((p,i)=>{p._id=slug(p.nameEn);p._index=i;p._sprite=[i%6,Math.floor(i/6)]});
   const aliases={'CGLE Tres Dragones':'Methods – CGLE Tres Dragones','Pink Bourbon Punch':'Methods – Pink Bourbon Punch','Bourbon Sidra Sakura':'Methods – Bourbon Sidra Sakura','EA Decaf De Cana':'Methods – EA Decaf De Cana'};
   const extra=p=>E.products?.[p.nameEn]||E.products?.[aliases[p.nameEn]]||{facts:[]};
   const facts=p=>extra(p).facts||[];
   const route=()=>{let h=location.hash.slice(1)||'/';return h.startsWith('/')?h:'/'+h};
   const go=path=>{closeModal(false);route()===path?render():location.hash=path};
   const imageFor=p=>p.image||A.categories[p.cat]||A.home;
+  const visualFor=(p,modal=false)=>p.image?`<img src="${p.image}" alt="${esc(t(p.nameEn,p.nameAr))}" loading="${modal?'eager':'lazy'}">`:`<div class="spriteVisual" role="img" aria-label="${esc(t(p.nameEn,p.nameAr))}" style="--sx:${p._sprite[0]};--sy:${p._sprite[1]}"></div>`;
   const tagMeta={
     morning:{icon:'sun',en:'Morning',ar:'الصباح'},evening:{icon:'moon',en:'Evening',ar:'المساء'},
     caffeine:{icon:'bean',en:'Caffeine',ar:'كافيين'},decaf:{icon:'decaf',en:'Decaf',ar:'ديكاف'},
     caffeinefree:{icon:'free',en:'Caffeine-Free',ar:'بدون كافيين'},iced:{icon:'ice',en:'Iced',ar:'بارد'}
   };
-  const icon=n=>({sun:'☼',moon:'◒',bean:'●',decaf:'◐',free:'⊘',ice:'❄'}[n]||'•');
+  const icon=n=>({sun:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/></svg>',moon:'<svg viewBox="0 0 24 24"><path d="M19 15.5A8 8 0 0 1 8.5 5 8 8 0 1 0 19 15.5Z"/></svg>',bean:'<svg viewBox="0 0 24 24"><path d="M18.4 4.8c3.1 3.1 1.4 9.8-2.4 13.6S5.5 23.9 2.4 20.8 1 11 4.8 7.2 15.3 1.7 18.4 4.8Z"/><path d="M4.8 19c4.2-1.8 5.2-7.5 12.4-12.4"/></svg>',decaf:'<svg viewBox="0 0 24 24"><path d="M5 8h12v5a6 6 0 0 1-6 6 6 6 0 0 1-6-6V8Z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17M4 4l16 16"/></svg>',free:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m6 18 12-12"/></svg>',ice:'<svg viewBox="0 0 24 24"><path d="M12 2v20M4.2 6.5l15.6 11M19.8 6.5l-15.6 11M8 4l4 3 4-3M8 20l4-3 4 3"/></svg>'}[n]||'');
   function productTags(p){
     const out=[],time=(p.timeEn+' '+p.timeAr).toLowerCase(),serve=(p.serveEn+' '+p.serveAr).toLowerCase();
     if(/morning|الصباح/.test(time))out.push('morning');
@@ -35,6 +36,7 @@
     return out;
   }
   function tagButton(k,filter=false){const m=tagMeta[k];return `<button class="moodTag ${filter?'filterTag':''}" type="button" data-tag="${k}" aria-label="${esc(t(m.en,m.ar))}" title="${esc(t(m.en,m.ar))}"><span aria-hidden="true">${icon(m.icon)}</span><b>${esc(t(m.en,m.ar))}</b></button>`}
+  function categorySwitcher(active){return `<nav class="categorySwitcher" aria-label="${esc(t('Collections','الأقسام'))}">${order.map(k=>`<button type="button" class="${k===active?'active':''}" data-go="/collection/${k}"><span>${esc(t(C[k].en,C[k].ar))}</span><i>${String(P.filter(p=>p.cat===k).length).padStart(2,'0')}</i></button>`).join('')}</nav>`}
   function setText(){
     document.documentElement.lang=lang;document.documentElement.dir=ar()?'rtl':'ltr';app.dir=ar()?'rtl':'ltr';
     langBtn.textContent=ar()?'EN':'عربي';
@@ -54,13 +56,13 @@
   function groupProducts(items){const groups=[];for(const p of items){let g=groups.find(x=>x.en===p.subEn);if(!g){g={en:p.subEn,ar:p.subAr,items:[]};groups.push(g)}g.items.push(p)}return groups}
   function productCard(p){
     const tags=productTags(p).map(k=>tagButton(k)).join('');
-    return `<article class="productTile tiltCard" tabindex="0" role="button" data-product="${p._id}" data-tags="${productTags(p).join(' ')}"><div class="productImage"><img src="${imageFor(p)}" alt="${esc(t(p.nameEn,p.nameAr))}" loading="lazy"><span class="quickView">${esc(t('View','عرض'))} ↗</span></div><div class="productBody"><div class="productTitleRow"><h3>${esc(t(p.nameEn,p.nameAr))}</h3><div class="tagRail">${tags}</div></div><p class="profile">${esc(t(p.profileEn,p.profileAr))}</p><p class="micro">${esc(t(p.serveEn,p.serveAr))} · ${esc(t(p.timeEn,p.timeAr))}</p></div></article>`;
+    return `<article class="productTile tiltCard" tabindex="0" role="button" data-product="${p._id}" data-tags="${productTags(p).join(' ')}"><div class="productImage">${visualFor(p)}<span class="quickView">${esc(t('Quick view','عرض سريع'))} ↗</span></div><div class="productBody"><div class="productTitleRow"><h3>${esc(t(p.nameEn,p.nameAr))}</h3></div><div class="tagRail productTags">${tags}</div><p class="profile">${esc(t(p.profileEn,p.profileAr))}</p><p class="micro">${esc(t(p.serveEn,p.serveAr))} · ${esc(t(p.timeEn,p.timeAr))}</p></div></article>`;
   }
   function filterBar(){return `<div class="filterDock" aria-label="${esc(t('Mood filters','فلاتر المزاج'))}"><div class="filterIntro"><span>${esc(t('Filter by mood','صفِّ حسب المزاج'))}</span><b id="resultCount"></b></div><div class="filterTags">${['morning','evening','caffeine','caffeinefree','iced'].map(k=>tagButton(k,true)).join('')}<button class="clearFilters" type="button" data-clear-filters>${esc(t('Clear','مسح'))}</button></div></div>`}
   function collection(k,preFilter){
     const c=C[k];if(!c)return home();const items=P.filter(p=>p.cat===k),groups=groupProducts(items);
     const body=k==='arabic'?`<section class="directProducts"><div class="groupHeader static"><div><span class="eyebrow">${esc(t('Three expressions','ثلاثة أنواع'))}</span><h2>${esc(t('Light · Original · Dark','الفاتحة · الأصلية · الغامقة'))}</h2></div><span class="groupCount">${items.length}</span></div><div class="productGrid">${items.map(productCard).join('')}</div></section>`:groups.map((g,i)=>`<details class="collectionGroup" open data-group><summary><div><span class="eyebrow">0${i+1}</span><h2>${esc(t(g.en,g.ar))}</h2></div><div class="summaryMeta"><span class="groupCount">${g.items.length}</span><span class="accordionIcon">⌄</span></div></summary><div class="productGrid">${g.items.map(productCard).join('')}</div></details>`).join('');
-    main.innerHTML=hero(k,t(c.en,c.ar),t(c.subEn,c.subAr))+`<section class="section catalogSection" id="catalog">${filterBar()}<div class="catalogTools"><div><div class="eyebrow">${esc(t('All products','كل المنتجات'))}</div><h2 class="title">${esc(t('Explore without leaving the page','اكتشف من دون مغادرة الصفحة'))}</h2></div>${k==='arabic'?'':`<button class="btn" type="button" data-toggle-groups>${esc(t('Close all','إغلاق الكل'))}</button>`}</div><div class="groupsWrap">${body}</div><p class="emptyState" hidden>${esc(t('No products match these filters.','لا توجد منتجات تطابق هذه الفلاتر.'))}</p></section>`;
+    main.innerHTML=hero(k,t(c.en,c.ar),t(c.subEn,c.subAr))+categorySwitcher(k)+`<section class="section catalogSection" id="catalog">${filterBar()}<div class="catalogTools"><div><div class="eyebrow">${esc(t('All products','كل المنتجات'))}</div><h2 class="title">${esc(t('Explore without leaving the page','اكتشف من دون مغادرة الصفحة'))}</h2></div>${k==='arabic'?'':`<button class="btn" type="button" data-toggle-groups>${esc(t('Close all','إغلاق الكل'))}</button>`}</div><div class="groupsWrap">${body}</div><p class="emptyState" hidden>${esc(t('No products match these filters.','لا توجد منتجات تطابق هذه الفلاتر.'))}</p></section>`;
     bindCommon();bindCatalog(preFilter);
   }
   function all(preFilter){
@@ -72,18 +74,19 @@
     const fs=facts(p),labels=hotspotLabels(p),tags=productTags(p).map(k=>tagButton(k)).join('');
     const dots=labels.map((x,i)=>`<button class="hotspot hs${i+1}" type="button" aria-label="${esc(x)}"><i></i><span>${esc(x)}</span></button>`).join('');
     const fhtml=fs.length?fs.map(f=>`<div class="fact"><div class="factKey">${esc(t(f[0],f[2]))}</div><div class="factVal">${esc(t(f[1],f[3]))}</div></div>`).join(''):`<div class="fact"><div class="factKey">${esc(t('Reference','المرجع'))}</div><div class="factVal">${esc(t('Documented collection profile','ملف المجموعة الموثق'))}</div></div>`;
-    return `<div class="modalBackdrop" data-close-modal></div><section class="productModal" role="dialog" aria-modal="true" aria-label="${esc(t(p.nameEn,p.nameAr))}"><div class="dragHandle" aria-hidden="true"></div><button class="modalClose" type="button" data-close-modal aria-label="${esc(t('Close','إغلاق'))}">×</button><div class="modalVisual" data-modal-visual><img src="${imageFor(p)}" alt="${esc(t(p.nameEn,p.nameAr))}">${dots}<div class="visualHint">${esc(t('Touch the points','المس النقاط'))}</div></div><div class="modalContent"><div class="eyebrow">${esc(t(C[p.cat].en,C[p.cat].ar))} · ${esc(t(p.subEn,p.subAr))}</div><div class="modalTitleRow"><h2>${esc(t(p.nameEn,p.nameAr))}</h2><div class="tagRail">${tags}</div></div><p class="profile">${esc(t(p.profileEn,p.profileAr))}</p><p class="story">${esc(t(p.descEn,p.descAr))}</p><div class="experience"><div class="xp"><small>${esc(t('Best serve','أفضل تقديم'))}</small><div>${esc(t(p.serveEn,p.serveAr))}</div></div><div class="xp"><small>${esc(t('Best time','أفضل وقت'))}</small><div>${esc(t(p.timeEn,p.timeAr))}</div></div></div><div class="facts">${fhtml}</div><div class="modalNav"><button type="button" data-modal-prev>← ${esc(t('Previous','السابق'))}</button><button type="button" data-modal-next>${esc(t('Next','التالي'))} →</button></div></div></section>`;
+    return `<div class="modalBackdrop" data-close-modal></div><section class="productModal" role="dialog" aria-modal="true" aria-label="${esc(t(p.nameEn,p.nameAr))}"><div class="dragHandle" aria-hidden="true"></div><button class="modalClose" type="button" data-close-modal aria-label="${esc(t('Close','إغلاق'))}">×</button><div class="modalVisual" data-modal-visual>${visualFor(p,true)}${dots}<div class="visualHint">${esc(t('Touch the flavour points','المس نقاط النكهة'))}</div></div><div class="modalContent"><div class="eyebrow">${esc(t(C[p.cat].en,C[p.cat].ar))} · ${esc(t(p.subEn,p.subAr))}</div><div class="modalTitleRow"><h2>${esc(t(p.nameEn,p.nameAr))}</h2></div><div class="tagRail modalTags">${tags}</div><p class="profile">${esc(t(p.profileEn,p.profileAr))}</p><p class="story">${esc(t(p.descEn,p.descAr))}</p><div class="experience"><div class="xp"><small>${esc(t('Best serve','أفضل تقديم'))}</small><div>${esc(t(p.serveEn,p.serveAr))}</div></div><div class="xp"><small>${esc(t('Best time','أفضل وقت'))}</small><div>${esc(t(p.timeEn,p.timeAr))}</div></div></div><div class="facts">${fhtml}</div><div class="modalNav"><button type="button" data-modal-prev>← ${esc(t('Previous','السابق'))}</button><button type="button" data-modal-next>${esc(t('Next','التالي'))} →</button></div></div></section>`;
   }
   function openModal(id,push=true){
     const p=P.find(x=>x._id===id);if(!p)return;lastFocus=document.activeElement;modalProduct=p;if(push)modalFromHistory=true;
     let root=document.getElementById('modalRoot');if(!root){root=document.createElement('div');root.id='modalRoot';document.body.appendChild(root)}
-    root.innerHTML=modalMarkup(p);root.className='modalRoot open';document.body.classList.add('modalOpen');
+    root.innerHTML=modalMarkup(p);root.className='modalRoot open';
+    if(!document.body.classList.contains('modalOpen')){lockedScroll=scrollY;document.body.style.top=`-${lockedScroll}px`;document.body.classList.add('modalOpen')}
     if(push)history.pushState({mjModal:id},'');
     bindModal();setTimeout(()=>root.querySelector('.modalClose')?.focus(),30);
   }
   function closeModal(useHistory=true){
     const root=document.getElementById('modalRoot');if(!root?.classList.contains('open'))return;
-    root.classList.remove('open');document.body.classList.remove('modalOpen');modalProduct=null;
+    root.classList.remove('open');document.body.classList.remove('modalOpen');document.body.style.top='';scrollTo(0,lockedScroll);modalProduct=null;
     setTimeout(()=>{root.innerHTML='';lastFocus?.focus?.()},280);
     if(useHistory&&modalFromHistory){modalFromHistory=false;history.back()}
   }
@@ -110,6 +113,7 @@
     document.querySelector('[data-clear-filters]').onclick=()=>{active.clear();if(withSearch)document.getElementById('q').value='';run()};
     if(withSearch)document.getElementById('q').addEventListener('input',run);
     document.querySelector('[data-toggle-groups]')?.addEventListener('click',e=>{const gs=[...document.querySelectorAll('[data-group]')],open=gs.some(g=>g.open);gs.forEach(g=>g.open=!open);e.currentTarget.textContent=open?t('Open all','فتح الكل'):t('Close all','إغلاق الكل')});
+    document.querySelectorAll('[data-group]').forEach(g=>{const key=`mj_group_${route()}_${g.querySelector('h2')?.textContent}`;const saved=sessionStorage.getItem(key);if(saved!==null)g.open=saved==='1';g.addEventListener('toggle',()=>sessionStorage.setItem(key,g.open?'1':'0'))});
     run();
   }
   function bindCommon(){
