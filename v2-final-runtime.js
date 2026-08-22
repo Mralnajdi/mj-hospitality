@@ -48,6 +48,28 @@
     });
   }
 
+  function fitHeroToNaturalRatio(root=document) {
+    root.querySelectorAll(".hero").forEach((hero) => {
+      const img = hero.querySelector(":scope > img");
+      if (!img) return;
+      const apply = () => {
+        if (!img.naturalWidth || !img.naturalHeight) return;
+        const width = Math.round(hero.getBoundingClientRect().width || window.innerWidth || img.naturalWidth);
+        if (!width) return;
+        const height = Math.round(width * (img.naturalHeight / img.naturalWidth));
+        hero.style.height = `${height}px`;
+        hero.style.minHeight = `${height}px`;
+        const copy = hero.querySelector(".heroCopy");
+        if (copy) {
+          copy.style.height = `${height}px`;
+          copy.style.minHeight = "0px";
+        }
+      };
+      if (img.complete && img.naturalWidth) apply();
+      else img.addEventListener("load", apply, {once:true});
+    });
+  }
+
   const sourceLink = (source, l) => {
     if (!/^https?:\/\//i.test(source || "")) {
       return `<span class="v2SourceTag">${l==="ar" ? "موثّق من العبوة" : "Package verified"}</span>`;
@@ -159,6 +181,7 @@
     applySimpleTitles(document);
     document.querySelectorAll(".productModal").forEach(removeProductNumbers);
     enforceImageRules(document);
+    fitHeroToNaturalRatio(document);
     removeForbiddenCopy(document);
   }
 
@@ -166,5 +189,10 @@
   obs.observe(document.documentElement, {childList:true,subtree:true});
   document.addEventListener("click", () => setTimeout(applyAll, 30), true);
   window.addEventListener("hashchange", () => setTimeout(applyAll, 30));
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => fitHeroToNaturalRatio(document), 80);
+  });
   setTimeout(applyAll, 0);
 })();
