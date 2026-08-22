@@ -11,18 +11,8 @@
   <title>MJ Hospitality — V2 Preview</title>
   <base href="../" />
   <link rel="icon" href="assets/icon.svg" />
-  <link rel="stylesheet" href="app.css?v=hero-portrait-2" />
-  <link rel="stylesheet" href="v2-preview/v2-final.css?v=d3e2a260" />
-  <style>
-    /* Critical hero override: prevents any cached/legacy overlay layout on iPhone. */
-    .hero{position:relative!important;display:flex!important;flex-direction:column!important;min-height:0!important;height:auto!important;overflow:hidden!important;background:#080806!important}
-    .hero>img{position:relative!important;inset:auto!important;order:1!important;width:100%!important;height:58svh!important;min-height:470px!important;max-height:570px!important;object-fit:cover!important;object-position:center center!important;display:block!important;transform:none!important;transition:none!important}
-    .hero:hover>img{transform:none!important}.hero .shade{display:none!important}
-    .heroCopy{position:relative!important;inset:auto!important;order:2!important;z-index:2!important;min-height:0!important;height:auto!important;display:block!important;padding:24px 18px 10px!important;margin:0!important;background:linear-gradient(180deg,#0a0908,#080806)!important}
-    .hero h1{margin:10px 0 0!important;font-size:clamp(39px,10.5vw,68px)!important;line-height:1!important;text-shadow:none!important}.hero .lead{margin:12px 0 0!important}
-    .heroExplore{position:relative!important;inset:auto!important;order:3!important;align-self:flex-start!important;margin:0 18px 24px!important;padding:8px 0!important}
-    @media(min-width:768px){.hero>img{height:62svh!important;min-height:520px!important;max-height:720px!important}.heroCopy{padding:28px 5vw 12px!important}.heroExplore{margin:0 5vw 28px!important}}
-  </style>
+  <link rel="stylesheet" href="app.css?v=v1-hero-4k" />
+  <link rel="stylesheet" href="v2-preview/v2-final.css?v=v1-hero-4k" />
 </head>
 <body>
   <div id="app" class="app">
@@ -45,12 +35,12 @@
       <button data-go="/collection/sparkling" data-active="/collection/sparkling"><span>✦</span><small data-nav-label="spark">Sparkling</small></button>
     </nav>
   </div>
-  <script src="menu-data.js?v=hero-portrait-2"></script>
-  <script src="menu-extra.js?v=hero-portrait-2"></script>
-  <script src="source-data.js?v=hero-portrait-2"></script>
-  <script src="https://cdn.jsdelivr.net/gh/Mralnajdi/mj-hospitality@8d487c37733ac76145ac16cb14d549f159abae05/v2-final-data.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/Mralnajdi/mj-hospitality@8d487c37733ac76145ac16cb14d549f159abae05/v2-final-patch.js"></script>
-  <script src="app.js?v=hero-portrait-2"></script>
-  <script src="https://cdn.jsdelivr.net/gh/Mralnajdi/mj-hospitality@8d487c37733ac76145ac16cb14d549f159abae05/v2-final-runtime.js"></script>
+  <script src="menu-data.js?v=v1-hero-4k"></script>
+  <script src="menu-extra.js?v=v1-hero-4k"></script>
+  <script src="source-data.js?v=v1-hero-4k"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Mralnajdi/mj-hospitality@2522336724c737aba7ab7000d2909fac2fdb560d/v2-final-data.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Mralnajdi/mj-hospitality@2522336724c737aba7ab7000d2909fac2fdb560d/v2-final-patch.js"></script>
+  <script src="app.js?v=v1-hero-4k"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Mralnajdi/mj-hospitality@2522336724c737aba7ab7000d2909fac2fdb560d/v2-final-runtime.js"></script>
 </body>
 </html>
