@@ -49,7 +49,7 @@
   }
 
   const HERO_SIGNATURE = {
-    home: "assets/heroes-v4/home-natural-qahwa.webp",
+    home: "assets/4k-v2/hero-mj-signature.jpg",
     arabic: "assets/heroes-v4/arabic-natural-qahwa.webp",
     specialty: "assets/home-v2/specialty-mj.webp",
     tea: "assets/home-v2/tea-mj.webp",
@@ -68,10 +68,15 @@
     hero.dataset.v2Hero = key;
     if (target && img.getAttribute("src") !== target) img.setAttribute("src", target);
     img.removeAttribute("srcset");
+    img.setAttribute("sizes", "100vw");
+    img.setAttribute("loading", "eager");
     img.setAttribute("decoding", "async");
     img.setAttribute("fetchpriority", "high");
+    img.setAttribute("draggable", "false");
     img.style.imageRendering = "auto";
     img.style.transform = "none";
+    img.style.filter = "none";
+    hero.querySelectorAll(".heroExplore,.heroCta,.exploreBtn").forEach(el => el.remove());
   }
 
   const sourceLink = (source, l) => {
