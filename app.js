@@ -16,7 +16,8 @@
   const productAssets=[
     '01-zill-shagra','02-zill-original','03-zill-ghamjah','04-air-ricardo','05-tres-dragones','06-pink-bourbon-punch','07-bourbon-sidra-sakura','08-ea-decaf','09-ethiopia-finara','10-sencha-sleepless','11-moroccan-mint','12-japanese-cherry','13-le-touareg','14-marani','15-jasmine-rolls','16-white-lemon-vanilla','17-white-jasmine','18-gourmet-herbal','19-mate-green','20-ginger-turmeric','21-one-for-all','22-chamomile','23-peach-melba','24-cherry-banana','25-berry-heaven','26-strawberry-moringa','27-passion-fruit','28-woodland-berries','29-seleco-cola','30-seleco-raspberry-lemon','31-rosemary-cucumber','32-hibiscus','33-raspberry-blackcurrant','34-cucumber-mint','35-fairview-premium','36-fairview-kaldi','37-java-house-kenya-aa','38-barista-gourmet'
   ];
-  P.forEach((p,i)=>{p._id=slug(p.nameEn);p._index=i;p._sprite=[i%6,Math.floor(i/6)];p._visual=`assets/products-v2/${productAssets[i]}.webp`});
+  const arabicProductAssets=['assets/products-v3/arabic-shagra-mj.webp','assets/products-v3/arabic-original-mj.webp','assets/products-v3/arabic-ghamjah-mj.webp'];
+  P.forEach((p,i)=>{p._id=slug(p.nameEn);p._index=i;p._sprite=[i%6,Math.floor(i/6)];p._visual=arabicProductAssets[i]||`assets/products-v2/${productAssets[i]}.webp`});
   const aliases={'CGLE Tres Dragones':'Methods – CGLE Tres Dragones','Pink Bourbon Punch':'Methods – Pink Bourbon Punch','Bourbon Sidra Sakura':'Methods – Bourbon Sidra Sakura','EA Decaf De Cana':'Methods – EA Decaf De Cana'};
   const extra=p=>E.products?.[p.nameEn]||E.products?.[aliases[p.nameEn]]||{facts:[]};
   const facts=p=>extra(p).facts||[];
