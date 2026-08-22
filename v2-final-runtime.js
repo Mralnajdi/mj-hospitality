@@ -48,26 +48,28 @@
     });
   }
 
-  function fitHeroToNaturalRatio(root=document) {
-    root.querySelectorAll(".hero").forEach((hero) => {
-      const img = hero.querySelector(":scope > img");
-      if (!img) return;
-      const apply = () => {
-        if (!img.naturalWidth || !img.naturalHeight) return;
-        const width = Math.round(hero.getBoundingClientRect().width || window.innerWidth || img.naturalWidth);
-        if (!width) return;
-        const height = Math.round(width * (img.naturalHeight / img.naturalWidth));
-        hero.style.height = `${height}px`;
-        hero.style.minHeight = `${height}px`;
-        const copy = hero.querySelector(".heroCopy");
-        if (copy) {
-          copy.style.height = `${height}px`;
-          copy.style.minHeight = "0px";
-        }
-      };
-      if (img.complete && img.naturalWidth) apply();
-      else img.addEventListener("load", apply, {once:true});
-    });
+  const HERO_4K = {
+    home: "assets/4k/hero-main.jpg",
+    arabic: "assets/4k/arabic.jpg",
+    specialty: "assets/4k/specialty.jpg",
+    tea: "assets/4k/tea.jpg",
+    sparkling: "assets/4k/sparkling.jpg",
+  };
+
+  function upgradeHeroTo4K(root=document) {
+    const img = root.querySelector(".hero > img");
+    if (!img) return;
+    const route = (location.hash.slice(1) || "/").replace(/^([^/])/, "/$1");
+    let key = "home";
+    const m = route.match(/^\/collection\/(arabic|specialty|tea|sparkling)/);
+    if (m) key = m[1];
+    const target = HERO_4K[key];
+    if (!target) return;
+    if (img.getAttribute("src") !== target) img.setAttribute("src", target);
+    img.removeAttribute("srcset");
+    img.setAttribute("decoding", "async");
+    img.setAttribute("fetchpriority", "high");
+    img.style.imageRendering = "auto";
   }
 
   const sourceLink = (source, l) => {
@@ -181,7 +183,7 @@
     applySimpleTitles(document);
     document.querySelectorAll(".productModal").forEach(removeProductNumbers);
     enforceImageRules(document);
-    fitHeroToNaturalRatio(document);
+    upgradeHeroTo4K(document);
     removeForbiddenCopy(document);
   }
 
@@ -189,10 +191,5 @@
   obs.observe(document.documentElement, {childList:true,subtree:true});
   document.addEventListener("click", () => setTimeout(applyAll, 30), true);
   window.addEventListener("hashchange", () => setTimeout(applyAll, 30));
-  let resizeTimer;
-  window.addEventListener("resize", () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => fitHeroToNaturalRatio(document), 80);
-  });
   setTimeout(applyAll, 0);
 })();
