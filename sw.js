@@ -1,4 +1,4 @@
-const CACHE='mj-hospitality-v27';
+const CACHE='mj-hospitality-v28';
 const CORE=['./','index.html','app.css','app.js','menu-data.js','menu-extra.js','source-data.js','manifest.webmanifest','assets/icon.svg','assets/heroes-v4/home-natural-qahwa.webp','assets/heroes-v4/arabic-natural-qahwa.webp','assets/home-v2/arabic-mj.webp','assets/home-v2/specialty-mj.webp','assets/home-v2/tea-mj.webp','assets/home-v2/sparkling-mj.webp','assets/heroes-v2/specialty.webp','assets/heroes-v2/tea.webp','assets/heroes-v2/sparkling.webp'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));

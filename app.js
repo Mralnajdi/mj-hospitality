@@ -97,6 +97,9 @@
     "assets/products-v4/arabic-original-natural.webp",
     "assets/products-v3/arabic-ghamjah-mj.webp",
   ];
+  const brandedProductAssets = {
+    3:"assets/products-v5/04-air-ricardo-mj.webp",4:"assets/products-v5/05-tres-dragones-mj.webp",5:"assets/products-v5/06-pink-bourbon-punch-mj.webp",6:"assets/products-v5/07-bourbon-sidra-sakura-mj.webp",8:"assets/products-v5/09-ethiopia-finara-mj.webp",9:"assets/products-v5/10-sencha-sleepless-mj.webp",10:"assets/products-v5/11-moroccan-mint-mj.webp",12:"assets/products-v5/13-le-touareg-mj.webp",13:"assets/products-v5/14-marani-mj.webp",14:"assets/products-v5/15-jasmine-rolls-mj.webp",15:"assets/products-v5/16-white-lemon-vanilla-mj.webp",16:"assets/products-v5/17-white-jasmine-mj.webp",17:"assets/products-v5/18-gourmet-herbal-mj.webp",18:"assets/products-v5/19-mate-green-mj.webp",19:"assets/products-v5/20-ginger-turmeric-mj.webp",20:"assets/products-v5/21-one-for-all-mj.webp",21:"assets/products-v5/22-chamomile-mj.webp",28:"assets/products-v5/29-cola-mj.webp",30:"assets/products-v5/31-rosemary-cucumber-mj.webp",34:"assets/products-v5/35-fairview-premium-mj.webp",35:"assets/products-v5/36-fairview-kaldi-mj.webp",36:"assets/products-v5/37-java-house-kenya-aa-mj.webp",37:"assets/products-v5/38-barista-gourmet-mj.webp"
+  };
   P.forEach((p, i) => {
     const s = S.products?.[p.nameEn];
     if (s) {
@@ -107,8 +110,7 @@
     p._id = slug(p.nameEn);
     p._index = i;
     p._sprite = [i % 6, Math.floor(i / 6)];
-    p._visual =
-      arabicProductAssets[i] || `assets/products-v2/${productAssets[i]}.webp`;
+    p._visual = arabicProductAssets[i] || brandedProductAssets[i] || `assets/products-v2/${productAssets[i]}.webp`;
   });
   const aliases = {
     "CGLE Tres Dragones": "Methods – CGLE Tres Dragones",
@@ -305,8 +307,10 @@
     const source = s?.source
       ? `<a class="sourceLink" href="${esc(s.source)}" target="_blank" rel="noopener">${esc(t("View official source", "عرض المصدر الرسمي"))} ↗</a>`
       : "";
-    if (!b)
-      return `<section class="recipeCard pendingRecipe"><div class="recipeHead"><div><span class="eyebrow">${esc(t("Recipe & device", "الوصفة والجهاز"))}</span><h3>${esc(t("Validation required", "تحتاج اعتمادًا"))}</h3></div><span class="sourceBadge pending">${esc(badge)}</span></div><p>${esc(t("Exact device settings are not published in an official source yet. No values have been guessed. Add the photographed package or a saved xBloom recipe to validate this profile.", "إعدادات الجهاز الدقيقة غير منشورة في مصدر رسمي حتى الآن، ولم نضع أي أرقام بالتخمين. أضف صورة العبوة أو وصفة xBloom المحفوظة لاعتماد هذا الملف."))}</p>${source}</section>`;
+    if (!b) {
+      const device = p.cat === "specialty" ? "xBloom Studio + Omni Dripper 2" : p.cat === "tea" ? "xBloom Studio + Omni Tea Brewer" : p.cat === "sparkling" ? t("Manual bar + MJ soda siphon", "تحضير يدوي + سيفون MJ") : t("Arabic coffee brewer / dallah", "جهاز القهوة العربية / الدلة");
+      return `<section class="recipeCard pendingRecipe"><div class="recipeHead"><div><span class="eyebrow">${esc(t("Recipe & device", "الوصفة والجهاز"))}</span><h3>${esc(device)}</h3></div><span class="sourceBadge pending">${esc(badge)}</span></div><p><b>${esc(t("Workflow:", "آلية العمل:"))}</b> ${esc(t("Prepare on the named device after validating the product-specific dose, water, temperature and timing from the package or saved device recipe.", "يُحضّر على الجهاز الموضح بعد اعتماد جرعة المنتج والماء والحرارة والوقت من العبوة أو وصفة الجهاز المحفوظة."))}</p><p>${esc(t("Exact device settings are not published in an official source yet. No values have been guessed. Add the photographed package or a saved xBloom recipe to validate this profile.", "إعدادات الجهاز الدقيقة غير منشورة في مصدر رسمي حتى الآن، ولم نضع أي أرقام بالتخمين. أضف صورة العبوة أو وصفة xBloom المحفوظة لاعتماد هذا الملف."))}</p>${source}</section>`;
+    }
     const volumes = [120, 240, 360]
       .map((v) => {
         const grams = ((b.gpl * v) / 1000)

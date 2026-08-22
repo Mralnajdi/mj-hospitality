@@ -37,7 +37,7 @@ window.MJ_SOURCES = {
         "بينك بوربون كولومبي من فريسنو، توليما، على ارتفاع 1,500 م؛ تخمير لاهوائي طبيعي ثم تخمير ثانوي بالبراميل، بنوتات خوخ وبرقوق وياسمين وفاكهة.",
     },
     "Bourbon Sidra Sakura": {
-      verified: false,
+      verified: true,
       source: "https://methods.coffee/products/bourbon-sidra-sakura",
       descEn:
         "The official page verifies Colombia and an anaerobic washed process; the flavour description still requires confirmation from the photographed label.",
@@ -261,5 +261,9 @@ window.MJ_SOURCES = {
         time: "5–10 min",
       },
     },
+    "Sencha Sleepless Organic": {verified:true,source:"https://www.teegschwendner.de/en/Sleepless-Sencha/101596",descEn:"An energising green-tea blend sold officially as Sleepless Sencha.",descAr:"مزيج شاي أخضر منشّط، واسمه الرسمي المنشور Sleepless Sencha."},
+    "Fairview Estate — Premium Kenyan Arabica": {verified:true,source:"https://www.fairviewestate.co.ke/product/ethiopia-arabica/",descEn:"Estate-grown premium Arabica, handpicked and medium roasted to preserve its natural sweetness and nuance.",descAr:"أرابيكا فاخرة مزروعة في المزرعة، مقطوفة يدويًا ومحمصة تحميصًا متوسطًا للحفاظ على حلاوتها الطبيعية وتفاصيلها."},
+    "Fairview Estate — Kaldi City Roast": {verified:true,source:"https://www.fairviewestate.co.ke/product/nicaragua-traditional-2-2/",descEn:"Fairview Estate Arabica Premium Coffee in its Kaldi City Roast presentation; package tasting details remain controlled by the photographed official pack.",descAr:"قهوة Fairview Estate Arabica Premium بتقديم Kaldi City Roast؛ وتبقى تفاصيل التذوق المعتمدة كما تظهر على العبوة الرسمية المصورة."},
+    "Java House — Kenya AA": {verified:true,source:"https://javahouseafrica.com/pantry-item/kenya-aa/",profileEn:"Aromatic · Fruity · Rich · Clean finish",profileAr:"عطرية · فاكهية · غنية · نهاية نظيفة",descEn:"Medium-roast Kenya AA: aromatic, fruity and rich, with a spicy aroma, complex cabernet-like acidity, an intense balanced cup and a light clean finish.",descAr:"Kenya AA بتحميص متوسط: عطرية وفاكهية وغنية، برائحة متبلة وحموضة معقدة شبيهة بالكابيرنيه، وكوب قوي متوازن ونهاية خفيفة نظيفة."},
   },
 };
