@@ -1,0 +1,38 @@
+/* V2 final candidate — additive only. V1 remains untouched on branch v1. */
+.v2RecipeCard{
+  margin:26px 0 6px;
+  padding:22px;
+  border:1px solid rgba(218,183,112,.28);
+  border-radius:24px;
+  background:
+    radial-gradient(circle at 100% 0,rgba(218,183,112,.10),transparent 34%),
+    linear-gradient(145deg,rgba(24,21,16,.98),rgba(12,11,9,.98));
+  box-shadow:0 20px 55px rgba(0,0,0,.30);
+}
+.v2RecipeHead{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:18px;
+  padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.08)
+}
+.v2RecipeHead h3{margin:5px 0 7px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(22px,4vw,31px);font-weight:500}
+.v2RecipeHead p{margin:0;color:rgba(247,241,229,.70);font-size:13px}
+.v2RecipeHead p strong{color:#f6efdf;font-weight:600}
+.v2Eyebrow{color:#d5b170;text-transform:uppercase;letter-spacing:.13em;font-size:10px;font-weight:800}
+.v2Verified{flex:0 0 auto;padding:8px 10px;border-radius:999px;border:1px solid rgba(218,183,112,.28);background:rgba(218,183,112,.08);color:#e5c887;font-size:11px;font-weight:800;white-space:nowrap}
+.v2Metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:17px 0}
+.v2Metric{min-height:68px;padding:11px 12px;border-radius:15px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07)}
+.v2Metric span{display:block;color:rgba(247,241,229,.56);font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+.v2Metric b{display:block;margin-top:5px;color:#f8f1e4;font-size:13px;line-height:1.35}
+.v2Steps{margin-top:18px;padding:16px;border-radius:18px;background:rgba(0,0,0,.17);border:1px solid rgba(255,255,255,.055)}
+.v2Steps h4{margin:0 0 12px;color:#d6b474;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.v2Steps ol{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.v2Steps li{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start}
+.v2Steps li>span{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:rgba(218,183,112,.11);border:1px solid rgba(218,183,112,.25);color:#e5c887;font-size:11px;font-weight:800}
+.v2Steps li p{margin:3px 0 0;color:rgba(247,241,229,.78);font-size:12.5px;line-height:1.55}
+.v2Basis{margin:14px 0 0;color:rgba(247,241,229,.52);font-size:11px;line-height:1.55}
+.v2Sources{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
+.v2SourceLink,.v2SourceTag{display:inline-flex;align-items:center;min-height:34px;padding:7px 11px;border-radius:999px;border:1px solid rgba(218,183,112,.24);background:rgba(218,183,112,.07);color:#dec080;text-decoration:none;font-size:10.5px;font-weight:750}
+.v2SourceLink.secondary{color:rgba(247,241,229,.72);border-color:rgba(255,255,255,.12);background:rgba(255,255,255,.035)}
+html[dir="rtl"] .v2RecipeCard{text-align:right}
+html[dir="rtl"] .v2Steps li{grid-template-columns:28px 1fr}
+@media(max-width:700px){.v2RecipeCard{padding:16px;border-radius:20px}.v2RecipeHead{gap:10px}.v2Metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:420px){.v2Metrics{grid-template-columns:1fr 1fr}.v2Verified{font-size:9px}}
