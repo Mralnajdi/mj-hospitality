@@ -74,14 +74,14 @@
   }
 
   function identifyProduct(modal){
-    const title = norm(modal.querySelector(".modalTitleRow h2, h2")?.textContent || "");
+    const title=norm(modal.querySelector(".modalTitleRow h2, h2")?.textContent||"");
     if(!title) return null;
     return M.products.find(p=>{
       const candidates=[p.nameEn,p.nameAr,p._displayBase?.en,p._displayBase?.ar,
-        p._maker?.en && `${p._displayBase?.en||p.nameEn} - ${p._maker.en}`,
-        p._maker?.ar && `${p._displayBase?.ar||p.nameAr} - ${p._maker.ar}`].filter(Boolean).map(norm);
-      return candidates.some(c=>c.length>=3 && (title===c || title.includes(c) || c.includes(title)));
-    }) || null;
+        p._maker?.en&&`${p._displayBase?.en||p.nameEn} - ${p._maker.en}`,
+        p._maker?.ar&&`${p._displayBase?.ar||p.nameAr} - ${p._maker.ar}`].filter(Boolean).map(norm);
+      return candidates.some(c=>c.length>=3&&(title===c||title.includes(c)||c.includes(title)));
+    })||null;
   }
 
   function classify(note,kind){
@@ -90,7 +90,7 @@
   }
 
   function familyLabel(kind,key){
-    const pair=CATEGORIES[kind][key] || CATEGORIES[kind].other;
+    const pair=CATEGORIES[kind][key]||CATEGORIES[kind].other;
     return tr(pair[0],pair[1]);
   }
 
@@ -101,7 +101,7 @@
 
     const notesEn=splitProfile(product.profileEn);
     const notesAr=splitProfile(product.profileAr);
-    const usable=notesEn.filter(n=>n.length>1 && !/^medium roast$|^hand roasted$|^beans?$|^whole beans?$|^decaf$/i.test(n));
+    const usable=notesEn.filter(n=>n.length>1&&!/^medium roast$|^hand roasted$|^beans?$|^whole beans?$|^decaf$/i.test(n));
     if(!usable.length) return {kind,pending:true,notesEn:[],notesAr:[],families:[],explicit:[]};
 
     const counts=new Map();
@@ -111,8 +111,8 @@
     });
     const total=usable.length;
     const families=[...counts.entries()].map(([key,count])=>({
-      key,count,pct:Math.round(count*100/total),color:PALETTE[kind][key]||PALETTE[kind].other
-    })).sort((a,b)=>b.count-a.count || a.key.localeCompare(b.key));
+      key,count,pct:Math.round(count*100/total),pctRaw:(count*100/total),color:PALETTE[kind][key]||PALETTE[kind].other
+    })).sort((a,b)=>b.count-a.count||a.key.localeCompare(b.key));
 
     const declaredText=`${product.profileEn||""} ${product.descEn||""}`;
     const explicit=[];
@@ -122,15 +122,15 @@
       [/finish|aftertaste/i,["Finish","النهاية"]],
       [/aroma|aromatic/i,["Aroma","العطر"]],
       [/sweet|sweetness|caramel|honey|sugar/i,["Sweetness","الحلاوة"]]
-    ].forEach(([re,label])=>{ if(re.test(declaredText)) explicit.push(label); });
+    ].forEach(([re,label])=>{if(re.test(declaredText)) explicit.push(label);});
 
     return {kind,pending:false,notesEn:usable,notesAr,families,explicit};
   }
 
-  function noteChip(note,kind){
-    const key=classify(note,kind);
+  function noteChip(displayNote,kind,sourceNote){
+    const key=classify(sourceNote||displayNote,kind);
     const color=PALETTE[kind][key]||PALETTE[kind].other;
-    return `<span class="v4DeclaredNote" style="--accent:${color}">${esc(note)}</span>`;
+    return `<span class="v4DeclaredNote" style="--accent:${color}">${esc(displayNote)}</span>`;
   }
 
   function pendingMarkup(kind){
@@ -145,11 +145,12 @@
     if(!d) return "";
     if(d.pending) return pendingMarkup(d.kind);
 
-    const notes=(isAr() && d.notesAr.length===d.notesEn.length)?d.notesAr:d.notesEn;
-    const spectrum=d.families.map(f=>`<span class="v4SpectrumSeg" style="--accent:${f.color};width:${f.pct}%" title="${esc(familyLabel(d.kind,f.key))} ${f.pct}%"></span>`).join("");
+    const useArabic=isAr()&&d.notesAr.length===d.notesEn.length;
+    const notes=useArabic?d.notesAr:d.notesEn;
+    const spectrum=d.families.map(f=>`<span class="v4SpectrumSeg" style="--accent:${f.color};width:${f.pctRaw.toFixed(4)}%" title="${esc(familyLabel(d.kind,f.key))} ${f.pct}%"></span>`).join("");
     const bars=d.families.map(f=>`<div class="v4BarRow" style="--accent:${f.color}">
       <div class="v4BarTop"><div class="v4BarName"><i class="v4BarDot"></i><span>${esc(familyLabel(d.kind,f.key))}</span></div><strong class="v4BarPct">${f.pct}%</strong></div>
-      <div class="v4BarTrack"><div class="v4BarFill" style="--pct:${f.pct}%"></div></div>
+      <div class="v4BarTrack"><div class="v4BarFill" style="--pct:${f.pctRaw.toFixed(4)}%"></div></div>
       <div class="v4BarMeta"><span>${esc(tr(`${f.count} of ${d.notesEn.length} declared notes`,`${f.count} من ${d.notesEn.length} إيحاءات معلنة`))}</span><strong>${esc(tr("descriptor share","حصة الإيحاءات"))}</strong></div>
     </div>`).join("");
     const explicit=d.explicit.length?`<div class="v4Explicit">${d.explicit.map(pair=>`<span>${esc(tr(pair[0],pair[1]))}</span>`).join("")}</div>`:"";
@@ -157,7 +158,7 @@
     return `<section class="v4Sensory" data-v4-sensory>
       <div class="v4SensoryHead"><div><div class="v4SensoryEyebrow">V4 · ${esc(tr("Sensory profile","الملف الحسي"))}</div><h3>${esc(tr("Official sensory signature","البصمة الحسية الرسمية"))}</h3><p>${esc(tr("Official descriptors visualized as a clear color spectrum — no invented intensity scores.","الإيحاءات الرسمية معروضة كطيف لوني واضح — بدون اختراع درجات شدة."))}</p></div><div class="v4SensoryStandard">${esc(d.kind==="coffee"?COFFEE_STANDARD:TEA_STANDARD)}</div></div>
       <div class="v4DeclaredLabel">${esc(tr("Declared notes","الإيحاءات المعلنة"))}</div>
-      <div class="v4DeclaredNotes">${notes.map(n=>noteChip(n,d.kind)).join("")}</div>
+      <div class="v4DeclaredNotes">${notes.map((n,i)=>noteChip(n,d.kind,d.notesEn[i]||n)).join("")}</div>
       <div class="v4SensoryPanel">
         <div class="v4PanelTitle"><b>${esc(tr("Sensory spectrum","الطيف الحسي"))}</b><span>${esc(tr("share of official declared descriptors","نسبة الإيحاءات الرسمية المعلنة"))}</span></div>
         <div class="v4Spectrum" aria-label="${esc(tr("Sensory descriptor distribution","توزيع الإيحاءات الحسية"))}">${spectrum}</div>
@@ -169,9 +170,9 @@
   }
 
   function attach(modal){
-    if(!modal || modal.querySelector("[data-v4-sensory]")) return;
+    if(!modal||modal.querySelector("[data-v4-sensory]")) return;
     const product=identifyProduct(modal);
-    if(!product || !["specialty","tea"].includes(product.cat)) return;
+    if(!product||!["specialty","tea"].includes(product.cat)) return;
     const story=modal.querySelector(".modalContent .story");
     if(!story) return;
     story.insertAdjacentHTML("afterend",markup(product));
