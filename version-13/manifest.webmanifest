@@ -1,0 +1,17 @@
+{
+  "name": "MJ Hospitality — Edition 13",
+  "short_name": "MJ Hospitality",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#080806",
+  "theme_color": "#080806",
+  "icons": [
+    {
+      "src": "../assets/hero-main.jpg",
+      "sizes": "any",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}
