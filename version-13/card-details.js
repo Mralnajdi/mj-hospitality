@@ -151,8 +151,8 @@
     const sig = `${p._id}|${isAr()?'ar':'en'}|health-v1`;
     if (benefits.dataset.v9Sig === sig) return;
     benefits.dataset.v9Sig = sig;
-    head.innerHTML = `<span>${(p.edition13?tr('Product profile','طابع المنتج'):(p.edition13?tr('Product profile','طابع المنتج'):tr('Health benefits','الفائدة الصحية')))}</span>${icons.leaf}`;
-    benefits.setAttribute('aria-label', tr('Health benefits','الفائدة الصحية'));
+    head.innerHTML = `<span>${(p.edition13?tr('Product profile','طابع المنتج'):tr('Health benefits','الفائدة الصحية'))}</span>${icons.leaf}`;
+    benefits.setAttribute('aria-label', p.edition13?tr('Product profile','طابع المنتج'):tr('Health benefits','الفائدة الصحية'));
     grid.innerHTML = healthBenefits(p).map(b => `<div class="v8BenefitItem">${icons[b.icon] || icons.leaf}<span>${tr(b.en,b.ar)}</span></div>`).join('');
   }
 
