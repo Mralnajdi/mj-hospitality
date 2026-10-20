@@ -209,7 +209,7 @@
     "serveAr": "ساخن / بارد",
     "timeEn": "",
     "timeAr": "",
-    "image": "https://www.teegschwendner.de/media/26/ee/83/1784022933/1253_Preview.jpg",
+    "image": "https://www.tgtea-kw.com/cdn/shop/products/1253_L_100x.jpg?v=1742210559",
     "brand": "TeaGschwendner",
     "source": "https://www.teegschwendner.de/en/Ginger-Lemongrass-organic/1253",
     "details": [
@@ -275,7 +275,7 @@
     "serveAr": "ساخن / بارد",
     "timeEn": "",
     "timeAr": "",
-    "image": "https://www.teegschwendner.de/media/8a/5c/9f/1786534386/1297_Preview.jpg",
+    "image": "https://www.tgtea-kw.com/cdn/shop/products/Ayuveda_Tea_Kapha_Organic_No.1297_loose.jpg?v=1791895771&width=1946",
     "brand": "TeaGschwendner",
     "source": "https://www.teegschwendner.de/Ayurveda-Kapha-BIO/1297-parent",
     "details": [
@@ -308,7 +308,7 @@
     "serveAr": "ساخن / بارد",
     "timeEn": "",
     "timeAr": "",
-    "image": "https://www.teegschwendner.de/media/e1/83/76/1786533748/988_Preview.jpg",
+    "image": "https://www.tgtea-kw.com/cdn/shop/files/988_Additional_2_280x280_4c9c14b7-e0b7-4ff2-a12e-2ae61306f789_100x.jpg?v=1728895803",
     "brand": "TeaGschwendner",
     "source": "https://www.teegschwendner.de/en/Pineapple-Mango/100988",
     "details": [
@@ -341,7 +341,7 @@
     "serveAr": "ساخن / بارد",
     "timeEn": "",
     "timeAr": "",
-    "image": "https://www.teegschwendner.de/media/ab/d4/7a/1786532637/517_Preview.jpg",
+    "image": "https://www.tgtea-kw.com/cdn/shop/products/517_L.jpg?v=1763297847&width=1946",
     "brand": "TeaGschwendner",
     "source": "https://www.teegschwendner.de/en/China-Yin-Zhen-Organic/517",
     "details": [
