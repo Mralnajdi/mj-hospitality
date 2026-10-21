@@ -422,8 +422,8 @@
     "edition14": true
   },
   {
-    "nameEn": "Zill Kenya",
-    "nameAr": "زِل كينيا",
+    "nameEn": "Zill Kenya Capsules",
+    "nameAr": "كبسولات زِل كينيا",
     "cat": "arabic",
     "subEn": "Zill Collection",
     "subAr": "مجموعة زِل",
