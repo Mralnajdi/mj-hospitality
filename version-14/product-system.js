@@ -220,7 +220,7 @@
   }
 
   function officialPane(p, source) {
-    if(p.nameEn==="Zill Kenya") return '<div class="v6Empty">'+esc(tr("Use only with the Zill Coffee machine. Each capsule serves 10–12 finjal. Contains milk derivatives.","تُستخدم مع آلة قهوة زِل فقط. كل كبسولة تحضّر ١٠–١٢ فنجالًا. تحتوي على مشتقات الحليب."))+'</div>';
+    if(p.brandEn==="Zill" && p.edition14) return '<div class="v6Empty">'+esc(tr("Use only with the Zill Coffee machine. Each capsule serves 10–12 finjal. Contains milk derivatives.","تُستخدم مع آلة قهوة زِل فقط. كل كبسولة تحضّر ١٠–١٢ فنجالًا. تحتوي على مشتقات الحليب."))+'</div>';
     const b = source?.brew;
     if (p.cat === "tea" && b) {
       const sizes = [1000,360,240,120];
