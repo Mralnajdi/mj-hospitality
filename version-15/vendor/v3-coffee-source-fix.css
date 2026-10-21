@@ -1,0 +1,5 @@
+/* V3 coffee source selector interaction fix */
+.xboSourceRow>div{cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:manipulation;outline:none;transition:background .16s ease,color .16s ease,box-shadow .16s ease,transform .12s ease}
+.xboSourceRow>div:active{transform:scale(.985)}
+.xboSourceRow>div:focus-visible{box-shadow:inset 0 0 0 2px rgba(255,255,255,.85),0 0 0 2px rgba(208,151,153,.35)}
+.xboSourceRow>div.selected{box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
