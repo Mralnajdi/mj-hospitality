@@ -25,12 +25,14 @@
     modalFromHistory = false,
     lastFocus = null,
     lockedScroll = 0;
-  const clean = (s) =>
-    String(s ?? "")
-      .replace(/\b(?:Zill|Seleco)\b/gi, "")
+  const clean = (s) => {
+    const raw=String(s ?? "");
+    if (/^(?:Zill|Zill Coffee)$/i.test(raw) || /Zill Kenya Capsules|Zill's signature blend|خلطة زِل|كبسولات زِل كينيا/i.test(raw)) return raw;
+    return raw.replace(/\b(?:Zill|Seleco)\b/gi, "")
       .replace(/(?:زِل|زل|سيليكو|سيليو)/g, "")
       .replace(/\s{2,}/g, " ")
       .trim();
+  };
   const ar = () => lang === "ar",
     t = (en, a) => clean(ar() ? a : en);
   const esc = (s) =>
