@@ -14,3 +14,5 @@ button,input,select,a{-webkit-tap-highlight-color:transparent;touch-action:manip
 @media print{.detailPager{display:none!important}}
 .productPager{padding:10px 70px 10px 18px!important}.productModal>.modalContent{padding-top:90px!important}
 @media(max-width:699px){.productPager{padding:8px 64px 8px 12px!important}.productModal>.modalContent{padding-top:22px!important}}
+.productModal>.modalClose{right:12px!important;left:auto!important;inset-inline-end:auto!important;inset-inline-start:auto!important;right:12px!important;left:auto!important}
+.detailPager small{direction:ltr;unicode-bidi:isolate}
