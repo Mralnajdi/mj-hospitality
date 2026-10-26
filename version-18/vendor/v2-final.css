@@ -1,0 +1,35 @@
+/* V2 final candidate — additive only. V1 remains untouched on branch v1. */
+.pendingRecipe{display:none!important}
+
+/* HERO — restored to Version 1 geometry. */
+.hero{position:relative!important;min-height:70svh!important;height:auto!important;overflow:hidden!important;background:#0b0a08!important}
+.hero>img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center top!important;background:#050504!important;display:block!important;transform:none!important;transition:none!important;filter:none!important;image-rendering:auto!important}
+.hero:hover>img{transform:none!important}
+.hero .shade{display:block!important;position:absolute!important;inset:0!important;z-index:1!important;background:linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.25) 42%,rgba(0,0,0,.93) 90%,#080806)!important;pointer-events:none!important}
+.heroCopy{position:relative!important;z-index:2!important;min-height:70svh!important;height:auto!important;display:flex!important;flex-direction:column!important;justify-content:flex-end!important;padding:26px 18px 62px!important;margin:0!important;background:transparent!important;left:auto!important;right:auto!important;bottom:auto!important;top:auto!important;width:auto!important;max-width:none!important}
+html[dir="rtl"] .heroCopy{text-align:right!important}
+html[dir="ltr"] .heroCopy{text-align:left!important}
+.hero .eyebrow{color:#c9a86a!important;font-size:10px!important;letter-spacing:.2em!important;text-transform:uppercase!important;margin:0!important;text-shadow:none!important}
+.hero h1{font-size:clamp(45px,12vw,78px)!important;line-height:.96!important;margin:12px 0 0!important;color:#fff8ee!important;text-shadow:0 6px 24px #000!important;max-width:none!important;font-weight:400!important}
+.hero .lead{max-width:680px!important;color:rgba(244,237,227,.76)!important;font-size:14px!important;line-height:1.72!important;margin:14px 0 0!important;text-shadow:none!important}
+.heroExplore,.hero .heroExplore,.heroCta,.exploreBtn{display:none!important;visibility:hidden!important}
+@media(max-width:430px){.hero{min-height:70svh!important}.heroCopy{min-height:70svh!important;padding:26px 18px 62px!important}.hero h1{font-size:clamp(45px,12vw,78px)!important}.hero .lead{font-size:14px!important;line-height:1.72!important;max-width:680px!important}}
+
+.v2MakerLine{display:flex;align-items:center;gap:8px;margin:8px 0 2px;color:#dbc08a;font-size:11px;line-height:1.35}
+.v2MakerLine span{color:#8f8679;font-size:9px;letter-spacing:.08em;text-transform:uppercase}
+.v2MakerLine b{font-weight:650;color:#e5c887}
+.productTile .v2MakerLine{margin-top:7px}
+.productModal .v2MakerLine{margin:2px 0 12px;font-size:13px}
+.productModal .v2MakerLine span{font-size:10px}
+.v2RecipeCard{margin:26px 0 6px;padding:22px;border:1px solid rgba(218,183,112,.28);border-radius:24px;background:radial-gradient(circle at 100% 0,rgba(218,183,112,.10),transparent 34%),linear-gradient(145deg,rgba(24,21,16,.98),rgba(12,11,9,.98));box-shadow:0 20px 55px rgba(0,0,0,.30)}
+.v2RecipeHead{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.08)}
+.v2RecipeHead h3{margin:5px 0 7px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(22px,4vw,31px);font-weight:500}
+.v2RecipeHead p{margin:0;color:rgba(247,241,229,.70);font-size:13px}.v2RecipeHead p strong{color:#f6efdf;font-weight:600}
+.v2Eyebrow{color:#d5b170;text-transform:uppercase;letter-spacing:.13em;font-size:10px;font-weight:800}
+.v2Verified{flex:0 0 auto;padding:8px 10px;border-radius:999px;border:1px solid rgba(218,183,112,.28);background:rgba(218,183,112,.08);color:#e5c887;font-size:11px;font-weight:800;white-space:nowrap}
+.v2Metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:17px 0}.v2Metric{min-height:68px;padding:11px 12px;border-radius:15px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07)}
+.v2Metric span{display:block;color:rgba(247,241,229,.56);font-size:10px;text-transform:uppercase;letter-spacing:.08em}.v2Metric b{display:block;margin-top:5px;color:#f8f1e4;font-size:13px;line-height:1.35}
+.v2Steps{margin-top:18px;padding:16px;border-radius:18px;background:rgba(0,0,0,.17);border:1px solid rgba(255,255,255,.055)}.v2Steps h4{margin:0 0 12px;color:#d6b474;font-size:12px;letter-spacing:.08em;text-transform:uppercase}.v2Steps ol{list-style:none;padding:0;margin:0;display:grid;gap:10px}.v2Steps li{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start}.v2Steps li>span{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:rgba(218,183,112,.11);border:1px solid rgba(218,183,112,.25);color:#e5c887;font-size:11px;font-weight:800}.v2Steps li p{margin:3px 0 0;color:rgba(247,241,229,.78);font-size:12.5px;line-height:1.55}
+.v2Basis{margin:14px 0 0;color:rgba(247,241,229,.52);font-size:11px;line-height:1.55}.v2Sources{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}.v2SourceLink,.v2SourceTag{display:inline-flex;align-items:center;min-height:34px;padding:7px 11px;border-radius:999px;border:1px solid rgba(218,183,112,.24);background:rgba(218,183,112,.07);color:#dec080;text-decoration:none;font-size:10.5px;font-weight:750}.v2SourceLink.secondary{color:rgba(247,241,229,.72);border-color:rgba(255,255,255,.12);background:rgba(255,255,255,.035)}
+html[dir="rtl"] .v2RecipeCard{text-align:right}html[dir="rtl"] .v2Steps li{grid-template-columns:28px 1fr}
+@media(max-width:700px){.v2RecipeCard{padding:16px;border-radius:20px}.v2RecipeHead{gap:10px}.v2Metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:420px){.v2Metrics{grid-template-columns:1fr 1fr}.v2Verified{font-size:9px}}

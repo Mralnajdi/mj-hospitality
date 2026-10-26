@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#080806" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="MJ Hospitality" />
+  <meta name="description" content="MJ Hospitality — Edition 18" />
+  <title>MJ Hospitality — الإصدار الثامن عشر</title>
+  <base href="../" />
+  <link rel="icon" href="assets/icon.svg" />
+  <link rel="manifest" href="version-18/manifest.webmanifest" />
+  <link id="mjTouchIcon" rel="apple-touch-icon" href="assets/hero-main.jpg" />
+  <script>
+    (() => {
+      const touchIcon = document.getElementById('mjTouchIcon');
+      const hero = new Image();
+      hero.src = 'assets/hero-main.jpg';
+      hero.onload = () => {
+        try {
+          const side = Math.min(hero.naturalWidth, hero.naturalHeight);
+          const sx = Math.max(0, Math.round((hero.naturalWidth - side) / 2));
+          const sy = Math.max(0, Math.round((hero.naturalHeight - side) / 2));
+          const canvas = document.createElement('canvas');
+          canvas.width = 512;
+          canvas.height = 512;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(hero, sx, sy, side, side, 0, 0, 512, 512);
+          touchIcon.href = canvas.toDataURL('image/png');
+        } catch (_) {
+          touchIcon.href = 'assets/hero-main.jpg';
+        }
+      };
+    })();
+  </script>
+  <link rel="stylesheet" href="version-18/vendor/app.css" />
+  <link rel="stylesheet" href="version-18/vendor/v2-final.css" />
+  <link rel="stylesheet" href="version-18/vendor/v2-hero-match-main.css" />
+  <link rel="stylesheet" href="version-18/vendor/v3-xbloom-official.css" />
+  <link rel="stylesheet" href="version-18/vendor/v3-coffee-source-fix.css" />
+  <link rel="stylesheet" href="version-18/vendor/v4-sensory.css" />
+  <link rel="stylesheet" href="version-18/vendor/v4-xbloom-app.css" />
+  <link rel="stylesheet" href="version-18/review.css" />
+<link rel="stylesheet" href="version-18/ice.css">
+<link rel="stylesheet" href="version-18/quality.css">
+</head>
+<body>
+  <div id="app" class="app">
+    <header class="topbar">
+      <button id="backBtn" class="btn iconBtn" type="button" aria-label="Back" hidden>‹</button>
+      <button id="brandBtn" class="brand" type="button" aria-label="Home" title="Home"><span class="brandMark">MJ</span><span class="brandCopy">PRIVATE<br /><b>HOSPITALITY COLLECTION</b></span></button>
+      <div class="actions"><button id="searchBtn" class="btn iconBtn" type="button" aria-label="Search">⌕</button><button id="langBtn" class="btn" type="button">عربي</button></div>
+    </header>
+    <main id="main" aria-live="polite"></main>
+    <nav class="bottomNav">
+      <button data-go="/" data-active="/"><span>⌂</span><small data-nav-label="home">Home</small></button>
+      <button data-go="/collection/arabic" data-active="/collection/arabic"><span>◒</span><small data-nav-label="arabic">Arabic</small></button>
+      <button data-go="/collection/specialty" data-active="/collection/specialty"><span>◉</span><small data-nav-label="coffee">Coffee</small></button>
+      <button data-go="/collection/tea" data-active="/collection/tea"><span>♨</span><small data-nav-label="tea">Tea</small></button>
+      <button data-go="/collection/sparkling" data-active="/collection/sparkling"><span>✦</span><small data-nav-label="spark">Sparkling</small></button>
+    <button data-go="/icecream" data-active="/icecream"><span>♧</span><small data-nav-label="ice">Ice Cream</small></button>
+    </nav>
+  </div>
+  <script src="version-18/vendor/menu-data.js"></script>
+  <script src="version-18/vendor/menu-extra.js"></script>
+  <script src="version-18/vendor/source-data.js"></script>
+  <script src="version-18/vendor/new-coffee.js"></script>
+  <script src="version-18/vendor/v2-final-data.js"></script>
+  <script src="version-18/vendor/v2-final-patch.js"></script>
+  <script src="version-18/products.js"></script>
+  <script src="version-18/artwork.js"></script>
+  <script src="version-18/corrected-art.js"></script>
+  <script src="version-18/reviewed-data.js"></script>
+  <script src="version-18/tea-art.js"></script>
+  <script src="version-18/ice-data.js"></script>
+  <script src="version-18/ice.js"></script>
+  <script src="version-18/start.js"></script>
+<script src="version-18/image-viewer.js"></script>
+</body>
+</html>
