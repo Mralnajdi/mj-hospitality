@@ -254,6 +254,8 @@
   }
 
   function xbloomPane(p, source) {
+    if(p.xbloomLinks?.length)return `<div class="v6Empty"><p>${esc(tr('Open the roaster’s official shared recipe. Exact settings remain in xBloom.','افتح وصفة المحمصة الرسمية؛ الإعدادات الدقيقة داخل xBloom.'))}</p><div class="v6Actions">${p.xbloomLinks.map(link=>`<a class="v6Action" href="${esc(link.url)}" target="_blank" rel="noopener">${esc(tr(link.labelEn,link.labelAr))} ↗</a>`).join('')}</div></div>`;
+
     if (p.cat === "specialty" && !exactXbloom[p.nameEn]) return '<div class="v6Empty">'+esc(tr("No exact xBloom machine recipe is verified for this product. Save your own settings in Custom.","لم تُوثّق وصفة جهاز xBloom حرفية لهذا المنتج. يمكنك حفظ إعداداتك في Custom."))+'</div>';
 
     const exact = exactXbloom[p.nameEn];
