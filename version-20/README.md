@@ -33,3 +33,7 @@ Machine filters indicate the preparation equipment, not the existence of an exac
 ## Remaining content work
 
 This is the filter release. Recipe quantities, photographs and source image dimensions are inherited from Edition 19. It does not complete the 17 name-only recipe entries, the three partial notebook notes, or provide higher-resolution source photos. No image was upscaled or represented as native 4K.
+
+## In-place ribbon update
+
+Two horizontal scrolling ribbons replace expanded filter panels. All options remain directly available; filter dimensions and original AND/OR behavior remain. Added three source-complete Ninja Swirl recipes: natural mango, coconut mango and the manufacturer’s optional chilli variation. Sources linked per recipe. Twenty-four quantified records and fourteen name-only records remain. All images are still below native 4K; audited dimensions are not represented as 4K. Native source generation requires a currently unavailable higher-resolution path.

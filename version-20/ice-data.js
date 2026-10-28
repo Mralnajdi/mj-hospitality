@@ -125,25 +125,62 @@ window.MJ_ICE_DATA={
         "classic",
         "fresh"
       ],
-      "image": null,
-      "ingredients": [],
-      "state": "name-only",
+      "image": "mango-natural-master",
+      "ingredients": [
+        {
+          "name": [
+            "لب مانجو معلب",
+            "Tinned mango pulp"
+          ],
+          "qty": 400,
+          "unit": "g",
+          "optional": false
+        }
+      ],
+      "state": "quantified",
       "method": "Sorbet",
-      "basis": "pdf-name",
+      "basis": "published",
       "sourceFile": "5B3564DC.pdf",
       "sourcePage": 1,
-      "devices": [],
-      "program": {},
-      "batch": 0,
+      "devices": [
+        "swirl"
+      ],
+      "program": {
+        "swirl": "SCOOP → SORBET"
+      },
+      "batch": 473,
       "desc": [
         "مانجو بطعمها الصافي.",
         "Pure mango flavour."
       ],
       "notes": [
-        "",
-        ""
+        "وصفة Ninja المنشورة لجهاز Swirl. لم تُسجل كتجربة شخصية.",
+        "Ninja’s published Swirl recipe; not recorded as personally tested."
       ],
-      "steps": []
+      "steps": [
+        [
+          "اسكب لب المانجو في العلبة المغلقة من الأسفل؛ لا تتجاوز MAX FILL.",
+          "Pour mango pulp into the tub with its base closed; do not exceed MAX FILL."
+        ],
+        [
+          "جمّد العلبة مستوية ٢٤ ساعة.",
+          "Freeze level for 24 hours."
+        ],
+        [
+          "ركّب العلبة وشغّل SCOOP → SORBET.",
+          "Install tub and select SCOOP → SORBET."
+        ],
+        [
+          "قدّم فورًا بعد انتهاء البرنامج.",
+          "Serve immediately after processing."
+        ]
+      ],
+      "sourceUrl": "https://www.sharkninja.co.uk/no-prep-mango-sorbet/REC12062EU.html",
+      "sourceAuthor": [
+        "Ninja Kitchen",
+        "Ninja Kitchen"
+      ],
+      "freeze": 24
     },
     {
       "id": "mango-lemongrass",
@@ -247,25 +284,129 @@ window.MJ_ICE_DATA={
         "tropical",
         "creamy"
       ],
-      "image": null,
-      "ingredients": [],
-      "state": "name-only",
-      "method": null,
-      "basis": "pdf-name",
+      "image": "mango-coconut",
+      "ingredients": [
+        {
+          "name": [
+            "مانجو مقطع",
+            "Mango, chopped"
+          ],
+          "qty": 100,
+          "unit": "g",
+          "optional": false
+        },
+        {
+          "name": [
+            "شراب أغاف خام",
+            "Raw agave nectar"
+          ],
+          "qty": 45,
+          "unit": "ml",
+          "optional": false
+        },
+        {
+          "name": [
+            "ماء",
+            "Water"
+          ],
+          "qty": 15,
+          "unit": "ml",
+          "optional": false
+        },
+        {
+          "name": [
+            "حليب شوفان بودرة غير محلى",
+            "Unsweetened oat milk powder"
+          ],
+          "qty": 30,
+          "unit": "g",
+          "optional": false
+        },
+        {
+          "name": [
+            "صمغ زانثان",
+            "Xanthan gum"
+          ],
+          "qty": 0.25,
+          "unit": "tsp",
+          "optional": false
+        },
+        {
+          "name": [
+            "كريمة جوز الهند",
+            "Coconut cream"
+          ],
+          "qty": 160,
+          "unit": "ml",
+          "optional": false
+        },
+        {
+          "name": [
+            "حليب جوز الهند أو الشوفان",
+            "Coconut or oat milk"
+          ],
+          "qty": 190,
+          "unit": "ml",
+          "optional": false
+        },
+        {
+          "name": [
+            "مستخلص فانيلا",
+            "Vanilla extract"
+          ],
+          "qty": 10,
+          "unit": "ml",
+          "optional": false
+        }
+      ],
+      "state": "quantified",
+      "method": "Light Ice Cream",
+      "basis": "published",
       "sourceFile": "5B3564DC.pdf",
       "sourcePage": 1,
-      "devices": [],
-      "program": {},
-      "batch": 0,
+      "devices": [
+        "swirl"
+      ],
+      "program": {
+        "swirl": "SOFT SERVE → LIGHT ICE CREAM"
+      },
+      "batch": 473,
       "desc": [
         "مانجو وجوز هند.",
         "Mango and coconut."
       ],
       "notes": [
-        "",
-        ""
+        "وصفة Ninja Kitchen لجهاز Swirl. السوائل المحوّلة من الملاعق: ملعقة كبيرة ١٥ مل، وصغيرة ٥ مل. ليست من تجاربي المسجلة.",
+        "Published Ninja Kitchen Swirl recipe. Spoon volumes use 15 ml per tablespoon and 5 ml per teaspoon. Not a recorded personal test."
       ],
-      "steps": []
+      "steps": [
+        [
+          "سخّن المانجو والأغاف والماء بالمايكرويف ٥ دقائق، حتى تلين المانجو.",
+          "Microwave mango, agave and water for 5 minutes until softened."
+        ],
+        [
+          "أضف بقية المكونات واخفق. سخّن ٤٥ ثانية ثم اخفق مجددًا.",
+          "Whisk in remaining ingredients; microwave 45 seconds and whisk again."
+        ],
+        [
+          "أغلق قاعدة العلبة واسكب دون تجاوز MAX FILL؛ جمّد مستوية ٢٤ ساعة.",
+          "Close tub base, fill below MAX FILL and freeze level for 24 hours."
+        ],
+        [
+          "ركّب العلبة واختر SOFT SERVE → LIGHT ICE CREAM.",
+          "Install the tub and select SOFT SERVE → LIGHT ICE CREAM."
+        ],
+        [
+          "اصرف البرد وقدّمه فورًا.",
+          "Dispense and serve immediately."
+        ]
+      ],
+      "freeze": 24,
+      "sourceUrl": "https://www.sharkninja.co.uk/creamy-mango-lite-dairy-free-soft-serve/REC11898EU.html",
+      "sourceAuthor": [
+        "Ninja Kitchen",
+        "Ninja Kitchen"
+      ]
     },
     {
       "id": "mango-vanilla-protein",
@@ -459,25 +600,138 @@ window.MJ_ICE_DATA={
       "tags": [
         "bold"
       ],
-      "image": null,
-      "ingredients": [],
-      "state": "name-only",
-      "method": null,
-      "basis": "pdf-name",
+      "image": "mango-chilli",
+      "ingredients": [
+        {
+          "name": [
+            "مانجو مقطع",
+            "Mango, chopped"
+          ],
+          "qty": 100,
+          "unit": "g",
+          "optional": false
+        },
+        {
+          "name": [
+            "شراب أغاف خام",
+            "Raw agave nectar"
+          ],
+          "qty": 45,
+          "unit": "ml",
+          "optional": false
+        },
+        {
+          "name": [
+            "ماء",
+            "Water"
+          ],
+          "qty": 15,
+          "unit": "ml",
+          "optional": false
+        },
+        {
+          "name": [
+            "حليب شوفان بودرة غير محلى",
+            "Unsweetened oat milk powder"
+          ],
+          "qty": 30,
+          "unit": "g",
+          "optional": false
+        },
+        {
+          "name": [
+            "صمغ زانثان",
+            "Xanthan gum"
+          ],
+          "qty": 0.25,
+          "unit": "tsp",
+          "optional": false
+        },
+        {
+          "name": [
+            "كريمة جوز الهند",
+            "Coconut cream"
+          ],
+          "qty": 160,
+          "unit": "ml",
+          "optional": false
+        },
+        {
+          "name": [
+            "حليب جوز الهند أو الشوفان",
+            "Coconut or oat milk"
+          ],
+          "qty": 190,
+          "unit": "ml",
+          "optional": false
+        },
+        {
+          "name": [
+            "مستخلص فانيلا",
+            "Vanilla extract"
+          ],
+          "qty": 10,
+          "unit": "ml",
+          "optional": false
+        },
+        {
+          "name": [
+            "فلفل حار بودرة أو رقائق",
+            "Chilli powder or flakes"
+          ],
+          "qty": null,
+          "unit": "pinch",
+          "optional": false
+        }
+      ],
+      "state": "quantified",
+      "method": "Light Ice Cream",
+      "basis": "published",
       "sourceFile": "5B3564DC.pdf",
       "sourcePage": 1,
-      "devices": [],
-      "program": {},
-      "batch": 0,
+      "devices": [
+        "swirl"
+      ],
+      "program": {
+        "swirl": "SOFT SERVE → LIGHT ICE CREAM"
+      },
+      "batch": 473,
       "desc": [
         "مانجو ولمسة حارة.",
         "Mango with heat."
       ],
       "notes": [
-        "",
-        ""
+        "نسخة الفلفل الحار مذكورة كتغيير اختياري لدى Ninja؛ تضاف رشة مع المكونات. وصفة Ninja Kitchen لجهاز Swirl. السوائل المحوّلة من الملاعق: ملعقة كبيرة ١٥ مل، وصغيرة ٥ مل. ليست من تجاربي المسجلة.",
+        "Ninja explicitly offers a pinch of chilli as an optional variation; add with the ingredients. Published Ninja Kitchen Swirl recipe. Spoon volumes use 15 ml per tablespoon and 5 ml per teaspoon. Not a recorded personal test."
       ],
-      "steps": []
+      "steps": [
+        [
+          "سخّن المانجو والأغاف والماء بالمايكرويف ٥ دقائق، حتى تلين المانجو.",
+          "Microwave mango, agave and water for 5 minutes until softened."
+        ],
+        [
+          "أضف بقية المكونات واخفق. سخّن ٤٥ ثانية ثم اخفق مجددًا.",
+          "Whisk in remaining ingredients; microwave 45 seconds and whisk again."
+        ],
+        [
+          "أغلق قاعدة العلبة واسكب دون تجاوز MAX FILL؛ جمّد مستوية ٢٤ ساعة.",
+          "Close tub base, fill below MAX FILL and freeze level for 24 hours."
+        ],
+        [
+          "ركّب العلبة واختر SOFT SERVE → LIGHT ICE CREAM.",
+          "Install the tub and select SOFT SERVE → LIGHT ICE CREAM."
+        ],
+        [
+          "اصرف البرد وقدّمه فورًا.",
+          "Dispense and serve immediately."
+        ]
+      ],
+      "freeze": 24,
+      "sourceUrl": "https://www.sharkninja.co.uk/creamy-mango-lite-dairy-free-soft-serve/REC11898EU.html",
+      "sourceAuthor": [
+        "Ninja Kitchen",
+        "Ninja Kitchen"
+      ]
     },
     {
       "id": "mango-tajin",
