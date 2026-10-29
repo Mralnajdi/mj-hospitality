@@ -502,32 +502,95 @@ window.MJ_ICE_DATA={
     {
       "id": "mango-slush",
       "title": [
-        "مانجو لايت سلاش",
-        "Mango Light Slush"
+        "سلاش المانجو",
+        "Mango Slushi"
       ],
       "group": "mango",
       "tags": [
         "fresh"
       ],
       "image": null,
-      "ingredients": [],
-      "state": "name-only",
-      "method": null,
-      "basis": "pdf-name",
+      "ingredients": [
+        {
+          "name": [
+            "مانجو مجمد مقطع",
+            "Frozen mango chunks"
+          ],
+          "qty": 142,
+          "unit": "g",
+          "optional": false
+        },
+        {
+          "name": [
+            "نكتار مانجو — قبل التجميد",
+            "Mango nectar — before freezing"
+          ],
+          "qty": 355,
+          "unit": "ml",
+          "optional": false
+        },
+        {
+          "name": [
+            "نكتار مانجو — عند التشغيل",
+            "Mango nectar — processing pour-in"
+          ],
+          "qty": null,
+          "unit": "ml",
+          "optional": false,
+          "measureRef": [
+            "حتى MAX FILL بعد التجميد",
+            "To MAX FILL after freezing"
+          ]
+        }
+      ],
+      "state": "quantified",
+      "method": "Slushi",
+      "basis": "published",
       "sourceFile": "5B3564DC.pdf",
       "sourcePage": 1,
-      "devices": [],
-      "program": {},
-      "batch": 0,
+      "devices": [
+        "deluxe"
+      ],
+      "program": {
+        "deluxe": "FULL → SLUSHI"
+      },
+      "batch": 709,
       "desc": [
-        "مانجو بطابع خفيف.",
-        "A light mango expression."
+        "سلاش مانجو بالنكتار، بوصفة Ninja لجهاز Deluxe.",
+        "Mango nectar slushi from Ninja’s Deluxe recipe."
       ],
       "notes": [
-        "",
-        ""
+        "المصدر يحدد نحو ٥ أونصات مانجو وكوبًا ونصفًا أمريكيًا من النكتار؛ حُوّلت إلى ١٤٢ غ و٣٥٥ مل بالتقريب. النكتار المضاف عند التشغيل يُقاس حتى علامة العلبة، ولا يحدد له المصدر حجمًا ثابتًا. وصفة منشورة وليست تجربة شخصية مسجلة.",
+        "Source amounts are approximately 5 oz mango and 1½ US cups nectar, rounded to 142 g and 355 ml. The processing pour-in is specified by the tub fill line, not a fixed volume. Published recipe, not a recorded personal test."
       ],
-      "steps": []
+      "steps": [
+        [
+          "ضع المانجو في العلبة، ثم أضف النكتار حتى DRINKABLE FILL وحرّك.",
+          "Put mango in the tub; add nectar to DRINKABLE FILL and stir."
+        ],
+        [
+          "أغلق الغطاء وجمّد العلبة مستوية ٢٤ ساعة.",
+          "Cover and freeze level for 24 hours."
+        ],
+        [
+          "انزع الغطاء وأضف نكتار مانجو حتى MAX FILL.",
+          "Remove the lid and add mango nectar to MAX FILL."
+        ],
+        [
+          "ركّب العلبة وشغّل FULL → SLUSHI.",
+          "Install the tub and select FULL → SLUSHI."
+        ],
+        [
+          "قدّم فورًا. لقوام أخف أضف ٣٠–٦٠ مل نكتار وشغّل RE-SPIN.",
+          "Serve immediately. For a thinner drink add 30–60 ml nectar and RE-SPIN."
+        ]
+      ],
+      "sourceUrl": "https://www.sharkninja.com/mango-frozen-treat/REC10969.html",
+      "sourceAuthor": [
+        "Ninja Test Kitchen",
+        "Ninja Test Kitchen"
+      ],
+      "freeze": 24
     },
     {
       "id": "mango-cucumber",

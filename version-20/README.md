@@ -37,3 +37,10 @@ This is the filter release. Recipe quantities, photographs and source image dime
 ## In-place ribbon update
 
 Two horizontal scrolling ribbons replace expanded filter panels. All options remain directly available; filter dimensions and original AND/OR behavior remain. Added three source-complete Ninja Swirl recipes: natural mango, coconut mango and the manufacturer’s optional chilli variation. Sources linked per recipe. Twenty-four quantified records and fourteen name-only records remain. All images are still below native 4K; audited dimensions are not represented as 4K. Native source generation requires a currently unavailable higher-resolution path.
+
+## 29 October review
+
+- Stock controls on all 58 beverage products: physical left beneath image, immediate quantity/unit/availability changes and faded unavailable images. Quantities are owner-entered; initial stock is unset. Stock is saved locally in this browser, not synced to other devices or visitors.
+- Stock units: grams, millilitres, capsule count, pieces. Empty quantity permits availability-only status; zero means unavailable. Product and detail indicators share one record.
+- Added source-verified official Ninja Deluxe Mango Slushi (142 g frozen mango / 355 ml nectar; processing liquid to manufacturer MAX FILL). 25 quantified and 13 name-only recipe records; three partial notebook notes remain.
+- All 66 version-specific raster files decode successfully. Native 4K is NOT fulfilled: source dimensions remain below 3840 pixels. No enlargement is claimed as recovered detail.
