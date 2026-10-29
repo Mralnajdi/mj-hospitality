@@ -12,3 +12,11 @@
 @media print{.mjStockBadge,.mjStockPanel{display:none!important}}
 
 .modalContent.mjStockHost>.eyebrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-left:0}.modalContent.mjStockHost>.eyebrow .mjStockBadge{position:static;order:2;margin-right:auto;flex-shrink:0}
+
+/* Out of stock: dim the product, keep only the status label red. */
+.productTile.mjStockOut{border-color:#39352d!important;background:#080806!important;box-shadow:none!important}
+.productTile.mjStockOut .productBody>:not(.mjStockBadge),.productModal.mjStockOut .modalContent>:not(.eyebrow){opacity:.32!important}
+.productTile.mjStockOut .productImage img,.productModal.mjStockOut .modalVisual>img{opacity:.25!important;filter:grayscale(1)!important}
+.mjStockOut .mjStockBadge{color:#f27373!important;border-color:transparent!important;background:transparent!important;opacity:1!important}
+.mjStockOut .mjStockBadge svg{display:none}
+.productModal.mjStockOut .modalContent>.eyebrow{color:#706a60}
