@@ -249,7 +249,7 @@
   }
   function catalogPhotoBadges(p){
     const s=p.cuppingScore;
-    const score=s?`<span class="mjCuppingBadge" aria-label="${esc(t('Published cupping score: ','تقييم التذوق المنشور: ')+s.value+' / 100')}"><strong>${esc(s.value)}</strong><span class="mjScoreScale">/ 100</span><small>${esc(s.system||t('SCORE','التقييم'))}</small></span>`:'';
+    const score=s?`<span class="mjCuppingBadge" aria-label="${esc(t('Published cupping score: ','تقييم التذوق المنشور: ')+s.value+' / 100')}"><strong>${esc(s.value)}</strong><span class="mjScoreCaption"><small>${esc(s.system||t('SCORE','التقييم'))}</small><span class="mjScoreScale">/100</span></span></span>`:'';
     const newest=p.isLatestAddition?`<span class="mjNewBadge">${esc(t('New','جديد'))}</span>`:'';
     return score+newest;
   }
