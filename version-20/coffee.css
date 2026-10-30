@@ -22,8 +22,8 @@
 .productTile.v8Card.mjCoffeeCard .productImage{flex:0 0 auto}
 .productTile.v8Card.mjCoffeeCard .productBody{display:flex;flex-direction:column;flex:1;padding:23px 22px 0!important}
 .mjCoffeeMaker{min-height:2.6em}
-.productTile.v8Card.mjCoffeeCard .v8Title{min-height:3em;font-size:clamp(24px,2.2vw,29px)!important}
-.mjCoffeeNotes{min-height:5.55em;margin-bottom:16px!important}
-.mjCoffeeMeta{min-height:4.6em;margin-top:auto;margin-bottom:18px}
+.productTile.v8Card.mjCoffeeCard .v8Title{min-height:1.5em;font-size:clamp(24px,2.2vw,29px)!important}
+.mjCoffeeNotes{min-height:3.7em;margin-bottom:16px!important}
+.mjCoffeeMeta{min-height:3.3em;margin-top:auto;margin-bottom:18px}
 .mjCoffeeActions{margin-inline:-22px;margin-top:0;flex-shrink:0}
 @media(max-width:699px){.mjCoffeeMaker,.productTile.v8Card.mjCoffeeCard .v8Title,.mjCoffeeNotes,.mjCoffeeMeta{min-height:0}.mjCoffeeMeta{margin-top:0}.mjCoffeeNotes{margin-bottom:20px!important}}
