@@ -78,7 +78,9 @@
         "url": "https://share-h5.xbloom.com/?id=YHsWE7eShs6GLm6CE905YQ%3D%3D"
       }
     ],
-    "presentationImage": "version-20/assets/purchase-1.png",
+    "presentationImage": "version-20/assets/serving-verde.webp",
+    "presentationImageDimensions": [1672, 941],
+    "presentationImageType": "Illustrative serving artwork; tasting-note props are not ingredients",
     "sourceImageDimensions": [
       1080,
       1440
@@ -166,7 +168,9 @@
         "url": "https://share-h5.xbloom.com/?id=R6nn7eUw6T/LH/l4nBQMjQ%3D%3D"
       }
     ],
-    "presentationImage": "version-20/assets/purchase-2.png",
+    "presentationImage": "version-20/assets/serving-fazenda.webp",
+    "presentationImageDimensions": [1672, 941],
+    "presentationImageType": "Illustrative serving artwork; tasting-note props are not ingredients",
     "sourceImageDimensions": [
       1080,
       1440
@@ -261,7 +265,9 @@
     "productPage": "https://airroastery.com/en/product/la-plata-filter-colombia/",
     "verificationScope": "Official category page contains full product specifications; individual product URL times out.",
     "imageSource": "https://www.vrt.coffee/products/filter-colombia-la-plata-berries-strawberry-250g",
-    "presentationImage": "version-20/assets/purchase-3.jpg",
+    "presentationImage": "version-20/assets/serving-laplata.webp",
+    "presentationImageDimensions": [1672, 941],
+    "presentationImageType": "Illustrative serving artwork; tasting-note props are not ingredients",
     "sourceImageDimensions": [
       1024,
       1024
@@ -342,7 +348,9 @@
     ],
     "dedupeKey": "black-knight-kitkat-brazil-250g",
     "verificationScope": "Full VRT product listing; do not merge with Jebla KitKat.",
-    "presentationImage": "version-20/assets/purchase-4.png",
+    "presentationImage": "version-20/assets/serving-black-kitkat.webp",
+    "presentationImageDimensions": [1672, 941],
+    "presentationImageType": "Illustrative serving artwork; tasting-note props are not ingredients",
     "sourceImageDimensions": [
       680,
       680
@@ -418,7 +426,9 @@
     ],
     "caffeineClassification": "Do not mark caffeine-free. No exact amount verified for this product.",
     "verificationScope": "Retailer specification: Yemen, Black Knight, natural, pineapple/grape/dates,400g. No inferred brewing dose/time.",
-    "presentationImage": "version-20/assets/purchase-5.png",
+    "presentationImage": "version-20/assets/serving-cascara.webp",
+    "presentationImageDimensions": [1672, 941],
+    "presentationImageType": "Illustrative serving artwork; tasting-note props are not ingredients",
     "sourceImageDimensions": [
       1354,
       1265
@@ -499,7 +509,9 @@
     ],
     "officialIdentitySource": "https://speakcoffeeroaster.com/collections/special",
     "verificationScope": "Retailer profile verified; official collection search confirms identity but current product endpoint404. Do not call retailer notes official.",
-    "presentationImage": "version-20/assets/purchase-6.png",
+    "presentationImage": "version-20/assets/serving-speak-peach.webp",
+    "presentationImageDimensions": [1672, 941],
+    "presentationImageType": "Illustrative serving artwork; tasting-note props are not ingredients",
     "sourceImageDimensions": [
       1920,
       1920
@@ -581,7 +593,9 @@
     ],
     "officialIdentitySource": "https://speakcoffeeroaster.com/collections/special",
     "verificationScope": "Retailer profile verified; official collection search confirms identity but current product endpoint404. Do not call retailer notes official.",
-    "presentationImage": "version-20/assets/purchase-7.png",
+    "presentationImage": "version-20/assets/serving-speak-strawberry.webp",
+    "presentationImageDimensions": [1672, 941],
+    "presentationImageType": "Illustrative serving artwork; tasting-note props are not ingredients",
     "sourceImageDimensions": [
       1920,
       1920
