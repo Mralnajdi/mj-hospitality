@@ -52,3 +52,10 @@ Two horizontal scrolling ribbons replace expanded filter panels. All options rem
 - Capsules and pieces require whole-number quantities; grams and millilitres allow decimals.
 - Existing stock is preserved under mj-inventory-v1. Data remains browser-local.
 - Existing recipe completeness limitations above still apply.
+
+## 30 October specialty card release
+
+- Approved compact layout for all 22 specialty coffee cards: serving image, roaster/origin, name, complete tasting profile, processing and roast, details and stock. No tasting-note truncation.
+- Processing and roast facets support combinations (OR within each facet, AND across facets), with unsupported options omitted. Brew-equipment/preparation facets remain unchanged for other collections.
+- Roast research and exact source/evidence are retained in coffee-data.js. Unknown degrees remain unknown; numeric 3/5 and named City stay separate from Medium. Romario xPod/drip roast labels are not copied to whole beans.
+- Basic product facts use the same research records as the cards/filters. Source links distinguish retailers and roasters. Browser-local stock key and product identifiers are preserved.

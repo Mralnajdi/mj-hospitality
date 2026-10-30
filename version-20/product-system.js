@@ -212,6 +212,13 @@
     el.className = "v6CompanyCard";
     el.dataset.productId=p._id;
     el.innerHTML = `<div class="v6CompanyHead"><div><span class="v6Kicker">${esc(tr("Producer / product source","المنتج / مصدر المعلومات"))}</span><h3>${esc(tr(company.en,company.ar))}</h3></div>${url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(tr("Product source ↗","مصدر المنتج ↗"))}</a>` : `<span class="v6Note">${esc(tr("Collection package","عبوة المجموعة"))}</span>`}</div><table class="v6InfoTable"><tbody>${rows.map(r=>`<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td></tr>`).join("")}</tbody></table>`;
+    if(p.cat==='specialty'&&p.coffeeMeta){
+      const m=p.coffeeMeta,n=document.createElement('small');n.className='mjCoffeeRoastSource';
+      const kind=m.roastSourceType==='retailer'?tr('Retailer','البائع'):m.roastSourceType==='package'?tr('Collection package','عبوة المجموعة'):tr('Roaster','المحمصة');
+      n.innerHTML=/^https:\/\//.test(m.roastSource)?`${esc(tr('Roast source: ','مصدر التحميص: ')+kind)} · <a href="${esc(m.roastSource)}" target="_blank" rel="noopener">${esc(tr('View reference ↗','عرض المرجع ↗'))}</a>`:esc(tr('Roast degree not verified in the available source.','درجة التحميص غير موثقة في المصدر المتاح.'));
+      el.append(n);
+      if(m.processSource){const a=document.createElement('a');a.className='mjCoffeeRoastSource';a.href=m.processSource;a.target='_blank';a.rel='noopener';a.textContent=tr('Processing reference (retailer) ↗','مصدر المعالجة — البائع ↗');el.append(a);}
+    }
     return el;
   }
 

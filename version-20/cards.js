@@ -215,6 +215,15 @@
     const body=tile.querySelector(".productBody");
     if(!body) return;
 
+    if(p.cat==='specialty'&&p.coffeeMeta){
+      tile.classList.add('mjCoffeeCard');
+      const meta=p.coffeeMeta;
+      const shortName=String(tr(p.labelEn||p.nameEn,p.labelAr||p.nameAr)).split(/ [–—] /).slice(1).join(' — ')||tr(p.labelEn||p.nameEn,p.labelAr||p.nameAr);
+      const roast=meta.roastKey==='roastUnknown'?(tr(meta.roastTypeEn,meta.roastTypeAr)||tr('Roast not stated','التحميص غير مذكور')):tr('Roast '+meta.roastEn,'تحميص '+meta.roastAr);
+      body.innerHTML=`<p class="mjCoffeeMaker"><span>${esc(tr(meta.brandEn,meta.brandAr))}</span><span class="mjCoffeeDot" aria-hidden="true"></span><span>${esc(tr(p.subEn,p.subAr))}</span></p><h3 class="v8Title">${esc(shortName)}</h3><p class="mjCoffeeNotes" aria-label="${esc(tr('All tasting notes','الإيحاءات كاملة'))}">${esc(tr(meta.notesEn,meta.notesAr))}</p><div class="mjCoffeeMeta" aria-label="${esc(tr('Processing and roast','المعالجة ودرجة التحميص'))}"><span>${icons.process}${esc(tr(meta.processEn,meta.processAr))}</span><span class="mjCoffeeSeparator" aria-hidden="true"></span><span>${icons.roast}${esc(roast)}</span></div><div class="mjCoffeeActions"><span class="mjCoffeeOpen">${esc(tr('Product details','تفاصيل المنتج'))} ↗</span></div>`;
+      return;
+    }
+
     const status=caffeineStatus(p);
     const times=preferredTimes(p);
     const top=[];

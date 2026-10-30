@@ -14,6 +14,7 @@
   morning:['الصباح','Morning'],evening:['المساء','Evening'],filter:['فلتر','Filter'],espresso:['إسبريسو','Espresso'],
   zill:['آلة قهوة زِل','Zill Coffee machine'],xbloom:['xBloom Studio','xBloom Studio'],manual:['تحضير يدوي','Manual preparation']
  };
+ Object.assign(labels,{washed:['مغسولة','Washed'],natural:['مجففة','Natural'],honey:['عسلية','Honey'],anaerobic:['لاهوائية','Anaerobic'],infused:['منقّعة','Infused'],cofermented:['تخمير مشترك','Co-fermented'],semiwashed:['نصف مغسولة','Semi-washed'],dq:['DQ','DQ'],processUnknown:['المعالجة غير مذكورة','Process not stated'],light:['فاتحة','Light'],medium:['متوسطة','Medium'],dark:['غامقة','Dark'],mediumdark:['متوسطة إلى غامقة','Medium–dark'],city:['سيتي · City','City'],level3of5:['3/5','3/5'],roastUnknown:['الدرجة غير مذكورة','Degree not stated']});
  const map={
   'Zill Shagra':['cardamom','saffron'], 'Zill Original':['cardamom','saffron','clove'], 'Zill Ghamjah':['cardamom'], 'Zill Kenya Capsules':['cardamom','saffron','clove'],
   'Air Roastery – Ricardo':['chocolateNuts'], 'CGLE Tres Dragones':['fruit','chocolateNuts','caramelHoney'], 'Pink Bourbon Punch':['fruit'],
@@ -41,7 +42,7 @@
   const temperature=[...(/\bhot\b/.test(serve)?['hot']:[]),...(/iced|cold|chilled|ice|sparkling water/.test(serve)?['iced']:[])];
   const preparation=[...(/\bfilter\b/.test(serve)?['filter']:[]),...(/\bespresso\b/.test(serve)?['espresso']:[])];
   const device=p.cat==='arabic'?['zill']:p.cat==='sparkling'?['manual']:['specialty','tea'].includes(p.cat)?['xbloom']:[];
-  return {kind:[p.subEn],temperature,preparation,device,caffeine:tags.filter(x=>['caffeine','decaf','caffeinefree'].includes(x)),time:tags.filter(x=>['morning','evening'].includes(x)),sensory:p.sensoryKeys||map[p.nameEn]||[]};
+  return {kind:[p.subEn],process:p.coffeeMeta?.processKeys||[],roast:p.coffeeMeta?[p.coffeeMeta.roastKey]:[],temperature,preparation,device,caffeine:tags.filter(x=>['caffeine','decaf','caffeinefree'].includes(x)),time:tags.filter(x=>['morning','evening'].includes(x)),sensory:p.sensoryKeys||map[p.nameEn]||[]};
  }
  function matches(values,selected){return Object.entries(selected).every(([key,keys])=>!keys.length||keys.some(k=>(values[key]||[]).includes(k)));}
  function iceSensory(r){
