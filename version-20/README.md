@@ -59,3 +59,11 @@ Two horizontal scrolling ribbons replace expanded filter panels. All options rem
 - Processing and roast facets support combinations (OR within each facet, AND across facets), with unsupported options omitted. Brew-equipment/preparation facets remain unchanged for other collections.
 - Roast research and exact source/evidence are retained in coffee-data.js. Unknown degrees remain unknown; numeric 3/5 and named City stay separate from Medium. Romario xPod/drip roast labels are not copied to whole beans.
 - Basic product facts use the same research records as the cards/filters. Source links distinguish retailers and roasters. Browser-local stock key and product identifiers are preserved.
+
+## Latest-entry and published-score update
+
+- New = most recent creation batch, not photo edits, research checks, modification time or purchase date. Current initial batch provenance is commit 2cd40934916d62155faf821b64e09df93bc25826, 2026-10-28T19:02:01+03:00: seven products, six in specialty and one tea. Future newly entered products must retain addedAt and addedBatch at creation; editing preserves these fields. A newer creation batch automatically replaces the old New set.
+- New filter combines with existing facets and persists with language changes; clearing resets it.
+- Published cupping-score badges use verified roaster records: Jebla KitKat 87 and Romario 83; no scores invented for other products. Source links remain in details. This is the roaster’s published assessment, not a claim of independent SCA certification.
+- Cupping score is separate from roast degree and processing. Future cuppingScore records require numeric value and source.
+- Card photo frames follow intrinsic photo dimensions and fill the complete frame without letterbox padding or image cropping. Badges are overlaid on the left (score) and right (New), preserving the underlying files.

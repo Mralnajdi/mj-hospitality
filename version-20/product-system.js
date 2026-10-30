@@ -207,11 +207,13 @@
       push(id, f[0], f[2] || f[0], f[1], f[3] || f[1]);
     });
 
+    if(p.cuppingScore&&!facts.some(f=>/^published cupping score$/i.test(f[0])))push('cupping-score','Published cupping score','تقييم التذوق المنشور',`${p.cuppingScore.value} / 100${p.cuppingScore.system?' · '+p.cuppingScore.system:''}`);
     const url = officialProductUrl(p);
     const el = document.createElement("section");
     el.className = "v6CompanyCard";
     el.dataset.productId=p._id;
     el.innerHTML = `<div class="v6CompanyHead"><div><span class="v6Kicker">${esc(tr("Producer / product source","المنتج / مصدر المعلومات"))}</span><h3>${esc(tr(company.en,company.ar))}</h3></div>${url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(tr("Product source ↗","مصدر المنتج ↗"))}</a>` : `<span class="v6Note">${esc(tr("Collection package","عبوة المجموعة"))}</span>`}</div><table class="v6InfoTable"><tbody>${rows.map(r=>`<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td></tr>`).join("")}</tbody></table>`;
+    if(p.cuppingScore&&/^https:\/\//.test(p.cuppingScore.source)){const a=document.createElement('a');a.className='mjCoffeeRoastSource';a.href=p.cuppingScore.source;a.target='_blank';a.rel='noopener';a.textContent=tr('Published score source ↗','مصدر تقييم التذوق المنشور ↗');el.append(a);}
     if(p.cat==='specialty'&&p.coffeeMeta){
       const m=p.coffeeMeta,n=document.createElement('small');n.className='mjCoffeeRoastSource';
       const kind=m.roastSourceType==='retailer'?tr('Retailer','البائع'):m.roastSourceType==='package'?tr('Collection package','عبوة المجموعة'):tr('Roaster','المحمصة');

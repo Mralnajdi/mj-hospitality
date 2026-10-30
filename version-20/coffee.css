@@ -1,6 +1,6 @@
 /* Approved compact specialty cards; other collections retain their layout. */
 .productTile.v8Card.mjCoffeeCard{border-radius:24px;background:#100e0b;box-shadow:0 18px 50px #0002;border-color:#53432b;align-self:start}
-.productTile.v8Card.mjCoffeeCard .productImage{aspect-ratio:4/3!important;background:#080706}
+.productTile.v8Card.mjCoffeeCard .productImage{aspect-ratio:var(--mj-image-ratio,4/3)!important;background:#080706}
 .productTile.v8Card.mjCoffeeCard .productBody{padding:24px 24px 0!important;text-align:start!important}
 .mjCoffeeMaker{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:0!important;color:#bca98a;font:12px/1.6 system-ui}
 .mjCoffeeMaker>span:first-child{letter-spacing:.06em}.mjCoffeeDot{width:3px;height:3px;background:#8d7856;border-radius:50%}

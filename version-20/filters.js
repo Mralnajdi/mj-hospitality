@@ -42,7 +42,7 @@
   const temperature=[...(/\bhot\b/.test(serve)?['hot']:[]),...(/iced|cold|chilled|ice|sparkling water/.test(serve)?['iced']:[])];
   const preparation=[...(/\bfilter\b/.test(serve)?['filter']:[]),...(/\bespresso\b/.test(serve)?['espresso']:[])];
   const device=p.cat==='arabic'?['zill']:p.cat==='sparkling'?['manual']:['specialty','tea'].includes(p.cat)?['xbloom']:[];
-  return {kind:[p.subEn],process:p.coffeeMeta?.processKeys||[],roast:p.coffeeMeta?[p.coffeeMeta.roastKey]:[],temperature,preparation,device,caffeine:tags.filter(x=>['caffeine','decaf','caffeinefree'].includes(x)),time:tags.filter(x=>['morning','evening'].includes(x)),sensory:p.sensoryKeys||map[p.nameEn]||[]};
+  return {newness:p.isLatestAddition?['latest']:[],kind:[p.subEn],process:p.coffeeMeta?.processKeys||[],roast:p.coffeeMeta?[p.coffeeMeta.roastKey]:[],temperature,preparation,device,caffeine:tags.filter(x=>['caffeine','decaf','caffeinefree'].includes(x)),time:tags.filter(x=>['morning','evening'].includes(x)),sensory:p.sensoryKeys||map[p.nameEn]||[]};
  }
  function matches(values,selected){return Object.entries(selected).every(([key,keys])=>!keys.length||keys.some(k=>(values[key]||[]).includes(k)));}
  function iceSensory(r){
