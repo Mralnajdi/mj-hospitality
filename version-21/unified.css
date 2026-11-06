@@ -55,11 +55,11 @@ html body :is(#app,.productModal,.mjStockPanel,.nativeViewer) :where(*){font-fam
 .iceExperience>.categorySwitcher{margin:18px 3vw;max-width:94vw;overflow-x:auto;flex-wrap:nowrap}.categorySwitcher a:focus-visible{outline:2px solid #e4c58e;outline-offset:3px}
 @media(max-width:559px){.mjRelease{font-size:9px;margin-top:3px;padding:1px 6px}.categorySwitcher a{padding:10px 14px}}
 
-/* Clear gold selection for collection navigation. */
-#app .categorySwitcher :is(button,a).active,#app .bottomNav button.active{background:linear-gradient(135deg,#f4d899 0%,#d8b568 52%,#b68a3e 100%)!important;color:#211708!important;border:1px solid #f5d899!important;box-shadow:inset 0 1px 0 #fff2c899,0 0 0 1px #d8ae5738,0 3px 14px #c39a3430!important;font-weight:700!important;border-radius:999px}
-#app .categorySwitcher :is(button,a).active :is(span,i,small),#app .bottomNav button.active :is(span,small){color:#211708!important;opacity:1!important;font-weight:700!important}
-#app .categorySwitcher :is(button,a).active:after{background:#73501d!important}
-#app .bottomNav button{padding:10px 12px!important;min-height:44px}
-#app .categorySwitcher :is(button,a):focus-visible,#app .bottomNav button:focus-visible{outline:2px solid #f5d899;outline-offset:3px}
-
-html body #app nav.bottomNav button.active,html body #app nav.bottomNav button.active *{color:#211708!important}
+/* Understated collection selection. */
+#app .categorySwitcher :is(button,a){position:relative;background:#0b0a08!important;border:0!important;border-radius:0!important;box-shadow:none!important;text-decoration:none}
+#app .categorySwitcher :is(button,a).active{color:#d4b679!important;font-weight:600!important}
+#app .categorySwitcher :is(button,a).active :is(span,i,small){color:#d4b679!important;opacity:1!important;font-weight:600!important}
+#app .categorySwitcher :is(button,a).active:after{content:'';position:absolute;inset:auto 24% 0;height:2px;background:#b99a60!important;transform:none!important;box-shadow:none!important}
+html body #app nav.bottomNav button.active{position:relative;background:transparent!important;border-color:transparent!important;border-radius:0!important;box-shadow:none!important}
+html body #app nav.bottomNav button.active,html body #app nav.bottomNav button.active *{color:#d4b679!important;font-weight:600!important}
+html body #app nav.bottomNav button.active:after{content:'';position:absolute;inset:auto 27% 0;height:2px;background:#b99a60}
