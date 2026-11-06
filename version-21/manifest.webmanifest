@@ -1,7 +1,7 @@
 {
   "name": "MJ Hospitality",
   "short_name": "MJ Hospitality",
-  "start_url": "../version-21/",
+  "start_url": "../",
   "scope": "../",
   "display": "standalone",
   "background_color": "#080806",
