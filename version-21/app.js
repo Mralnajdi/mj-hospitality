@@ -171,7 +171,7 @@
     return `<button class="moodTag ${filter ? "filterTag" : ""}" type="button" data-tag="${k}" aria-label="${esc(t(m.en, m.ar))}" title="${esc(t(m.en, m.ar))}"><span aria-hidden="true">${icon(m.icon)}</span><b>${esc(t(m.en, m.ar))}</b></button>`;
   }
   function categorySwitcher(active) {
-    return `<nav class="categorySwitcher" aria-label="${esc(t("Collections", "الأقسام"))}">${order.map((k) => `<button type="button" class="${k === active ? "active" : ""}" data-go="/collection/${k}"><span>${esc(t(C[k].en, C[k].ar))}</span><i>${String(P.filter((p) => p.cat === k).length)}</i></button>`).join("")}<button type="button" data-go="/icecream"><span>${esc(t("Ice Cream","آيسكريم"))}</span><i>38</i></button></nav>`;
+    return `<nav class="categorySwitcher" aria-label="${esc(t("Collections", "الأقسام"))}">${order.map((k) => `<button type="button" class="${k === active ? "active" : ""}" data-go="/collection/${k}"><span>${esc(t(C[k].en, C[k].ar))}</span><i>${String(P.filter((p) => p.cat === k).length)}</i></button>`).join("")}<button type="button" data-go="/icecream"><span>${esc(t("Ice Cream","آيسكريم"))}</span><i>${window.MJ_ICE_DATA?.recipes.length||0}</i></button></nav>`;
   }
   function setText() {
     document.documentElement.lang = lang;
@@ -212,10 +212,10 @@
       .map((k, i) => {
         const c = C[k],
           image = homeCategoryImages[k];
-        return `<article class="categoryCard tiltCard revealCard" tabindex="0" role="button" data-go="/collection/${k}"><img src="${image}" alt="${esc(t(c.en, c.ar))}" loading="lazy" decoding="async"><div class="cardGlow" aria-hidden="true"></div><div class="cardCopy"><div class="eyebrow">${i + 1}</div><h3>${esc(t(c.en, c.ar))}</h3><p>${esc(t(c.subEn, c.subAr))}</p><span class="enterArrow">↗</span></div></article>`;
+        return `<article class="categoryCard tiltCard " tabindex="0" role="button" data-go="/collection/${k}"><img src="${image}" alt="${esc(t(c.en, c.ar))}" loading="eager" decoding="async"><div class="cardGlow" aria-hidden="true"></div><div class="cardCopy"><div class="eyebrow">${i + 1}</div><h3>${esc(t(c.en, c.ar))}</h3><p>${esc(t(c.subEn, c.subAr))}</p><span class="enterArrow">↗</span></div></article>`;
       })
       .join("");
-    const iceCard=`<article class="categoryCard iceHomeCard" tabindex="0" role="button" data-go="/icecream"><img src="version-21/assets/ice-category.webp" alt="${esc(t("Winter ice cream collection","مجموعة الآيسكريم الشتوية"))}" loading="lazy"><div class="cardCopy"><div class="eyebrow">MJ · WINTER COLLECTION</div><h3>${esc(t("Ice Cream","الآيسكريم"))}</h3><p>${esc(t("A sweeter winter. CREAMi Deluxe & Swirl.","حلاوة الشتاء. وصفات الكريمي والسويرل."))}</p><span class="enterArrow">↗</span></div></article>`;
+    const iceCard=`<article class="categoryCard iceHomeCard" tabindex="0" role="button" data-go="/icecream"><img src="assets/ice-category-approved.webp" alt="${esc(t("Winter ice cream collection","مجموعة الآيسكريم الشتوية"))}" loading="lazy"><div class="cardCopy"><div class="eyebrow">MJ · WINTER COLLECTION</div><h3>${esc(t("Ice Cream","الآيسكريم"))}</h3><p>${esc(t("A sweeter winter. CREAMi Deluxe & Swirl.","حلاوة الشتاء. وصفات الكريمي والسويرل."))}</p><span class="enterArrow">↗</span></div></article>`;
     const moods = ["morning", "evening", "caffeine", "caffeinefree", "iced"]
       .map((k) => {
         const m = tagMeta[k];
@@ -227,8 +227,8 @@
         "arabic",
         t("The art of hosting.", "فن الضيافة."),
         t(
-          "A private beverage collection shaped around mood, ritual and detail.",
-          "مجموعة مشروبات خاصة صُممت حول المزاج والطقس والتفاصيل.",
+          "To your taste. In every detail.",
+          "على ذوقك. بكل تفاصيلها.",
         ),
         true,
       ) +
@@ -646,7 +646,7 @@
         card.classList.remove("pressed"),
       );
     });
-    const reveals = document.querySelectorAll(".revealCard");
+    const reveals = document.querySelectorAll(".");
     if (reveals.length) {
       const observer = new IntersectionObserver(
         (entries) =>

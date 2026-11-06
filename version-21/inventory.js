@@ -7,7 +7,7 @@
  const products=()=>window.MJ_MENU?.products||[];
  const product=id=>products().find(p=>p._id===id);
  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- function label(id){const s=stock[id];if(!s)return T('حدد المتوفر','Set stock');if(s.state==='out'||s.quantity===0)return T('غير متوفر','Unavailable');if(s.quantity===null)return T('متوفر','Available');return `${s.quantity} ${units[s.unit]?.[ar()?0:1]||''}`}
+ function label(id){const s=stock[id];if(!s)return T('متوفر','Available');if(s.state==='out'||s.quantity===0)return T('غير متوفر','Unavailable');if(s.quantity===null)return T('متوفر','Available');return T('متوفر','Available')}
  function defaultUnit(id){const p=product(id);return /capsule|كبسول/i.test([p?.nameEn,p?.descEn,p?.nameAr].join(' '))?'capsules':p?.cat==='sparkling'?'ml':'g'}
  let active=null,anchor=null;
  const panel=document.createElement('div');panel.className='mjStockPanel';panel.hidden=true;panel.setAttribute('role','dialog');panel.setAttribute('aria-modal','false');document.body.append(panel);
@@ -29,6 +29,7 @@
  panel.hidden=false;position();panel.querySelector('[name=quantity]').focus({preventScroll:true});panel.querySelector('[data-stock-close]').onclick=close;panel.querySelector('[data-stock-reset]').onclick=()=>{delete stock[active];try{localStorage.setItem(KEY,JSON.stringify(stock))}catch{}refresh();close()};panel.querySelectorAll('input,select').forEach(el=>{el.addEventListener('input',()=>{if(el.name==='quantity'&&Number(el.value)>0)panel.querySelector('[name=state]').value='available';persist()});el.addEventListener('change',persist)})}
  function enhance(){document.querySelectorAll('.productTile[data-product],.productModal[data-product-id]').forEach(host=>{const id=host.dataset.product||host.dataset.productId,body=host.querySelector('.productBody,.modalContent');if(!body||body.querySelector('[data-stock-id]'))return;const b=document.createElement('button');b.type='button';b.className='mjStockBadge';b.dataset.stockId=id;b.setAttribute('aria-expanded','false');b.setAttribute('aria-haspopup','dialog');b.innerHTML=icon+'<span>'+esc(label(id))+'</span>';b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(b)});b.addEventListener('keydown',e=>e.stopPropagation());body.classList.add('mjStockHost');let slot;
  if(host.matches('.productModal'))slot=body.querySelector('.eyebrow')||body;
+ else if(body.querySelector('.ucFooter'))slot=body.querySelector('.ucFooter');
  else if(body.querySelector('.mjCoffeeActions'))slot=body.querySelector('.mjCoffeeActions');
  else{slot=body.querySelector('.hfStockActions');if(!slot){slot=document.createElement('div');slot.className='hfStockActions';body.appendChild(slot)}}
  slot.appendChild(b)});refresh()}

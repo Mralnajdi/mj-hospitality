@@ -1,0 +1,49 @@
+/* Review-only shared product card. */
+#app .ucCard{display:flex!important;flex-direction:column!important;border:1px solid #65502e!important;border-radius:18px!important;background:linear-gradient(145deg,#19150f,#0d0c09)!important;overflow:hidden!important;transform:none!important;min-width:0!important}
+#app .ucCard .productBody{padding:22px 24px 18px!important;display:flex!important;flex-direction:column!important;flex:1!important;min-width:0!important;background:transparent!important}
+#app .ucCard .ucMaker{font-size:12px!important;color:#b5a07a!important;min-height:22px!important;margin:0!important;line-height:1.8!important}
+#app .ucCard .ucTitle{font-size:clamp(23px,2.1vw,29px)!important;font-weight:600!important;line-height:1.6!important;color:#fff2d9!important;margin:4px 0 14px!important;min-height:1.6em!important;padding:0!important}
+#app .ucCard .ucFlavourBlock{margin-bottom:16px;min-height:76px}
+#app .ucCard .ucFlavourBlock>small{display:block;font-size:10px;color:#a6977d;margin-bottom:8px}
+#app .ucCard .ucFlavours{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+#app .ucCard .ucFlavours>span{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:6px;background:linear-gradient(110deg,#c4a2641a,#c4a26408);color:#efce8f;font-size:15px;font-weight:600;line-height:1.6}
+#app .ucCard .ucFlavours>span:before{content:'';display:block;width:4px;height:4px;flex-shrink:0;background:#c7a56a;border-radius:50%}
+#app .ucCard .ucDescription{font-size:13px!important;line-height:1.9!important;color:#bdb09b!important;margin:0 0 20px!important;display:-webkit-box!important;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden!important;min-height:3.8em!important;max-height:3.8em!important}
+#app .ucCard .ucFacts{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-bottom:18px}
+#app .ucCard .ucFacts>span{border:1px solid #9c814d35;color:#b9a780;padding:5px 12px;border-radius:30px;font-size:11px;line-height:1.65}
+#app .ucCard .ucFooter{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:15px;border-top:1px solid #725b323f;min-height:46px;font-size:13px}
+#app .ucCard .ucDetails{color:#e8c689;font-weight:500;font-size:12px;line-height:1.8}
+#app .ucCard .mjStockBadge{position:static!important;transform:none!important;inset:auto!important;padding:3px!important;min-height:36px!important;white-space:normal!important;max-width:140px!important;border:0!important;background:transparent!important;color:#b9c7ad!important;font-size:12px!important}
+#app .ucCard .mjStockBadge svg{width:16px!important;height:16px!important}
+#app .ucCard .iceCardLink{display:flex!important;flex-direction:column!important;padding:0!important;width:100%!important;height:100%!important;text-align:start!important;background:transparent!important;border:0!important;color:inherit!important}
+#app .ucCard .ucRecipeStock{color:#b9c7ad;font-size:12px}
+#app .ucCard .ucPlaceholder{height:100%;width:100%;display:grid;place-items:center;background:radial-gradient(circle at 40% 30%,#584021,#110e08 70%);font:64px Georgia!important;color:#ad8c50}
+#app .ucCard .ucRecipeImage{aspect-ratio:4/3!important;position:relative!important;width:100%!important}
+#app .ucCard .ucRecipeImage>img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important}
+#app .productGrid,#app .iceGrid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:22px!important}
+#app .categoryCard{opacity:1!important;translate:none!important}
+#reviewNav{padding:14px 5.5%;display:flex;align-items:center;flex-wrap:wrap;gap:8px;background:#17130c;border-bottom:1px solid #65502e;color:#d3b77f;font:12px Cairo,sans-serif}
+#reviewNav strong{font-size:12px;margin-inline-end:10px;font-weight:500}#reviewNav a{display:inline-flex;padding:7px 12px;border:1px solid #66512f;border-radius:20px;color:#dfc395;text-decoration:none}#reviewNav a:hover{background:#79603633}
+@media(max-width:899px){#app .productGrid,#app .iceGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:559px){#app .productGrid,#app .iceGrid{grid-template-columns:1fr!important}#app .ucCard .ucTitle{font-size:25px!important}#app .ucCard .productBody{padding:20px!important}}
+/* Reliable card sizing, including Safari grid sizing. */
+#app .categoryGrid{display:grid!important;width:100%!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:18px!important;max-width:none!important;min-height:260px!important}
+#app .categoryCard{position:relative!important;display:block!important;visibility:visible!important;opacity:1!important;translate:none!important;transform:none!important;aspect-ratio:auto!important;height:clamp(260px,27vw,430px)!important;min-height:260px!important;width:100%!important}
+#app .categoryCard>img{display:block!important;visibility:visible!important;opacity:1!important;position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important}
+#app .ucFlavourBlock>small{display:none!important}#app .ucFlavourBlock{min-height:48px!important}
+#app .section,#app .searchHero,#app .iceWrap,#app .productGrid,#app .iceGrid{max-width:none!important;width:auto!important;margin-inline:0!important}
+#app .section,#app .searchHero,#app .iceWrap{padding-inline:3vw!important}
+#app .hero.interactiveHero,#app .hero.icePreparationHero{height:50vw!important;min-height:0!important;max-height:none!important;aspect-ratio:2/1!important}
+#app .hero.interactiveHero>img,#app .hero.icePreparationHero>img{object-fit:cover!important;object-position:center!important}
+html body .modalRoot{position:fixed!important;inset:0!important;z-index:200!important}
+html body .modalRoot.open .productModal{position:fixed!important;inset:0!important;top:0!important;bottom:0!important;left:0!important;right:0!important;width:100vw!important;height:100dvh!important;height:100vh!important;max-width:none!important;max-height:none!important;margin:0!important;border-radius:0!important;transform:none!important;display:grid!important;grid-template-columns:45% 55%!important;overflow:hidden!important}
+html body .productModal .modalVisual{height:calc(100vh - 64px)!important;width:100%!important;aspect-ratio:auto!important;margin-top:64px!important;background:#100e0a!important}
+html body .productModal .modalVisual>img{width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important}
+html body .productModal .modalContent{height:100vh!important;overflow:auto!important;padding:92px 3vw 50px!important;min-width:0!important}
+html body .productModal .productPager{position:absolute!important;inset-inline:0!important;top:0!important;height:64px!important;z-index:20!important}
+html body .productModal>.modalClose{position:fixed!important;top:12px!important;right:12px!important;z-index:50!important}
+html body .productModal .dragHandle{display:none!important}
+html body :is(#app,.productModal,.mjStockPanel,.nativeViewer) :where(*){font-family:'Cairo',sans-serif!important}
+@media(min-width:1750px){#app .productGrid,#app .iceGrid{grid-template-columns:repeat(4,minmax(0,1fr))!important}}
+@media(max-width:1099px){#app .categoryGrid{grid-template-columns:repeat(3,minmax(0,1fr))!important}#app .categoryCard{height:clamp(260px,39vw,400px)!important}}
+@media(max-width:699px){#app .categoryGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important}#app .categoryCard{height:clamp(230px,60vw,390px)!important;min-height:230px!important}#app .hero.interactiveHero,#app .hero.icePreparationHero{height:62vw!important;min-height:260px!important;aspect-ratio:auto!important}#app .hero.interactiveHero>img,#app .hero.icePreparationHero>img{object-fit:cover!important;object-position:center!important}#app .hero .heroCopy{padding:18px!important;justify-content:flex-end!important}#app .hero h1{font-size:clamp(24px,6vw,36px)!important}#app .hero .lead{font-size:12px!important}html body .modalRoot.open .productModal{display:block!important;overflow:auto!important;height:100dvh!important}html body .productModal .modalVisual{height:auto!important;aspect-ratio:4/3!important;margin-top:64px!important}html body .productModal .modalContent{height:auto!important;overflow:visible!important;padding:24px 20px 45px!important}html body .productModal .modalVisual>img{position:absolute!important;inset:0!important;object-fit:cover!important}}

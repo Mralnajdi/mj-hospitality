@@ -142,7 +142,7 @@
 
   function benefitsFor(p,status,times){
     const profile=tr(sourceFor(p)?.profileEn || p.profileEn || "",sourceFor(p)?.profileAr || p.profileAr || "");
-    const notes=profile.split("·").map(x=>x.trim()).filter(Boolean).slice(0,3);
+    const notes=profile.split("·").map(x=>x.trim()).filter(x=>x&&!/^تحميص|^(?:light|medium|dark) roast/i.test(x)).slice(0,3);
     if(notes.length) return notes.map(s=>({icon:"leaf",en:s,ar:s}));
     const values=factsFor(p).filter(x=>/pack|origin|ingredients/i.test(x[0])).slice(0,3);
     return values.map(f=>({icon:"leaf",en:f[1],ar:f[3]||f[1]}));
@@ -204,46 +204,16 @@
   }
 
   function enhanceCard(tile){
-    const p=P.find(x=>x._id===tile.dataset.product);
-    if(!p) return;
-    const sig=`${p._id}|${isAr()?"ar":"en"}`;
-    if(tile.dataset.v8Sig===sig) return;
-    tile.dataset.v8Sig=sig;
-    tile.classList.add("v8Card");
-    tile.classList.remove("v7Card");
-    tile.querySelector(".quickView")?.remove();
-    const body=tile.querySelector(".productBody");
-    if(!body) return;
-
-    if(p.cat==='specialty'&&p.coffeeMeta){
-      tile.classList.add('mjCoffeeCard');
-      const meta=p.coffeeMeta;
-      const shortName=String(tr(p.labelEn||p.nameEn,p.labelAr||p.nameAr)).split(/ [–—] /).slice(1).join(' — ')||tr(p.labelEn||p.nameEn,p.labelAr||p.nameAr);
-      const roast=meta.roastKey==='roastUnknown'?(tr(meta.roastTypeEn,meta.roastTypeAr)||tr('Roast not stated','التحميص غير مذكور')):tr('Roast '+meta.roastEn,'تحميص '+meta.roastAr);
-      body.innerHTML=`<p class="mjCoffeeMaker"><span>${esc(tr(meta.brandEn,meta.brandAr))}</span><span class="mjCoffeeDot" aria-hidden="true"></span><span>${esc(tr(p.subEn,p.subAr))}</span></p><h3 class="v8Title">${esc(shortName)}</h3><p class="mjCoffeeNotes" aria-label="${esc(tr('All tasting notes','الإيحاءات كاملة'))}">${esc(tr(meta.notesEn,meta.notesAr))}</p><div class="mjCoffeeMeta" aria-label="${esc(tr('Processing and roast','المعالجة ودرجة التحميص'))}"><span>${icons.process}${esc(tr(meta.processEn,meta.processAr))}</span><span class="mjCoffeeSeparator" aria-hidden="true"></span><span>${icons.roast}${esc(roast)}</span></div><div class="mjCoffeeActions"><span class="mjCoffeeOpen">${esc(tr('Product details','تفاصيل المنتج'))} ↗</span></div>`;
-      return;
-    }
-
-    const status=caffeineStatus(p);
-    const times=preferredTimes(p);
-    const top=[];
-    if(status) top.push(status);
-    ["morning","afternoon","evening"].forEach(t=>{ if(times.includes(t)) top.push(t); });
-    const benefits=benefitsFor(p,status,times);
-    const specs=specItems(p,status);
-    const desc=descriptionFor(p);
-
-    body.innerHTML=`
-      ${top.length ? `<div class="v8TopMeta" aria-label="${esc(tr("Caffeine and preferred time","الكافيين والفترة المفضلة"))}">${top.map(topChip).join("")}</div>` : ""}
-      <h3 class="v8Title">${esc(tr(p.labelEn || p.nameEn,p.labelAr || p.nameAr))}</h3>
-      <div class="v8Divider" aria-hidden="true">${icons.leaf}</div>
-      ${desc ? `<p class="v8Description">${esc(desc)}</p>` : ""}
-      <section class="v8Benefits" aria-label="${esc(tr("Product profile","طابع المنتج"))}">
-        <div class="v8BenefitsHead"><span>${esc(tr("Product profile","طابع المنتج"))}</span>${icons.leaf}</div>
-        <div class="v8BenefitsGrid">${benefits.map(b=>`<div class="v8BenefitItem">${icons[b.icon] || icons.leaf}<span>${esc(tr(b.en,b.ar))}</span></div>`).join("")}</div>
-      </section>
-      ${specs.length ? `<div class="v8Specs" aria-label="${esc(tr("Product serving details","بيانات المنتج والتقديم"))}">${specs.map(s=>specItem(s.icon,s.label)).join("")}</div>` : ""}
-    `;
+    const p=P.find(x=>x._id===tile.dataset.product);if(!p)return;
+    const sig=p._id+'|'+isAr();if(tile.dataset.v8Sig===sig)return;tile.dataset.v8Sig=sig;
+    tile.classList.add('v8Card','ucCard');tile.classList.remove('mjCoffeeCard');tile.querySelector('.quickView')?.remove();
+    const body=tile.querySelector('.productBody');if(!body)return;
+    const raw=tr(p.labelEn||p.nameEn,p.labelAr||p.nameAr),short=String(raw).split(/ [–—] /).pop();
+    const notes=tr(p.coffeeMeta?.notesEn||p.profileEn||'',p.coffeeMeta?.notesAr||p.profileAr||'');
+    const words=notes.split(/[·،,;؛]/).map(x=>x.trim()).filter(x=>x&&!/^تحميص|^(?:light|medium|dark) roast/i.test(x));
+    const maker=tr(p.coffeeMeta?.brandEn||p.brandEn||'',p.coffeeMeta?.brandAr||p.brandAr||'');
+    const status=caffeineStatus(p),facts=specItems(p,status).slice(0,3);
+    body.innerHTML=`<p class="ucMaker">${esc(maker)}</p><h3 class="v8Title ucTitle">${esc(short)}</h3><div class="ucFlavourBlock"><small></small><div class="ucFlavours">${words.map(w=>`<span>${esc(w)}</span>`).join('')}</div></div><p class="ucDescription">${esc(descriptionFor(p))}</p><div class="ucFacts">${facts.map(x=>`<span>${esc(x.label)}</span>`).join('')}</div><div class="ucFooter"><span class="ucDetails">${esc(tr('Product details','تفاصيل المنتج'))} ↗</span></div>`;
   }
 
   function enhanceAll(){

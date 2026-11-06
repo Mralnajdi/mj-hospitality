@@ -58,7 +58,7 @@
  }
  
  function brand(p){
-  if(p.cat==='specialty')return {en:p.coffeeMeta.brandEn,ar:p.coffeeMeta.brandAr};
+  if(p.cat==='specialty'&&p.coffeeMeta)return {en:p.coffeeMeta.brandEn,ar:p.coffeeMeta.brandAr};
   if(p.cat==='arabic')return {en:'Zill',ar:'زِل'};
   if(p.cat==='sparkling')return {en:'Seleco',ar:'سيليكو'};
   if(p.brandEn)return {en:p.brandEn,ar:p.brandAr||p.brandEn};
