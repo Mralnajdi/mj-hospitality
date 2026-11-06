@@ -171,7 +171,7 @@
     return `<button class="moodTag ${filter ? "filterTag" : ""}" type="button" data-tag="${k}" aria-label="${esc(t(m.en, m.ar))}" title="${esc(t(m.en, m.ar))}"><span aria-hidden="true">${icon(m.icon)}</span><b>${esc(t(m.en, m.ar))}</b></button>`;
   }
   function categorySwitcher(active) {
-    return `<nav class="categorySwitcher" aria-label="${esc(t("Collections", "الأقسام"))}">${order.map((k) => `<button type="button" class="${k === active ? "active" : ""}" data-go="/collection/${k}"><span>${esc(t(C[k].en, C[k].ar))}</span><i>${String(P.filter((p) => p.cat === k).length)}</i></button>`).join("")}<button type="button" data-go="/icecream"><span>${esc(t("Ice Cream","آيسكريم"))}</span><i>${window.MJ_ICE_DATA?.recipes.length||0}</i></button></nav>`;
+    return `<nav class="categorySwitcher" aria-label="${esc(t("Collections", "الأقسام"))}">${order.map((k) => `<button type="button" class="${k === active ? "active" : ""}" data-go="/collection/${k}"><span>${esc(t(C[k].en, C[k].ar))}</span><i>${String(P.filter((p) => p.cat === k).length)}</i></button>`).join("")}<button type="button" class="${active === 'icecream' ? 'active' : ''}" data-go="/icecream"><span>${esc(t("Ice Cream","آيسكريم"))}</span><i>${window.MJ_ICE_DATA?.recipes.length||0}</i></button></nav>`;
   }
   function setText() {
     document.documentElement.lang = lang;
@@ -179,8 +179,8 @@
     app.dir = ar() ? "rtl" : "ltr";
     langBtn.textContent = ar() ? "EN" : "عربي";
     document.querySelector(".brandCopy").innerHTML = ar()
-      ? "مجموعة<br><b>الضيافة الخاصة</b>"
-      : "PRIVATE<br><b>HOSPITALITY COLLECTION</b>";
+      ? 'مجموعة<br><b>الضيافة الخاصة</b><small class="mjRelease" dir="ltr" aria-label="Version 21.1.0">v21.1.0</small>'
+      : 'PRIVATE<br><b>HOSPITALITY COLLECTION</b><small class="mjRelease" dir="ltr" aria-label="Version 21.1.0">v21.1.0</small>';
     const homeLabel = t("Home", "الرئيسية"),
       brandBtn = document.getElementById("brandBtn");
     brandBtn.setAttribute("aria-label", homeLabel);
@@ -646,7 +646,7 @@
         card.classList.remove("pressed"),
       );
     });
-    const reveals = document.querySelectorAll(".");
+    const reveals = document.querySelectorAll(".revealCard");
     if (reveals.length) {
       const observer = new IntersectionObserver(
         (entries) =>
@@ -693,7 +693,7 @@
       b.classList.toggle("active", x === "/" ? r === "/" : r.startsWith(x));
     });
     document.documentElement.classList.remove("iceRoute");
-    if (a[0] === "icecream") window.MJ_ICE.render({lang,main,go},a[1]);
+    if (a[0] === "icecream") window.MJ_ICE.render({lang,main,go,categorySwitcher},a[1]);
     else if (r === "/") home();
     else if (a[0] === "collection" && a[1]) collection(a[1]);
     else if (a[0] === "discover" && a[1]) all(a[1]);
