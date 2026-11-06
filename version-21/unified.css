@@ -62,4 +62,10 @@ html body :is(#app,.productModal,.mjStockPanel,.nativeViewer) :where(*){font-fam
 #app .categorySwitcher :is(button,a).active:after{content:'';position:absolute;inset:auto 24% 0;height:2px;background:#b99a60!important;transform:none!important;box-shadow:none!important}
 html body #app nav.bottomNav button.active{position:relative;background:transparent!important;border-color:transparent!important;border-radius:0!important;box-shadow:none!important}
 html body #app nav.bottomNav button.active,html body #app nav.bottomNav button.active *{color:#d4b679!important;font-weight:600!important}
-html body #app nav.bottomNav button.active:after{content:'';position:absolute;inset:auto 27% 0;height:2px;background:#b99a60}
+html body #app nav.bottomNav button.active:after{content:none}
+
+/* Fill the selected circular icon in the same quiet gold. */
+#app .bottomNav .navRoundIcon{display:grid;place-items:center}
+#app .bottomNav .navRoundIcon svg{width:20px;height:20px;display:block}
+#app .bottomNav .navRoundIcon circle{fill:none;stroke:currentColor;stroke-width:1.4}
+#app .bottomNav .active .navRoundIcon circle{fill:currentColor;stroke:currentColor}
