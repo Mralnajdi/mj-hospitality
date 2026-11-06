@@ -179,8 +179,8 @@
     app.dir = ar() ? "rtl" : "ltr";
     langBtn.textContent = ar() ? "EN" : "عربي";
     document.querySelector(".brandCopy").innerHTML = ar()
-      ? 'مجموعة<br><b>الضيافة الخاصة</b><small class="mjRelease" dir="ltr" aria-label="Version 21.2.3">v21.2.3</small>'
-      : 'PRIVATE<br><b>HOSPITALITY COLLECTION</b><small class="mjRelease" dir="ltr" aria-label="Version 21.2.3">v21.2.3</small>';
+      ? 'مجموعة<br><b>الضيافة الخاصة</b><small class="mjRelease" dir="ltr" aria-label="Version 21.2.4">v21.2.4</small>'
+      : 'PRIVATE<br><b>HOSPITALITY COLLECTION</b><small class="mjRelease" dir="ltr" aria-label="Version 21.2.4">v21.2.4</small>';
     const homeLabel = t("Home", "الرئيسية"),
       brandBtn = document.getElementById("brandBtn");
     brandBtn.setAttribute("aria-label", homeLabel);

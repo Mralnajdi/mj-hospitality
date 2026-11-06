@@ -17,3 +17,6 @@ html body #app .iceRecipeSources a{display:inline-flex;align-items:center;justif
 html body #app .iceRecipeSources a:hover{border-color:#c9ad75;background:#c9ad750a}
 html body #app .iceRecipeSources a:focus-visible{outline:2px solid #c9ad75;outline-offset:3px}
 html body #app .iceRecipeSources a:after{content:none!important}
+
+/* Match the home ice collection photograph to the darker collection imagery. */
+html body #app .iceHomeCard>img{filter:brightness(.76)!important}
