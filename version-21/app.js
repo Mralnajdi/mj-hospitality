@@ -179,8 +179,8 @@
     app.dir = ar() ? "rtl" : "ltr";
     langBtn.textContent = ar() ? "EN" : "عربي";
     document.querySelector(".brandCopy").innerHTML = ar()
-      ? 'مجموعة<br><b>الضيافة الخاصة</b><small class="mjRelease" dir="ltr" aria-label="Version 21.1.4">v21.1.4</small>'
-      : 'PRIVATE<br><b>HOSPITALITY COLLECTION</b><small class="mjRelease" dir="ltr" aria-label="Version 21.1.4">v21.1.4</small>';
+      ? 'مجموعة<br><b>الضيافة الخاصة</b><small class="mjRelease" dir="ltr" aria-label="Version 21.1.5">v21.1.5</small>'
+      : 'PRIVATE<br><b>HOSPITALITY COLLECTION</b><small class="mjRelease" dir="ltr" aria-label="Version 21.1.5">v21.1.5</small>';
     const homeLabel = t("Home", "الرئيسية"),
       brandBtn = document.getElementById("brandBtn");
     brandBtn.setAttribute("aria-label", homeLabel);
@@ -215,7 +215,7 @@
         return `<article class="categoryCard tiltCard " tabindex="0" role="button" data-go="/collection/${k}"><img src="${image}" alt="${esc(t(c.en, c.ar))}" loading="eager" decoding="async"><div class="cardGlow" aria-hidden="true"></div><div class="cardCopy"><div class="eyebrow">${i + 1}</div><h3>${esc(t(c.en, c.ar))}</h3><p>${esc(t(c.subEn, c.subAr))}</p><span class="enterArrow">↗</span></div></article>`;
       })
       .join("");
-    const iceCard=`<article class="categoryCard iceHomeCard" tabindex="0" role="button" data-go="/icecream"><img src="assets/ice-category-approved.webp" alt="${esc(t("Winter ice cream collection","مجموعة الآيسكريم الشتوية"))}" loading="lazy"><div class="cardCopy"><div class="eyebrow">MJ · WINTER COLLECTION</div><h3>${esc(t("Ice Cream","الآيسكريم"))}</h3><p>${esc(t("A sweeter winter. CREAMi Deluxe & Swirl.","حلاوة الشتاء. وصفات الكريمي والسويرل."))}</p><span class="enterArrow">↗</span></div></article>`;
+    const iceCard=`<article class="categoryCard iceHomeCard" tabindex="0" role="button" data-go="/icecream"><img src="assets/ice-category-approved.webp" alt="${esc(t("Ice Cream","الآيسكريم"))}" loading="lazy"><div class="cardCopy"><h3>${esc(t("Ice Cream","الآيسكريم"))}</h3><span class="enterArrow">↗</span></div></article>`;
     const moods = ["morning", "evening", "caffeine", "caffeinefree", "iced"]
       .map((k) => {
         const m = tagMeta[k];
