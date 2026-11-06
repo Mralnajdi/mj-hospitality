@@ -179,8 +179,8 @@
     app.dir = ar() ? "rtl" : "ltr";
     langBtn.textContent = ar() ? "EN" : "عربي";
     document.querySelector(".brandCopy").innerHTML = ar()
-      ? 'مجموعة<br><b>الضيافة الخاصة</b><small class="mjRelease" dir="ltr" aria-label="Version 21.2.1">v21.2.1</small>'
-      : 'PRIVATE<br><b>HOSPITALITY COLLECTION</b><small class="mjRelease" dir="ltr" aria-label="Version 21.2.1">v21.2.1</small>';
+      ? 'مجموعة<br><b>الضيافة الخاصة</b><small class="mjRelease" dir="ltr" aria-label="Version 21.2.2">v21.2.2</small>'
+      : 'PRIVATE<br><b>HOSPITALITY COLLECTION</b><small class="mjRelease" dir="ltr" aria-label="Version 21.2.2">v21.2.2</small>';
     const homeLabel = t("Home", "الرئيسية"),
       brandBtn = document.getElementById("brandBtn");
     brandBtn.setAttribute("aria-label", homeLabel);
@@ -257,7 +257,7 @@
     const tags = productTags(p)
       .map((k) => tagButton(k))
       .join("");
-    return `<article class="productTile tiltCard" tabindex="0" role="button" data-product="${p._id}" data-tags="${productTags(p).join(" ")}"><div class="productImage">${visualFor(p)}${catalogPhotoBadges(p)}<span class="quickView">${esc(t("Quick view", "عرض سريع"))} ↗</span></div><div class="productBody"><div class="productTitleRow"><h3>${esc(t(p.labelEn || p.nameEn, p.labelAr || p.nameAr))}</h3></div><div class="tagRail productTags">${tags}</div><p class="profile">${esc(t(p.profileEn, p.profileAr))}</p><p class="micro">${esc(t(p.serveEn, p.serveAr))} · ${esc(t(p.timeEn, p.timeAr))}</p></div></article>`;
+    return `<article class="productTile tiltCard" tabindex="0" role="button" data-product="${p._id}" data-tags="${productTags(p).join(" ")}"><div class="productImage">${visualFor(p)}${catalogPhotoBadges(p)}<span class="quickView">${esc(t("Quick view", "عرض سريع"))}</span></div><div class="productBody"><div class="productTitleRow"><h3>${esc(t(p.labelEn || p.nameEn, p.labelAr || p.nameAr))}</h3></div><div class="tagRail productTags">${tags}</div><p class="profile">${esc(t(p.profileEn, p.profileAr))}</p><p class="micro">${esc(t(p.serveEn, p.serveAr))} · ${esc(t(p.timeEn, p.timeAr))}</p></div></article>`;
   }
   const catalogSelections = new Map();
   const F = window.MJ_FILTERS;
@@ -342,7 +342,7 @@
         ? t("Official source verified", "موثق من المصدر الرسمي")
         : t("Needs package verification", "يحتاج تحقق من العبوة");
     const source = s?.source
-      ? `<a class="sourceLink" href="${esc(s.source)}" target="_blank" rel="noopener">${esc(t("View official source", "عرض المصدر الرسمي"))} ↗</a>`
+      ? `<a class="sourceLink" href="${esc(s.source)}" target="_blank" rel="noopener">${esc(t("View official source", "عرض المصدر الرسمي"))}</a>`
       : "";
     if (!b) {
       const device = p.cat === "specialty" ? "xBloom Studio + Omni Dripper 2" : p.cat === "tea" ? "xBloom Studio + Omni Tea Brewer" : p.cat === "sparkling" ? t("Manual bar + MJ soda siphon", "تحضير يدوي + سيفون MJ") : t("Arabic coffee brewer / dallah", "جهاز القهوة العربية / الدلة");
@@ -358,7 +358,7 @@
         return `<button class="volumeProfile" type="button" data-recipe-volume="${v}" data-dose="${grams}" data-temp="${b.temp}" data-time="${esc(b.time)}"><b>${v} ml</b><span>${grams} g</span><span>${b.temp}°C</span><span>${esc(b.time)}</span><small>${steeps} ${esc(t(steeps === 1 ? "steep" : "steeps", steeps === 1 ? "نقعة" : "نقعات"))}</small></button>`;
       })
       .join("");
-    return `<section class="recipeCard"><div class="recipeHead"><div><span class="eyebrow">${esc(t("Recipe & device", "الوصفة والجهاز"))}</span><h3>${esc(b.device)}</h3></div><span class="sourceBadge">${esc(badge)}</span></div><p class="recipeNote">${esc(t("Amounts are scaled directly from the manufacturer’s official grams-per-litre preparation. Omni Tea Brewer capacity is 160 ml; 240/360 ml are presented as two/three 120 ml steeps.", "الكميات محسوبة مباشرة من معيار الغرام لكل لتر المنشور رسميًا من الشركة. سعة Omni Tea Brewer هي 160 مل؛ ويعرض 240/360 مل كنقعتين/ثلاث نقعات بحجم 120 مل."))}</p><div class="volumeProfiles">${volumes}</div><div class="recipeActions"><button class="recipeCopy" type="button" data-copy-recipe>${esc(t("Copy selected settings", "نسخ الإعدادات المختارة"))}</button><a class="recipeOpen" href="${esc(S.xbloom.app)}" target="_blank" rel="noopener">${esc(t("Open xBloom app", "فتح تطبيق xBloom"))} ↗</a></div><p class="deviceDisclosure">${esc(t(S.xbloom.noteEn, S.xbloom.noteAr))}</p>${source}</section>`;
+    return `<section class="recipeCard"><div class="recipeHead"><div><span class="eyebrow">${esc(t("Recipe & device", "الوصفة والجهاز"))}</span><h3>${esc(b.device)}</h3></div><span class="sourceBadge">${esc(badge)}</span></div><p class="recipeNote">${esc(t("Amounts are scaled directly from the manufacturer’s official grams-per-litre preparation. Omni Tea Brewer capacity is 160 ml; 240/360 ml are presented as two/three 120 ml steeps.", "الكميات محسوبة مباشرة من معيار الغرام لكل لتر المنشور رسميًا من الشركة. سعة Omni Tea Brewer هي 160 مل؛ ويعرض 240/360 مل كنقعتين/ثلاث نقعات بحجم 120 مل."))}</p><div class="volumeProfiles">${volumes}</div><div class="recipeActions"><button class="recipeCopy" type="button" data-copy-recipe>${esc(t("Copy selected settings", "نسخ الإعدادات المختارة"))}</button><a class="recipeOpen" href="${esc(S.xbloom.app)}" target="_blank" rel="noopener">${esc(t("Open xBloom app", "فتح تطبيق xBloom"))}</a></div><p class="deviceDisclosure">${esc(t(S.xbloom.noteEn, S.xbloom.noteAr))}</p>${source}</section>`;
   }
   function modalMarkup(p) {
     const fs = facts(p),

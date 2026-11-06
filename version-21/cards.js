@@ -213,7 +213,7 @@
     const words=notes.split(/[·،,;؛]/).map(x=>x.trim()).filter(x=>x&&!/^تحميص|^(?:light|medium|dark) roast/i.test(x));
     const maker=tr(p.coffeeMeta?.brandEn||p.brandEn||'',p.coffeeMeta?.brandAr||p.brandAr||'');
     const status=caffeineStatus(p),facts=specItems(p,status).slice(0,3);
-    body.innerHTML=`<p class="ucMaker">${esc(maker)}</p><h3 class="v8Title ucTitle">${esc(short)}</h3><div class="ucFlavourBlock"><small></small><div class="ucFlavours">${words.map(w=>`<span>${esc(w)}</span>`).join('')}</div></div><p class="ucDescription">${esc(descriptionFor(p))}</p><div class="ucFacts">${facts.map(x=>`<span>${esc(x.label)}</span>`).join('')}</div><div class="ucFooter"><span class="ucDetails">${esc(tr('Product details','تفاصيل المنتج'))} ↗</span></div>`;
+    body.innerHTML=`<p class="ucMaker">${esc(maker)}</p><h3 class="v8Title ucTitle">${esc(short)}</h3><div class="ucFlavourBlock"><small></small><div class="ucFlavours">${words.map(w=>`<span>${esc(w)}</span>`).join('')}</div></div><p class="ucDescription">${esc(descriptionFor(p))}</p><div class="ucFacts">${facts.map(x=>`<span>${esc(x.label)}</span>`).join('')}</div><div class="ucFooter"><span class="ucDetails">${esc(tr('Product details','تفاصيل المنتج'))}</span></div>`;
   }
 
   function enhanceAll(){

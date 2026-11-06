@@ -9,3 +9,11 @@ html body #app .iceCard .iceSave{display:none!important}
 html[dir="rtl"] #app .icePreparationHero>img{width:108%!important;left:-8%!important;right:auto!important;object-position:70% center!important}
 html[dir="ltr"] #app .icePreparationHero>img{width:108%!important;left:0!important;right:-8%!important;object-position:70% center!important}
 @media(min-width:700px){html body #app .icePreparationHero .heroCopy{width:43%!important}}
+
+/* Source links follow the approved quiet gold action style. */
+html body #app .iceRecipeSources{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:24px}
+html body #app .iceRecipeSources>span{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+html body #app .iceRecipeSources a{display:inline-flex;align-items:center;justify-content:center;min-height:40px;max-width:100%;margin:0;border:1px solid #80663799;border-radius:9px;padding:8px 15px;font-size:13px;font-weight:500;line-height:1.7;color:#d4b67e;text-decoration:none;box-sizing:border-box}
+html body #app .iceRecipeSources a:hover{border-color:#c9ad75;background:#c9ad750a}
+html body #app .iceRecipeSources a:focus-visible{outline:2px solid #c9ad75;outline-offset:3px}
+html body #app .iceRecipeSources a:after{content:none!important}
