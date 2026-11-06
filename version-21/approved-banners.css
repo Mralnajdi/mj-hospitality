@@ -1,0 +1,18 @@
+/* Approved bilingual banners: text at inline start, intact artwork opposite. */
+.hero.interactiveHero,.hero.icePreparationHero{display:grid!important;grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr)!important;align-items:center!important;min-height:0!important;height:auto!important;max-height:none!important;overflow:hidden!important;background:#0b0a08!important;isolation:isolate!important}
+.hero.interactiveHero>img,.hero.icePreparationHero>img{position:relative!important;inset:auto!important;grid-column:2!important;grid-row:1!important;display:block!important;width:100%!important;height:auto!important;max-width:100%!important;object-fit:contain!important;object-position:center!important;transform:none!important;filter:none!important;transition:none!important;background:transparent!important;align-self:center!important}
+.hero.interactiveHero .heroCopy,.hero.icePreparationHero .heroCopy{position:relative!important;inset:auto!important;grid-column:1!important;grid-row:1!important;min-width:0!important;min-height:0!important;height:auto!important;width:auto!important;max-width:none!important;padding:clamp(28px,4vw,72px)!important;margin:0!important;display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:flex-start!important;text-align:start!important;background:transparent!important;pointer-events:auto!important}
+.hero.interactiveHero .shade,.hero.icePreparationHero .shade{display:none!important}
+.hero.interactiveHero h1,.hero.icePreparationHero h1{font-size:clamp(34px,4.2vw,68px)!important;line-height:1.25!important;margin:18px 0 0!important;max-width:100%!important;text-shadow:none!important;text-wrap:balance;overflow-wrap:normal!important}
+.hero.interactiveHero .lead,.hero.icePreparationHero .lead{font-size:clamp(14px,1.2vw,18px)!important;line-height:1.9!important;margin:18px 0 0!important;max-width:36ch!important;text-shadow:none!important}
+.hero.interactiveHero .eyebrow,.hero.icePreparationHero .eyebrow{font-size:10px!important;line-height:1.8!important;letter-spacing:.12em!important}
+.hero.icePreparationHero .iceGoldButton{align-self:flex-start!important;max-width:100%;min-height:44px;margin-top:24px!important}
+html[dir="rtl"] .hero{direction:rtl!important}html[dir="ltr"] .hero{direction:ltr!important}
+@media(max-width:900px){
+ .hero.interactiveHero,.hero.icePreparationHero{grid-template-columns:minmax(0,1fr)!important}
+ .hero.interactiveHero .heroCopy,.hero.icePreparationHero .heroCopy{grid-column:1!important;grid-row:1!important;padding:28px 24px 24px!important}
+ .hero.interactiveHero>img,.hero.icePreparationHero>img{grid-column:1!important;grid-row:2!important}
+ .hero.interactiveHero h1,.hero.icePreparationHero h1{font-size:clamp(32px,7vw,48px)!important;line-height:1.35!important;margin-top:10px!important}
+ .hero.interactiveHero .lead,.hero.icePreparationHero .lead{margin-top:10px!important;max-width:48ch!important;font-size:15px!important}
+ .hero.icePreparationHero .iceGoldButton{margin-top:16px!important}
+}
