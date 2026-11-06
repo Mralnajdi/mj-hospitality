@@ -1,0 +1,11 @@
+/* Approved shared category/product presentation. */
+html body #app .iceExperience>.categorySwitcher{margin:0!important;max-width:none!important;width:100%!important;overflow-x:auto;flex-wrap:nowrap}
+html body #app .iceExperience>.categorySwitcher a{min-height:58px;display:flex;align-items:center;justify-content:center;gap:7px;padding:9px 7px;font-size:12px;text-align:center}
+html body #app .iceCard .ucFooter .ucDetails{display:inline-flex;align-items:center;justify-content:center;min-height:40px;border:1px solid #80663799;border-radius:9px;padding:8px 15px;font-size:13px;font-weight:500;line-height:1.7;color:#d4b67e;white-space:nowrap}
+html body #app .iceCard .ucFooter .ucDetails:after{content:none!important}
+html body #app .iceCard .iceSave{display:none!important}
+
+/* A little more photographic breathing room behind the ice hero copy. */
+html[dir="rtl"] #app .icePreparationHero>img{width:108%!important;left:-8%!important;right:auto!important;object-position:70% center!important}
+html[dir="ltr"] #app .icePreparationHero>img{width:108%!important;left:0!important;right:-8%!important;object-position:30% center!important}
+@media(min-width:700px){html body #app .icePreparationHero .heroCopy{width:43%!important}}
