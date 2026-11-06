@@ -179,8 +179,8 @@
     app.dir = ar() ? "rtl" : "ltr";
     langBtn.textContent = ar() ? "EN" : "عربي";
     document.querySelector(".brandCopy").innerHTML = ar()
-      ? 'مجموعة<br><b>الضيافة الخاصة</b><small class="mjRelease" dir="ltr" aria-label="Version 21.1.5">v21.1.5</small>'
-      : 'PRIVATE<br><b>HOSPITALITY COLLECTION</b><small class="mjRelease" dir="ltr" aria-label="Version 21.1.5">v21.1.5</small>';
+      ? 'مجموعة<br><b>الضيافة الخاصة</b><small class="mjRelease" dir="ltr" aria-label="Version 21.2.0">v21.2.0</small>'
+      : 'PRIVATE<br><b>HOSPITALITY COLLECTION</b><small class="mjRelease" dir="ltr" aria-label="Version 21.2.0">v21.2.0</small>';
     const homeLabel = t("Home", "الرئيسية"),
       brandBtn = document.getElementById("brandBtn");
     brandBtn.setAttribute("aria-label", homeLabel);
@@ -212,10 +212,10 @@
       .map((k, i) => {
         const c = C[k],
           image = homeCategoryImages[k];
-        return `<article class="categoryCard tiltCard " tabindex="0" role="button" data-go="/collection/${k}"><img src="${image}" alt="${esc(t(c.en, c.ar))}" loading="eager" decoding="async"><div class="cardGlow" aria-hidden="true"></div><div class="cardCopy"><div class="eyebrow">${i + 1}</div><h3>${esc(t(c.en, c.ar))}</h3><p>${esc(t(c.subEn, c.subAr))}</p><span class="enterArrow">↗</span></div></article>`;
+        return `<article class="categoryCard tiltCard " tabindex="0" role="button" data-go="/collection/${k}"><img src="${image}" alt="${esc(t(c.en, c.ar))}" loading="eager" decoding="async"><div class="cardGlow" aria-hidden="true"></div><div class="cardCopy"><div class="eyebrow">${i + 1}</div><h3>${esc(t(c.en, c.ar))}</h3><p>${esc(t(c.subEn, c.subAr))}</p></div></article>`;
       })
       .join("");
-    const iceCard=`<article class="categoryCard iceHomeCard" tabindex="0" role="button" data-go="/icecream"><img src="assets/ice-category-approved.webp" alt="${esc(t("Ice Cream","الآيسكريم"))}" loading="lazy"><div class="cardCopy"><h3>${esc(t("Ice Cream","الآيسكريم"))}</h3><span class="enterArrow">↗</span></div></article>`;
+    const iceCard=`<article class="categoryCard iceHomeCard" tabindex="0" role="button" data-go="/icecream"><img src="assets/ice-category-approved.webp" alt="${esc(t("Ice Cream","الآيسكريم"))}" loading="lazy"><div class="cardCopy"><h3>${esc(t("Ice Cream","الآيسكريم"))}</h3></div></article>`;
     const moods = ["morning", "evening", "caffeine", "caffeinefree", "iced"]
       .map((k) => {
         const m = tagMeta[k];
@@ -386,6 +386,7 @@
   function openModal(id, push = true) {
     const p = P.find((x) => x._id === id);
     if (!p) return;
+    window.MJ_LOADING?.start();
     if (!modalProduct) lastFocus = document.activeElement;
     modalProduct = p;
     if (push) modalFromHistory = true;
@@ -409,15 +410,18 @@
     root.querySelectorAll(".productPager button").forEach(b=>b.disabled=ordered.length<2);
     const panel=root.querySelector(".productModal"); panel.scrollTop=0;
     root.querySelector(".modalClose")?.focus({preventScroll:true});
+    window.MJ_LOADING?.ready(root);
   }
   function closeModal(useHistory = true) {
     const root = document.getElementById("modalRoot");
     if (!root?.classList.contains("open")) return;
+    window.MJ_LOADING?.start();
     root.classList.remove("open");
     document.body.classList.remove("modalOpen");
     document.body.style.top = "";
     scrollTo(0, lockedScroll);
     modalProduct = null;
+    window.MJ_LOADING?.ready(main);
     setTimeout(() => {
       if (!root.classList.contains("open")) { root.innerHTML = ""; lastFocus?.focus?.({preventScroll:true}); }
     }, 280);
@@ -682,6 +686,7 @@
     });
   }
   function render() {
+    if(renderedRoute!==null && renderedRoute!==route()) window.MJ_LOADING?.start();
     window.hfStockAbort?.abort();
     if(renderedRoute)routePositions.set(renderedRoute,scrollY);
     setText();
@@ -702,6 +707,7 @@
     const y=routePositions.get(r)||0; renderedRoute=r;
     scrollTo({top:y,behavior:"instant"});
     requestAnimationFrame(()=>scrollTo({top:y,behavior:"instant"}));
+    window.MJ_LOADING?.ready(main);
   }
   back.onclick = () => (history.length > 1 ? history.back() : go("/"));
   document.getElementById("brandBtn").onclick = () => go("/");

@@ -1,0 +1,15 @@
+/* Approved MJ / Welcome to Wow. identity — design 1. */
+.mjLogoLoader{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;background:#080806;opacity:1;visibility:visible;transition:opacity .18s ease,visibility .18s ease}
+.mjLogoLoader.done{opacity:0;visibility:hidden;pointer-events:none}
+.mjLoaderStage{width:clamp(240px,66vw,370px);max-width:85vw;direction:ltr}
+.mjLoaderMark{display:block;width:100%;height:auto;overflow:visible}
+.mjLoaderGold{clip-path:inset(0 0 var(--mj-unfilled,100%) 0);transition:clip-path .6s linear}
+html body #app .brandMark{display:flex;width:76px;height:54px;border:0!important;border-radius:0!important;background:none!important;flex:0 0 76px;align-items:center;justify-content:center;padding:0!important;box-shadow:none!important}
+html body #app .brandMark img{width:100%;height:auto;display:block}
+html body #app .brandCopy{font-size:9px;line-height:1.5}
+html body #app .brandCopy b{font-size:9px}
+html body #app .categoryCard .enterArrow{display:none!important}
+.iceFooter .iceMonogram img{display:block;width:90px;height:auto}
+@media(min-width:700px){html body #app .brandMark{width:94px;height:66px;flex-basis:94px}html body #app .brandCopy,html body #app .brandCopy b{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.mjLogoLoader,.mjLoaderGold{transition:none!important}}
+@media print{.mjLogoLoader{display:none!important}}
