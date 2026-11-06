@@ -7,5 +7,5 @@ html body #app .iceCard .iceSave{display:none!important}
 
 /* A little more photographic breathing room behind the ice hero copy. */
 html[dir="rtl"] #app .icePreparationHero>img{width:108%!important;left:-8%!important;right:auto!important;object-position:70% center!important}
-html[dir="ltr"] #app .icePreparationHero>img{width:108%!important;left:0!important;right:-8%!important;object-position:30% center!important}
+html[dir="ltr"] #app .icePreparationHero>img{width:108%!important;left:0!important;right:-8%!important;object-position:70% center!important}
 @media(min-width:700px){html body #app .icePreparationHero .heroCopy{width:43%!important}}
