@@ -1,0 +1,13 @@
+/* V2 — exact Version 1 hero geometry. */
+.hero{position:relative!important;min-height:70svh!important;height:auto!important;max-height:none!important;overflow:hidden!important;background:#0b0a08!important;isolation:auto!important}
+.hero::before{display:none!important;content:none!important}
+.hero>img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center top!important;background:#050504!important;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)!important;filter:none!important;image-rendering:auto!important}
+.hero:hover>img{transform:scale(1.018)!important}
+.hero .shade{position:absolute!important;inset:0!important;z-index:1!important;background:linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.25) 42%,rgba(0,0,0,.93) 90%,#080806)!important;pointer-events:none!important}
+.heroCopy{position:relative!important;z-index:2!important;min-height:70svh!important;height:auto!important;display:flex!important;flex-direction:column!important;justify-content:flex-end!important;padding:26px 18px 62px!important;margin:0!important;left:auto!important;right:auto!important;bottom:auto!important;top:auto!important;width:auto!important;max-width:none!important;background:transparent!important}
+html[dir="rtl"] .heroCopy{text-align:right!important}html[dir="ltr"] .heroCopy{text-align:left!important}
+.hero .eyebrow{color:#c9a86a!important;font-size:10px!important;letter-spacing:.2em!important;text-transform:uppercase!important;margin:0!important;text-shadow:none!important}
+.hero h1{font-size:clamp(45px,12vw,78px)!important;line-height:.96!important;margin:12px 0 0!important;color:#fff8ee!important;text-shadow:0 6px 24px #000!important;max-width:none!important;font-weight:400!important}
+.hero .lead{max-width:680px!important;color:rgba(244,237,227,.76)!important;font-size:14px!important;line-height:1.72!important;margin:14px 0 0!important;text-shadow:none!important}
+/* Keep prior V2 decision: no Explore CTA. */
+.heroExplore,.hero .heroExplore,.heroCta,.exploreBtn{display:none!important;visibility:hidden!important}

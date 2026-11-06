@@ -1,0 +1,19 @@
+/* Keep the approved presentation, with consistent navigation and readable mobile details. */
+.bottomNav button,.bottomNav button span,.bottomNav button small{color:#827d70!important}
+.bottomNav button.active,.bottomNav button.active span,.bottomNav button.active small{color:#d4b679!important}
+.productTile img,.modalVisual img{object-fit:cover;object-position:center;image-orientation:from-image}
+.productTile .v8BenefitsGrid{grid-template-columns:repeat(auto-fit,minmax(82px,1fr))}
+.productTile .v8BenefitItem{font-size:12px;line-height:1.55;min-height:66px}
+.v8Specs,.v8TopMeta{direction:inherit!important}
+.v8Spec,.v8TopChip{direction:inherit!important}
+.v6InfoTable{table-layout:fixed}.v6InfoTable td{overflow-wrap:anywhere}
+.v6InfoTable td:last-child{unicode-bidi:plaintext}
+.v6Actions a{overflow-wrap:anywhere}
+.productModal .experience:has(.xp div:empty){display:none}
+.productModal .story,.v8Description{unicode-bidi:plaintext}
+.v8Title,.modalTitleRow h2{overflow-wrap:anywhere;text-wrap:balance}
+@media(max-width:600px){.v8BenefitsGrid{gap:0}.v8BenefitItem{padding:5px 7px!important}.v6PrepTable{font-size:12px}.v6Pane{overflow-x:auto}.v6InfoTable td:first-child{width:35%}}
+/* Keep long product names inside the mobile Previous / Next controls. */
+.v6PrevNext{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.v6Move,.modalContent,.v6Navigator{min-width:0}
+@media(max-width:699px){.productModal{max-width:100%;overflow-x:hidden}.v6Move b{min-width:0}}
