@@ -198,7 +198,7 @@
       .forEach((x) => (x.textContent = t(...map[x.dataset.navLabel])));
   }
   function hero(k, title, desc, home = false) {
-    const img = home ? A.home : A.categories[k];
+    const img = home ? `version-21/assets/home-banner-${ar()?"ar":"en"}.webp` : A.categories[k];
     return `<section class="hero interactiveHero" data-depth><img src="${img}" alt="${esc(title)}"><div class="shade"></div><div class="heroCopy"><div class="eyebrow">MJ · ${esc(t("Private Hospitality", "الضيافة الخاصة"))}</div><h1>${esc(title)}</h1><p class="lead">${esc(desc)}</p></div><button class="heroExplore" type="button" data-scroll-catalog>${esc(t("Explore the collection", "استكشف المجموعة"))}<span>↓</span></button></section>`;
   }
   function home() {
@@ -215,7 +215,7 @@
         return `<article class="categoryCard tiltCard revealCard" tabindex="0" role="button" data-go="/collection/${k}"><img src="${image}" alt="${esc(t(c.en, c.ar))}" loading="lazy" decoding="async"><div class="cardGlow" aria-hidden="true"></div><div class="cardCopy"><div class="eyebrow">${i + 1}</div><h3>${esc(t(c.en, c.ar))}</h3><p>${esc(t(c.subEn, c.subAr))}</p><span class="enterArrow">↗</span></div></article>`;
       })
       .join("");
-    const iceCard=`<article class="categoryCard iceHomeCard" tabindex="0" role="button" data-go="/icecream"><img src="version-21/assets/ice-preparing-ingredients.webp" alt="${esc(t("Winter ice cream collection","مجموعة الآيسكريم الشتوية"))}" loading="lazy"><div class="cardCopy"><div class="eyebrow">MJ · WINTER COLLECTION</div><h3>${esc(t("Ice Cream","الآيسكريم"))}</h3><p>${esc(t("A sweeter winter. CREAMi Deluxe & Swirl.","حلاوة الشتاء. وصفات الكريمي والسويرل."))}</p><span class="enterArrow">↗</span></div></article>`;
+    const iceCard=`<article class="categoryCard iceHomeCard" tabindex="0" role="button" data-go="/icecream"><img src="version-21/assets/ice-category.webp" alt="${esc(t("Winter ice cream collection","مجموعة الآيسكريم الشتوية"))}" loading="lazy"><div class="cardCopy"><div class="eyebrow">MJ · WINTER COLLECTION</div><h3>${esc(t("Ice Cream","الآيسكريم"))}</h3><p>${esc(t("A sweeter winter. CREAMi Deluxe & Swirl.","حلاوة الشتاء. وصفات الكريمي والسويرل."))}</p><span class="enterArrow">↗</span></div></article>`;
     const moods = ["morning", "evening", "caffeine", "caffeinefree", "iced"]
       .map((k) => {
         const m = tagMeta[k];

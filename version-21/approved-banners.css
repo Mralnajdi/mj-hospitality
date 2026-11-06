@@ -1,18 +1,33 @@
-/* Approved bilingual banners: text at inline start, intact artwork opposite. */
-.hero.interactiveHero,.hero.icePreparationHero{display:grid!important;grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr)!important;align-items:center!important;min-height:0!important;height:auto!important;max-height:none!important;overflow:hidden!important;background:#0b0a08!important;isolation:isolate!important}
-.hero.interactiveHero>img,.hero.icePreparationHero>img{position:relative!important;inset:auto!important;grid-column:2!important;grid-row:1!important;display:block!important;width:100%!important;height:auto!important;max-width:100%!important;object-fit:contain!important;object-position:center!important;transform:none!important;filter:none!important;transition:none!important;background:transparent!important;align-self:center!important}
-.hero.interactiveHero .heroCopy,.hero.icePreparationHero .heroCopy{position:relative!important;inset:auto!important;grid-column:1!important;grid-row:1!important;min-width:0!important;min-height:0!important;height:auto!important;width:auto!important;max-width:none!important;padding:clamp(28px,4vw,72px)!important;margin:0!important;display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:flex-start!important;text-align:start!important;background:transparent!important;pointer-events:auto!important}
-.hero.interactiveHero .shade,.hero.icePreparationHero .shade{display:none!important}
-.hero.interactiveHero h1,.hero.icePreparationHero h1{font-size:clamp(34px,4.2vw,68px)!important;line-height:1.25!important;margin:18px 0 0!important;max-width:100%!important;text-shadow:none!important;text-wrap:balance;overflow-wrap:normal!important}
-.hero.interactiveHero .lead,.hero.icePreparationHero .lead{font-size:clamp(14px,1.2vw,18px)!important;line-height:1.9!important;margin:18px 0 0!important;max-width:36ch!important;text-shadow:none!important}
-.hero.interactiveHero .eyebrow,.hero.icePreparationHero .eyebrow{font-size:10px!important;line-height:1.8!important;letter-spacing:.12em!important}
-.hero.icePreparationHero .iceGoldButton{align-self:flex-start!important;max-width:100%;min-height:44px;margin-top:24px!important}
-html[dir="rtl"] .hero{direction:rtl!important}html[dir="ltr"] .hero{direction:ltr!important}
-@media(max-width:900px){
- .hero.interactiveHero,.hero.icePreparationHero{grid-template-columns:minmax(0,1fr)!important}
- .hero.interactiveHero .heroCopy,.hero.icePreparationHero .heroCopy{grid-column:1!important;grid-row:1!important;padding:28px 24px 24px!important}
- .hero.interactiveHero>img,.hero.icePreparationHero>img{grid-column:1!important;grid-row:2!important}
- .hero.interactiveHero h1,.hero.icePreparationHero h1{font-size:clamp(32px,7vw,48px)!important;line-height:1.35!important;margin-top:10px!important}
- .hero.interactiveHero .lead,.hero.icePreparationHero .lead{margin-top:10px!important;max-width:48ch!important;font-size:15px!important}
+/* Approved full-width photography, Cairo typography and uniform image frames. */
+html body,html body #app :where(*),html body .productModal.productModal :where(*),html body .mjStockPanel.mjStockPanel :where(*),html body .nativeViewer.nativeViewer :where(*){font-family:'Cairo',sans-serif!important}
+html body #app .brandMark,html body #app .iceMonogram{font-family:Georgia,serif!important}
+html body #app :is(h1,h2,h3,h4){line-height:1.5!important;font-weight:600!important}
+.hero.interactiveHero,.hero.icePreparationHero{position:relative!important;display:block!important;width:100%!important;max-width:none!important;height:clamp(460px,50vw,760px)!important;min-height:0!important;max-height:none!important;overflow:hidden!important;background:#100d08!important;isolation:isolate!important}
+.hero.interactiveHero>img,.hero.icePreparationHero>img{position:absolute!important;inset:0!important;display:block!important;width:100%!important;height:100%!important;max-width:none!important;object-fit:cover!important;object-position:center!important;transform:none!important;filter:none!important;background:transparent!important;transition:none!important}
+.hero.interactiveHero .shade,.hero.icePreparationHero .shade{display:block!important;position:absolute!important;inset:0!important;z-index:1!important;background:linear-gradient(to left,#08070580 0%,#08070520 42%,transparent 68%),linear-gradient(to top,#080706b0,transparent 22%)!important;pointer-events:none!important}
+html[dir="ltr"] .hero.interactiveHero .shade,html[dir="ltr"] .hero.icePreparationHero .shade{background:linear-gradient(to right,#08070580 0%,#08070520 42%,transparent 68%),linear-gradient(to top,#080706b0,transparent 22%)!important}
+.hero.interactiveHero .heroCopy,.hero.icePreparationHero .heroCopy{position:relative!important;z-index:2!important;inset:auto!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;width:39%!important;max-width:none!important;height:100%!important;min-height:0!important;padding:clamp(24px,4vw,76px)!important;margin:0!important;margin-inline-end:auto!important;text-align:start!important;background:transparent!important;pointer-events:auto!important}
+.hero.interactiveHero h1,.hero.icePreparationHero h1{font-size:clamp(36px,4.1vw,76px)!important;line-height:1.5!important;font-weight:500!important;text-wrap:balance;max-width:100%!important;margin:14px 0 0!important;text-shadow:0 2px 24px #0008!important}
+.hero.interactiveHero .lead,.hero.icePreparationHero .lead{font-size:clamp(14px,1.15vw,19px)!important;line-height:1.9!important;max-width:34ch!important;margin:15px 0 0!important;color:#eee4d1!important;text-shadow:0 2px 12px #0009!important}
+.hero .eyebrow{font-size:11px!important;line-height:1.8!important;letter-spacing:.05em!important;color:#d6b67b!important}
+.hero.icePreparationHero .iceGoldButton{align-self:flex-start!important;min-height:44px;margin-top:24px!important}
+.categoryGrid{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:18px!important;max-width:1600px;margin-inline:auto}
+.categoryCard{aspect-ratio:3/4!important;height:auto!important;min-height:0!important;overflow:hidden!important;transform:none!important;align-self:stretch!important}
+.categoryCard>img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important;transform:none!important;filter:none!important}
+.categoryCard .cardCopy{padding:20px!important}.categoryCard h3{font-size:clamp(17px,1.5vw,25px)!important;line-height:1.55!important}.categoryCard .cardCopy p{display:none!important}.categoryCard .cardCopy>.eyebrow{font-size:10px!important}
+/* A fixed frame controls every source image, including wider serving photographs. */
+#app .productTile .productImage,#app .productTile.v8Card.mjCoffeeCard .productImage,#app .iceCardPhoto{position:relative!important;display:block!important;aspect-ratio:4/3!important;width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;flex:0 0 auto!important;overflow:hidden!important;padding:0!important}
+#app .productTile .productImage>img,#app .productTile.v8Card.mjCoffeeCard .productImage>img,#app .iceCardPhoto>img{position:absolute!important;inset:0!important;display:block!important;width:100%!important;height:100%!important;min-height:0!important;max-width:none!important;object-fit:cover!important;object-position:center!important;transform:none!important;filter:none!important;margin:0!important}
+#app .productTile .productImage::after{pointer-events:none}
+@media(max-width:1099px){.categoryGrid{grid-template-columns:repeat(3,minmax(0,1fr))!important}.hero.interactiveHero .heroCopy,.hero.icePreparationHero .heroCopy{width:43%!important;padding:26px!important}.hero.interactiveHero h1,.hero.icePreparationHero h1{font-size:38px!important}}
+@media(max-width:699px){
+ .hero.interactiveHero,.hero.icePreparationHero{height:560px!important;max-height:calc(100svh - 130px)!important;min-height:440px!important}
+ .hero.interactiveHero>img,.hero.icePreparationHero>img{object-position:30% center!important}
+ html[dir="ltr"] .hero.interactiveHero>img,html[dir="ltr"] .hero.icePreparationHero>img{object-position:70% center!important}
+ .hero.interactiveHero .shade,.hero.icePreparationHero .shade,html[dir="ltr"] .hero.interactiveHero .shade,html[dir="ltr"] .hero.icePreparationHero .shade{background:linear-gradient(to top,#080706ed 0%,#080706b0 25%,transparent 62%)!important}
+ .hero.interactiveHero .heroCopy,.hero.icePreparationHero .heroCopy{width:100%!important;height:100%!important;padding:24px!important;justify-content:flex-end!important}
+ .hero.interactiveHero h1,.hero.icePreparationHero h1{font-size:36px!important;line-height:1.5!important;margin-top:8px!important}
+ .hero.interactiveHero .lead,.hero.icePreparationHero .lead{font-size:14px!important;max-width:36ch!important;margin-top:8px!important}
  .hero.icePreparationHero .iceGoldButton{margin-top:16px!important}
+ .categoryGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}.categoryCard .cardCopy{padding:14px!important}.categoryCard h3{font-size:18px!important}.categoryCard .enterArrow{width:28px!important;height:28px!important;font-size:18px!important}
 }

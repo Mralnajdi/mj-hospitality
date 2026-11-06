@@ -19,7 +19,7 @@
     const img=hero?.querySelector(":scope > img");
     if(!hero||!img)return;
     const key=routeKey();
-    const src=HERO[key]||HERO.home;
+    const src=key==="home"?`version-21/assets/home-banner-${document.documentElement.dir==="rtl"?"ar":"en"}.webp`:(HERO[key]||HERO.home);
     hero.dataset.v2Hero=key;
     if(img.getAttribute("src")!==src) img.setAttribute("src",src);
     img.removeAttribute("srcset");
