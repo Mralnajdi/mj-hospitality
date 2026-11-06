@@ -1,5 +1,5 @@
 /* Approved full-width photography, Cairo typography and uniform image frames. */
-html body,html body #app :where(*),html body .productModal.productModal :where(*),html body .mjStockPanel.mjStockPanel :where(*),html body .nativeViewer.nativeViewer :where(*){font-family:'Cairo',sans-serif!important}
+html body,html body :is(#app,.productModal,.mjStockPanel,.nativeViewer) :where(*){font-family:'Cairo',sans-serif!important}
 html body #app .brandMark,html body #app .iceMonogram{font-family:Georgia,serif!important}
 html body #app :is(h1,h2,h3,h4){line-height:1.5!important;font-weight:600!important}
 .hero.interactiveHero,.hero.icePreparationHero{position:relative!important;display:block!important;width:100%!important;max-width:none!important;height:clamp(460px,50vw,760px)!important;min-height:0!important;max-height:none!important;overflow:hidden!important;background:#100d08!important;isolation:isolate!important}
